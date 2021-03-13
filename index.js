@@ -7,7 +7,7 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-mongoose.connect(process.env.DATABASE_URL, options, (err) => {
+mongoose.connect(process.env.DATABASE_URL, (err) => {
   if (err) {
     console.log(err);
     return;
