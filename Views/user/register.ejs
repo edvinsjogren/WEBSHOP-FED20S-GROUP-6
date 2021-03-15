@@ -1,0 +1,31 @@
+<div>
+
+    <form action="/register" method="POST">
+        <% for(let i=0; i<errors.length; i++) { %>
+            <% if(errors[i].includes(' Username is required!')){ %>
+                <p><%=errors[i] %></p>
+            <% } %> 
+        <% } %>        
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="Username"/>
+        
+        <% for(let i=0; i<errors.length; i++) { %>
+            <% if(errors[i].includes(' Email is required!')) { %> 
+                <p><%=errors[i] %></p>
+            <% } %>
+        <% } %>    
+        <label for="email">Email:</label>
+        <input type="text" name="email" placeholder="Email"/>
+        
+        <% for(let i=0; i<errors.length; i++) { %>
+            <% if(errors[i].includes(' Password is required!')) { %> 
+                <p><%=errors[i] %></p>
+            <% } %> 
+        <% } %>    
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="Password"/>
+
+        <button type="submit">Register</button>
+    </form>
+
+</div>
