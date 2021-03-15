@@ -7,7 +7,7 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-const options = {useNewUrlParser: true, useUnifiedTopology: true};
+const options = {useNewUrlParser: true, useUnifiedTopology: true, createIndexes:true};
 
 mongoose.connect(database, options, (err) => {
   if (err) {
