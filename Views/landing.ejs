@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ninetynine</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/Public/CSS/main.css" />
+  </head>
+  <body>
+    <header><%- include("./layout/navbar.ejs") %></header>
+
+    <div><%- include("./layout/hero.ejs") %></div>
+
+    <h1>DONATION IS OUR FOUNDATION</h1>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nam
+      deleniti sapiente obcaecati dolorem, commodi nulla magni, neque doloremque
+      cum consectetur, ducimus iste? Labore velit natus eaque dolorum recusandae
+      quam est, eius libero! Doloribus praesentium sed placeat accusantium
+      omnis, recusandae odit corrupti voluptatibus aut. Asperiores odit deleniti
+      ex temporibus voluptate!
+    </p>
+
+    <% category.forEach(category => { %>
+    <div>
+      <img
+        src="<%=category.path"
+        alt="Image for <%=category.title%>"
+        href="/projects"
+      />
+      <h2><%=category.title%></h2>
+      <p><%=category.summary%></p>
+    </div>
+    <% }) %>
+
+    <a href="/projects" class="button">DONATE!</a>
+
+    <footer><%- include("./layout/footer.ejs") %></footer>
+  </body>
+</html>
