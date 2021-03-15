@@ -26,8 +26,20 @@ const submitNewAccount = async (req,res) => {
         errors.push(" Password is required!")
     }
 
+    // Collect email in case the username or email is taken 
+    const checkEmail = await User.findOne({email: email})
+
+    //This is check if there's a user with the same email, in case checkEmail doesn't find anything, it returns null
+    if(checkEmail !== null) {
+        // Check if the email, is taken, if they are, send error message
+        if(email === checkEmail.email) {
+            errors.push(" Email is taken! Please choose another one!");
+        }
+    }
+
     try {
-        
+
+
         // Hash the password
         const salt = await bcrypt.genSalt(12);
         const hashedPassword = await bcrypt.hash(password, salt);
@@ -39,11 +51,12 @@ const submitNewAccount = async (req,res) => {
             password: hashedPassword
         }).save();
 
-        //req.flash('notify', "Account sucessfully created!");
+        req.flash('notify', "Account sucessfully created!");
         return res.redirect("/login");
         
 
     } catch (err) {
+
         if(errors) {
             return res.render("register.ejs", {errors: errors});
         }

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/edvinsjogren/WEBSHOP-FED20S-GROUP-6#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",

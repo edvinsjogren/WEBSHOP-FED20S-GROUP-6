@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const {database, databasePort, flashKey} = require("./Config/config");
 const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser")
 
 const flash = require("express-flash");
 const session = require("express-session");
@@ -19,6 +20,8 @@ app.set('views', [path.join(__dirname, 'views'),
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+
+app.use(bodyParser.urlencoded({ extended: false }))
 
 //Use for express-flash/express-session
 app.use(session({
