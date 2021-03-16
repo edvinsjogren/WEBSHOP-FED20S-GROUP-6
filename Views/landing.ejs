@@ -29,18 +29,6 @@
       ex temporibus voluptate!
     </p>
 
-    <% category.forEach(category => { %>
-    <div>
-      <img
-        src="<%=category.path"
-        alt="Image for <%=category.title%>"
-        href="/projects"
-      />
-      <h2><%=category.title%></h2>
-      <p><%=category.summary%></p>
-    </div>
-    <% }) %>
-
     <a href="/projects" class="button">DONATE!</a>
 
     <footer><%- include("./layout/footer.ejs") %></footer>
