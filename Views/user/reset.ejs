@@ -1,6 +1,14 @@
 <form action="/resetPasswordForm" method="post">
   <h1>Reset your password here below!</h1>
 
+  <!-- Below message will pop up if the user either forgot to type in a new password -->
+  <% for (let i=0; i < errors.length; i++) { %> 
+  <% if(errors[i].includes(`Please
+  type in a new password, the field cannot be empty`)) { %>
+  <p><%= errors[i] %></p>
+  <% } %> 
+  <% } %>
+
   <input
     type="password"
     name="password"

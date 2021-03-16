@@ -22,6 +22,7 @@ const renderResetPasswordPage = (req, res) => {
 const submitResetPasswordPage = async (req, res) => {
   const email = req.body.email;
   const user = await User.findOne({email: email});
+  console.log(user);
 
   if (!user) {
     req.flash(
@@ -40,7 +41,7 @@ const submitResetPasswordPage = async (req, res) => {
     from: nodeMailerUser,
     to: user.email,
     subject: "Reset your password",
-    html: `<h1>Hi ${user.name}!</h1>
+    html: `<h1>Hi ${user.username}!</h1>
       <p>You have requested a password reset. Click on the link below to create a new password:</p>
       <a href="http://localhost:8000/resetPassword/${user.token}"><button>Set a new password</button></a>`,
   });
