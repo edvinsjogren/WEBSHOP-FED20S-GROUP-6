@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ninetynine</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/Public/CSS/main.css">
-</head>
-<body>
-
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/Public/CSS/main.css" />
+  </head>
+  <body>
     <header><%- include("./layout/navbar.ejs") %></header>
+    <header><%- include("./layout/hero.ejs") %></header>
+
+    <% projects.forEach(project => { %>
+    <div>
+      <h2><%=project.title%></h2>
+      <p><%=project.summary%></p>
+      <p><%=project.description%></p>
+      <p><%=project.owner%></p>
+
+      <form action="/projects" method="post">
+        <input type="text" name="id" value="<%=project._id%>" hidden>
+        <input type="number" name="donation" />
+        <button type="submit">Donate!</button>
+      </form>
+
+      <% if(messages.confirmation){ %>
+        <p><%= messages.confirmation %></p>
+      <% }%>
+      <% if(messages.duplicate){ %>
+        <p><%= messages.duplicate %></p>
+      <% }%>
+
+    </div>
+    <% }) %>
 
     <footer><%- include("./layout/footer.ejs") %></footer>
-    
-</body>
+  </body>
 </html>

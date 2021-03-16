@@ -9,6 +9,7 @@ const session = require("express-session");
 const path = require("path");
 
 const userRoute = require("./Routes/userRoute");
+const projectsRoute = require("./Routes/projectsRoute");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -33,6 +34,7 @@ app.use(flash());
 app.use(cookieParser());
 
 app.use(userRoute);
+app.use(projectsRoute);
 
 const options = {useNewUrlParser: true, useUnifiedTopology: true, createIndexes:true};
 
