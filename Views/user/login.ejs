@@ -1,0 +1,37 @@
+<form action="/login" method="post">
+
+    <!-- Flash message in case the account doesn't exists or incorrect password -->
+    <% if(messages.error || messages.notify) { %>
+        <p><%=messages.error %></p>
+        <p><%=messages.notify %></p>
+    <% } %>
+
+
+     <!-- Error handling in case user don't type in anything -->
+     <% for(let i=0; i<errors.length; i++) { %>
+        <% if(errors[i].includes(' Please type in an email!')) { %>
+            <p><%=errors[i] %></p>
+        <% } %> 
+    <% } %> 
+    <label for="email">Email:</label>
+    <input type="text" name="email" placeholder="Email">
+    
+    <!-- Error handling in case user don't type in anything -->
+    <% for(let i=0; i<errors.length; i++) { %>
+        <% if(errors[i].includes(' Please type in a password!')) { %>
+            <p><%=errors[i] %></p>
+        <% } %> 
+    <% } %> 
+    <label for="password">Password:</label>
+    <input type="password" name="password" placeholder="password">
+    
+    <button type="submit">Login</button>
+    
+    <span>Don't have account? </span>
+    
+    <a href="/register"> Register</a>
+    
+    <!--<a href="/reset">Forgot password?</a>-->
+    
+    
+</form>
