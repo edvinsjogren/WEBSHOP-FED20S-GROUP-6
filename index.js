@@ -34,7 +34,7 @@ app.use(cookieParser());
 
 app.use(userRoute);
 
-const options = {useNewUrlParser: true, useUnifiedTopology: true};
+const options = {useNewUrlParser: true, useUnifiedTopology: true, createIndexes:true};
 
 mongoose.connect(database, options, (err) => {
   if (err) {
