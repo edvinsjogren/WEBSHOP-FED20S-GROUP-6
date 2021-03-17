@@ -26,6 +26,9 @@
 
       <form action="/projects" method="post">
         <input type="text" name="id" value="<%=project._id%>" hidden>
+        <% if(messages.error){ %>
+          <p><%= messages.error %></p>
+        <% }%>
         <input type="number" name="donation" />
         <button type="submit">Donate!</button>
       </form>

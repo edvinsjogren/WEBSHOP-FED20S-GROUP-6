@@ -12,28 +12,30 @@ const projectsSubmit = async (req, res) => {
   const project = await Project.findOne({ _id: id });
   const user = await User.findOne({ _id: req.user.user._id });
 
-  user.donations.forEach((donationId) => {
-    if (donationId == id) {
-      req.flash(
-        "duplicate",
-        "You've already donated to this project! Visit the checkout page to alter your donations."
-      );
-      console.log("Exists");
+  //Check if the user didn't type in an amount 
+  if(!donation) {
+    req.flash("error", "You haven't chosen an amount to donate! Please try again!");
+    return res.redirect("/projects")
+  }
+
+  for(let i=0; i<user.donations.projects.length; i++) {
+    //Check if the user already have the donation
+    if(user.donations.projects[i].projectID == id) {
       
+      req.flash("duplicate", "You've already donated to this project! Visit the checkout page to alter your donations!");
       return res.redirect("/projects");
+
     }
 
-    user.addDonation(project._id);
-    req.flash(
-      "confirmation",
-      "Donation successfully added to your list of donations, proceed to checkout to complete your donation!"
-    );
+  }
+  
+  user.addDonation(project._id, donation);
+  req.flash("confirmation", "Donation successfully added to your list of donations, proceed to checkout to complete your donation!");
 
-    return res.redirect("/projects");
-     
-    });
+  return res.redirect("/projects")
 
 };
+
 module.exports = {
   projectsRender,
   projectsSubmit,
