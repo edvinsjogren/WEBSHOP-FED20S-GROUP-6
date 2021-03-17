@@ -1,6 +1,6 @@
 <form action="/login" method="post">
 
-    <!-- Flash message in case the account doesn't exists or incorrect password -->
+    <!-- Flash message in case the account doesn't exists or incorrect password or successfully changed-->
     <% if(messages.error || messages.notify) { %>
         <p><%=messages.error %></p>
         <p><%=messages.notify %></p>
