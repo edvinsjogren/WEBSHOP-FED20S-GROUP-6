@@ -62,7 +62,7 @@ const submitResetPasswordFormPage = async (req, res) => {
   //error control in case no password is typed before sumbitting
   if (!password) {
     errors.push("Please type in a new password, the field cannot be empty");
-    res.render("reset.ejs", {errors, email});
+    return res.render("reset.ejs", {errors, email});
   }
 
   const salt = await bcrypt.genSalt(12);
@@ -74,9 +74,10 @@ const submitResetPasswordFormPage = async (req, res) => {
 
   //Notify the user that the password is successfully changed through flash
   req.flash("notify", "Great, your password has now been changed!");
-  res.redirect("/login");
+  return res.redirect("/login");
 };
 
+//get the params from the form in resetForm.ejs and control if the user exists
 const resetPasswordParams = async (req, res) => {
   const token = req.params.token;
 
