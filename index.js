@@ -9,7 +9,7 @@ const session = require("express-session");
 const path = require("path");
 
 const userRoute = require("./Routes/userRoute");
-
+const adminRoute = require("./Routes/adminRoute");
 const app = express();
 app.set("view engine", "ejs");
 
@@ -36,7 +36,7 @@ app.use(
 app.use(flash());
 app.use(cookieParser());
 
-app.use(userRoute);
+app.use(userRoute, adminRoute);
 
 const options = {
   useNewUrlParser: true,
