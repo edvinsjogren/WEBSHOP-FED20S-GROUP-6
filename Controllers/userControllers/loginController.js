@@ -1,3 +1,5 @@
+/*jshint esversion: 8 */
+
 const User = require("../../Models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");

@@ -1,3 +1,5 @@
+/*jshint esversion: 8 */
+
 const Project = require("../Models/project");
 const User = require("../Models/user");
 
@@ -21,7 +23,15 @@ const adminSubmit = async (req, res) => {
   res.redirect("/admin");
 };
 
+// create a function to delete a project
+const deleteProject = async (req, res) => {
+  //find the project that the admin wants to delete
+  await Project.deleteOne({_id: req.params.id});
+  res.redirect("/admin");
+};
+
 module.exports = {
   renderAdminPage,
   adminSubmit,
+  deleteProject,
 };
