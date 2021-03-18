@@ -11,7 +11,6 @@ const verifyAdmin = (req, res, next) => {
   if (!validUser.user.role) return res.render("landing.ejs", {err: "not valid user"});
 
   req.user = validUser;
-  console.log(validUser);
   console.log("You are an Admin account!")
   next();
 };

@@ -1,23 +1,52 @@
 const Project = require("../Models/project");
-const User = require("../Models/user");
 
 const renderAdminPage = async (req, res) => {
   const projects = await Project.find();
 
-  res.render("admin.ejs", {projects: projects});
+  res.render("admin.ejs", { projects: projects });
 };
 
 const adminSubmit = async (req, res) => {
-  const {title, description, summary, category} = req.body;
-  const project = await Project.findOne({_id: id});
-  const user = await User.findOne({_id: req.user.user._id});
+  const { title, description, summary, category, owner } = req.body;
 
-  const editedProject = await new Project({
-    title: title,
-    desription: description,
-    summary: summary,
+  await new Project({
+    owner: owner,
     category: category,
+    title: title,
+    description: description,
+    summary: summary,
   }).save();
+
+  res.redirect("/admin");
+};
+
+// delete project
+const deleteProject = async (req, res) => {
+  await Project.deleteOne({ _id: req.params.id });
+
+  res.redirect("/admin");
+};
+
+// Render the project that will be edited
+const renderProjectForm = async (req, res) => {
+  const projects = await Project.findOne({ _id: req.params.id });
+  res.render("adminEdit.ejs", { projects: projects });
+};
+
+// Submit project edits
+const editProjectSubmit = async (req, res) => {
+  const { title, description, summary, category, owner, id } = req.body;
+
+  await Project.updateOne(
+    { _id: id },
+    {
+      owner: owner,
+      category: category,
+      title: title,
+      description: description,
+      summary: summary,
+    }
+  );
 
   res.redirect("/admin");
 };
@@ -25,4 +54,7 @@ const adminSubmit = async (req, res) => {
 module.exports = {
   renderAdminPage,
   adminSubmit,
+  deleteProject,
+  renderProjectForm,
+  editProjectSubmit,
 };
