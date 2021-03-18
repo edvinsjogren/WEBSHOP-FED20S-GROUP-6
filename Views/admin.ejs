@@ -10,23 +10,25 @@
   <body>
     <header><%- include("./layout/navbar.ejs") %></header>
     <main>
+      <% projects.forEach(project => {​​​​​ %>
       <div>
-        <% projects.forEach(project => {​​​​​ %>
         <h2><%=project.title%></h2>
         <p><%=project.summary%></p>
         <p><%=project.description%></p>
         <p><%=project.owner%></p>
-        <% }) %>
-        </div>
-      <form action="/admin " method="POST">
-        <input type="text" name="title" placeholder="edit the title here" />
-        <input
-          type="text"
-          name="description"
-          placeholder="edit the description her"
-        />
-        <button type="submit">Done editing!</button>
-      </form>
+
+        <form action="/admin " method="POST">
+          <input type="text" name="id" value="<%=project._id %> " hidden />
+          <input type="text" name="title" />
+          <input
+            type="text"
+            name="description"
+            placeholder="edit the description her"
+          />
+          <button type="submit">Done editing!</button>
+        </form>
+      </div>
+      <% }) %>
     </main>
     <footer><%- include("./layout/footer.ejs") %></footer>
   </body>

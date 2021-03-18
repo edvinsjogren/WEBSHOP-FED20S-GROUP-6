@@ -7,23 +7,21 @@ const renderAdminPage = async (req, res) => {
   res.render("admin.ejs", {projects: projects});
 };
 
-const adminEdit = async (req, res) => {
+const adminSubmit = async (req, res) => {
   const {title, description} = req.body;
+  const project = await Project.findOne({_id: id});
+  const user = await User.findOne({_id: req.user.user._id});
 
-  const editedProject = await new Project({
-    title: title,
-    desription: description,
-  }).save();
+  // const editedProject = await new Project({
+  //   title: title,
+  //   desription: description,
+  // }).save();
 
-  //await Todo.deleteOne({_id: req.params.id});
-
-  res.render("admin.ejs");
+  project.changeDescription(project._id, updatedDescription);
+  res.redirect("/admin");
 };
-
-
 
 module.exports = {
   renderAdminPage,
-  adminEdit,
-
+  adminSubmit,
 };

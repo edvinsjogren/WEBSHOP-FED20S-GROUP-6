@@ -1,14 +1,11 @@
 const jwt = require("jsonwebtoken");
-const { secretKey } = require("../Config/config")
+const {secretKey} = require("../Config/config");
 
 const verifyToken = (req, res, next) => {
   const token = req.cookies.jsonWebToken;
-  if (!token) 
-  {
-
+  if (!token) {
     console.log("error");
-  return res.render("landing.ejs", { err: "Login failed" });
-  
+    return res.render("landing.ejs", {err: "Login failed"});
   }
   const validUser = jwt.verify(token, secretKey);
   if (validUser) {

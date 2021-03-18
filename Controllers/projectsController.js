@@ -32,7 +32,7 @@ const projectsSubmit = async (req, res) => {
   user.addDonation(project._id, donation);
   req.flash("confirmation", "Donation successfully added to your list of donations, proceed to checkout to complete your donation!");
 
-  return res.redirect("/projects")
+  return res.redirect("/projects");
 
 };
 

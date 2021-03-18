@@ -3,11 +3,13 @@ const router = express.Router();
 
 const verifyAdmin = require("../Middleware/verifyAdmin");
 
-const {renderAdminPage, adminEdit} = require("../Controllers/adminController");
+const {
+  renderAdminPage,
+  adminSubmit,
+} = require("../Controllers/adminController");
 
 //render adminPage and let admin make changes
-
 router.get("/admin", verifyAdmin, renderAdminPage);
-router.post("/admin", adminEdit);
+router.post("/admin", adminSubmit);
 
 module.exports = router;
