@@ -3,6 +3,7 @@ const User = require("../Models/user");
 
 const renderAdminPage = async (req, res) => {
   const projects = await Project.find();
+
   res.render("admin.ejs", {projects: projects});
 };
 
