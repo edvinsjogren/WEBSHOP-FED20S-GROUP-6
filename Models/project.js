@@ -21,9 +21,6 @@ projectSchema.methods.addImage = function (imgId) {
   this.save();
 };
 
-// projectSchema.methods.changeDescription = function (incomingProjectID, updatedDescription) {
-
-// };
 
 const Project = mongoose.model("Project", projectSchema);
 

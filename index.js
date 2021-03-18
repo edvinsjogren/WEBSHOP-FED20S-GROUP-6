@@ -36,7 +36,8 @@ app.use(
 app.use(flash());
 app.use(cookieParser());
 
-app.use(userRoute, adminRoute);
+app.use(userRoute);
+app.use(adminRoute);
 
 const options = {
   useNewUrlParser: true,
