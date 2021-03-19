@@ -1,7 +1,20 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer")
 
 const verifyAdmin = require("../Middleware/verifyAdmin");
+//const storage = require("../Middleware/multerUpload")
+//const upload = multer({ storage: storage });
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+  cb(null, 'Public/Uploads')
+  },
+  filename: function (req, file, cb) {
+  cb(null, file.fieldname + '-' + Date.now()+".png")
+  }
+  })
+const upload = multer({ storage: storage })
 
 const {
   renderAdminPage,
@@ -13,7 +26,7 @@ const {
 
 //render adminPage and let admin make changes
 router.get("/admin", verifyAdmin, renderAdminPage);
-router.post("/admin", adminSubmit);
+router.post("/admin", upload.single("image"), adminSubmit);
 
 //let admin delete items from admin site
 router.get("/delete/:id", verifyAdmin, deleteProject);

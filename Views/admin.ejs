@@ -13,15 +13,17 @@
       <h1>Welcome Admin!</h1>
 
       <h2>Want to add a project? Fill in form below!</h2>
-      <form action="/admin" method="POST">
+      <form action="/admin" method="POST" enctype="multipart/form-data">
         <input type="text" name="id" value="<%=projects._id %>" hidden />
         <input type="text" name="title" placeholder="Title" />
         <input type="text" name="category" placeholder="Category" />
         <input type="text" name="description" placeholder="Description" />
         <input type="text" name="summary" placeholder="Summary" />
         <input type="text" name="owner" placeholder="Owner" />
+        <input type="file" name="image">
+        <input type="text" name="name">
 
-        <button type="submit">Done editing!</button>
+        <button type="submit">Add Project</button>
       </form>
 
       <% projects.forEach(project => { %>

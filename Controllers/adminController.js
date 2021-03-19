@@ -1,4 +1,8 @@
 const Project = require("../Models/project");
+const Image = require("../Models/image")
+const multer = require("multer");
+const { storage } = require("../Middleware/multerUpload")
+
 
 const renderAdminPage = async (req, res) => {
   const projects = await Project.find();
@@ -7,9 +11,16 @@ const renderAdminPage = async (req, res) => {
 };
 
 const adminSubmit = async (req, res) => {
-  const { title, description, summary, category, owner } = req.body;
+  const { title, description, summary, category, owner, name } = req.body;
 
-  await new Project({
+  const newImage = await new Image( {
+      name: name,
+      path: req.file.filename,
+  }).save();
+
+  console.log(newImage);
+
+   const project = await new Project({
     owner: owner,
     category: category,
     title: title,
@@ -17,7 +28,9 @@ const adminSubmit = async (req, res) => {
     summary: summary,
   }).save();
 
-  res.redirect("/admin");
+  project.addImage(newImage._id)
+
+   res.redirect("/admin");
 };
 
 // delete project
