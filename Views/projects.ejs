@@ -43,6 +43,17 @@
     </div>
     <% }) %>
 
+    <!-- Pagination part -->
+    <% if( totalPages !== projectsToShow/showedProjectsPerPage ) { %>
+
+      <a href="/projects/?page=<%=(projectsToShow/showedProjectsPerPage)+1 %>">Show more</a>
+
+    <% } else { %>
+
+      <a href="/projects/?page=<%=(projectsToShow/showedProjectsPerPage)-1 %>">Show less</a>
+
+    <% } %>
+
     <footer><%- include("./layout/footer.ejs") %></footer>
   </body>
 </html>
