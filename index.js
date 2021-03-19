@@ -38,6 +38,7 @@ app.use(cookieParser());
 
 app.use(userRoute);
 app.use(adminRoute);
+app.use(checkoutRoute);
 
 const options = {
   useNewUrlParser: true,

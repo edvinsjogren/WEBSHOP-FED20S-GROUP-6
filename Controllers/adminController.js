@@ -27,6 +27,7 @@ const adminSubmit = async (req, res) => {
 const deleteProject = async (req, res) => {
   //find the project that the admin wants to delete
   await Project.deleteOne({_id: req.params.id});
+  //redirect to admin page
   res.redirect("/admin");
 };
 
