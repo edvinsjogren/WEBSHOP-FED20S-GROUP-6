@@ -18,8 +18,8 @@ router.post("/admin", adminSubmit);
 //let admin delete items from admin site
 router.get("/delete/:id", verifyAdmin, deleteProject);
 
-//let admin update 
-router.get("/edit/:id", renderProjectForm)
-router.post("/edit", editProjectSubmit)
+//let admin update
+router.get("/edit/:id", renderProjectForm);
+router.post("/edit", editProjectSubmit);
 
 module.exports = router;

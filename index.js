@@ -11,6 +11,7 @@ const path = require("path");
 const userRoute = require("./Routes/userRoute");
 const adminRoute = require("./Routes/adminRoute");
 const projectsRoute = require("./Routes/projectsRoute");
+const checkoutRoute = require("./Routes/checkoutRoute");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -41,6 +42,7 @@ app.use(cookieParser());
 app.use(userRoute);
 app.use(adminRoute);
 app.use(projectsRoute);
+app.use(checkoutRoute);
 
 const options = {
   useNewUrlParser: true,
