@@ -41,7 +41,6 @@ const projectsSubmit = async (req, res) => {
   return res.redirect("/projects");
 };
 
-
 module.exports = {
   projectsRender,
   projectsSubmit,

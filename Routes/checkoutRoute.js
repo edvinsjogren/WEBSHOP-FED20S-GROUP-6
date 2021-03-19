@@ -5,6 +5,6 @@ const verifyUser = require("../middleware/verifyUser");
 const {checkoutRender} = require("../Controllers/checkoutController");
 
 //render projects on checkout page
-router.get("/checkout", checkoutRender);
+router.get("/checkout", verifyUser, checkoutRender);
 
 module.exports = router;
