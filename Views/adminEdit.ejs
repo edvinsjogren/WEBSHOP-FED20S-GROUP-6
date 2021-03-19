@@ -1,0 +1,15 @@
+<p><%=projects.title%></p>
+<p><%=projects.category%></p>
+<p><%=projects.summary%></p>
+<p><%=projects.description%></p>
+<p><%=projects.owner%></p>
+
+<form action="/edit" method="post">
+  <input type="text" name="id" value="<%=projects._id %>" hidden />
+  <input type="text" name="title" placeholder="Title" />
+  <input type="text" name="category" placeholder="Category" />
+  <input type="text" name="description" placeholder="Description" />
+  <input type="text" name="summary" placeholder="Summary" />
+  <input type="text" name="owner" placeholder="Owner" />
+  <button type="submit">Update</button>
+</form>

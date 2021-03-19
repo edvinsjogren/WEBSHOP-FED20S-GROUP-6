@@ -9,6 +9,7 @@ const session = require("express-session");
 const path = require("path");
 
 const userRoute = require("./Routes/userRoute");
+const adminRoute = require("./Routes/adminRoute");
 const projectsRoute = require("./Routes/projectsRoute");
 
 const app = express();
@@ -38,6 +39,7 @@ app.use(flash());
 app.use(cookieParser());
 
 app.use(userRoute);
+app.use(adminRoute);
 app.use(projectsRoute);
 
 const options = {
