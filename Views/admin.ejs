@@ -10,27 +10,31 @@
   <body>
     <header><%- include("./layout/navbar.ejs") %></header>
     <main>
-      <!-- Form for adding a new project as admin -->
-      <form action="/admin " method="POST">
-        <input type="text" name="id" value="<%=project._id %> " hidden />
-        <input type="text" name="title" />
-        <input
-          type="text"
-          name="description"
-          placeholder="edit the description her"
-        />
-        <button type="submit">Add new peoject!</button>
+      <h1>Welcome Admin!</h1>
+
+      <h2>Want to add a project? Fill in form below!</h2>
+      <form action="/admin" method="POST">
+        <input type="text" name="id" value="<%=projects._id %>" hidden />
+        <input type="text" name="title" placeholder="Title" />
+        <input type="text" name="category" placeholder="Category" />
+        <input type="text" name="description" placeholder="Description" />
+        <input type="text" name="summary" placeholder="Summary" />
+        <input type="text" name="owner" placeholder="Owner" />
+
+        <button type="submit">Done editing!</button>
       </form>
 
-      <% projects.forEach(project => {​​​​​ %>
+      <% projects.forEach(project => { %>
       <div>
-        <h2><%=project.title%></h2>
+        <p><%=project.title%></p>
+        <p><%=project.category%></p>
         <p><%=project.summary%></p>
         <p><%=project.description%></p>
         <p><%=project.owner%></p>
-        <!-- <a href="/adminEdit/<PARANTES=project._id %>" > edit</a>
-             <a href="/adminDelete/<PARANTES=project._id%>" > delete</a> -->
+        <a href="/edit/<%=project._id %>"> Edit</a>
+        <a href="/delete/<%=project._id%>"> Delete</a>
       </div>
+
       <% }) %>
     </main>
     <footer><%- include("./layout/footer.ejs") %></footer>

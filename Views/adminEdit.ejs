@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ninetytnine</title>
-    <link rel="stylesheet" href="/Public/CSS/main.css" />
-  </head>
-  <body>
-    <form action="/adminEdit.ejs" method="post">
-    
-    </form>
-  </body>
-</html>
+<p><%=projects.title%></p>
+<p><%=projects.category%></p>
+<p><%=projects.summary%></p>
+<p><%=projects.description%></p>
+<p><%=projects.owner%></p>
+
+<form action="/edit" method="post">
+  <input type="text" name="id" value="<%=projects._id %>" hidden />
+  <input type="text" name="title" placeholder="Title" />
+  <input type="text" name="category" placeholder="Category" />
+  <input type="text" name="description" placeholder="Description" />
+  <input type="text" name="summary" placeholder="Summary" />
+  <input type="text" name="owner" placeholder="Owner" />
+  <button type="submit">Update</button>
+</form>
