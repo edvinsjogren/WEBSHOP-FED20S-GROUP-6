@@ -16,8 +16,10 @@
   <body>
     <header><%- include("./layout/navbar.ejs") %></header>
     <header><%- include("./layout/hero.ejs") %></header>
+    <% if(messages.notify){ %>
+    <p><%= messages.notify %></p>
 
-    <% projects.forEach(project => { %>
+    <% }%> <% projects.forEach(project => { %>
     <div>
       <h2><%=project.title%></h2>
       <p><%=project.summary%></p>
@@ -25,21 +27,19 @@
       <p><%=project.owner%></p>
 
       <form action="/projects" method="post">
-        <input type="text" name="id" value="<%=project._id%>" hidden>
+        <input type="text" name="id" value="<%=project._id%>" hidden />
         <% if(messages.error){ %>
-          <p><%= messages.error %></p>
+        <p><%= messages.error %></p>
         <% }%>
         <input type="number" name="donation" />
         <button type="submit">Donate!</button>
       </form>
 
       <% if(messages.confirmation){ %>
-        <p><%= messages.confirmation %></p>
+      <p><%= messages.confirmation %></p>
+      <% }%> <% if(messages.duplicate){ %>
+      <p><%= messages.duplicate %></p>
       <% }%>
-      <% if(messages.duplicate){ %>
-        <p><%= messages.duplicate %></p>
-      <% }%>
-
     </div>
     <% }) %>
 
