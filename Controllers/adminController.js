@@ -35,12 +35,12 @@ const renderProjectForm = async (req, res) => {
 
 // Submit project edits
 const editProjectSubmit = async (req, res) => {
-  const { title, description, summary, category, owner, id } = req.body;
+  const { title, description, summary, category, id } = req.body;
 
   await Project.updateOne(
     { _id: id },
     {
-      owner: owner,
+      owner: req.user.user._id,
       category: category,
       title: title,
       description: description,
