@@ -1,26 +1,26 @@
 const Project = require("../Models/project");
-const Image = require("../Models/image")
-const multer = require("multer");
-const { storage } = require("../Middleware/multerUpload")
-
+const Image = require("../Models/image");
+// const multer = require("multer");
+// const { storage } = require("../Middleware/multerUpload")
 
 const renderAdminPage = async (req, res) => {
-  const projects = await Project.find();
 
+  const projects = await Project.find().populate("img")
+  console.log(projects);
   res.render("admin.ejs", { projects: projects });
 };
 
 const adminSubmit = async (req, res) => {
   const { title, description, summary, category, owner, name } = req.body;
 
-  const newImage = await new Image( {
-      name: name,
-      path: req.file.filename,
+  const newImage = await new Image({
+    name: name,
+    path: req.file.filename,
   }).save();
 
-  console.log(newImage);
+  //console.log(newImage);
 
-   const project = await new Project({
+  const project = await new Project({
     owner: owner,
     category: category,
     title: title,
@@ -28,9 +28,9 @@ const adminSubmit = async (req, res) => {
     summary: summary,
   }).save();
 
-  project.addImage(newImage._id)
+  project.addImage(newImage._id);
 
-   res.redirect("/admin");
+  res.redirect("/admin");
 };
 
 // delete project
