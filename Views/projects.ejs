@@ -44,14 +44,18 @@
     <% }) %>
 
     <!-- Pagination part -->
-    <% if( totalPages !== projectsToShow/showedProjectsPerPage ) { %>
-
-      <a href="/projects/?page=<%=(projectsToShow/showedProjectsPerPage)+1 %>">Show more</a>
-
+    <% if(amountOfProjects == 0) { %>
+      <h1>No projects exists!</h1>
     <% } else { %>
+      <% if( totalPages !== projectsToShow/showedProjectsPerPage ) { %>
 
-      <a href="/projects/?page=<%=(projectsToShow/showedProjectsPerPage)-1 %>">Show less</a>
+        <a href="/projects/?page=<%=(projectsToShow/showedProjectsPerPage)+1 %>">Show more</a>
 
+      <% } else { %>
+
+        <a href="/projects/?page=<%=(projectsToShow/showedProjectsPerPage)-1 %>">Show less</a>
+
+      <% } %>
     <% } %>
 
     <footer><%- include("./layout/footer.ejs") %></footer>
