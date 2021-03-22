@@ -7,10 +7,10 @@ const renderAdminPage = async (req, res) => {
 };
 
 const adminSubmit = async (req, res) => {
-  const { title, description, summary, category, owner } = req.body;
+  const { title, description, summary, category } = req.body;
 
   await new Project({
-    owner: owner,
+    owner: req.user.user.username,
     category: category,
     title: title,
     description: description,
@@ -40,7 +40,7 @@ const editProjectSubmit = async (req, res) => {
   await Project.updateOne(
     { _id: id },
     {
-      owner: req.user.user._id,
+      owner: req.user.user.username,
       category: category,
       title: title,
       description: description,
