@@ -33,6 +33,6 @@ router.get("/delete/:id", verifyAdmin, deleteProject);
 
 //let admin update 
 router.get("/edit/:id", renderProjectForm)
-router.post("/edit", editProjectSubmit)
+router.post("/edit", verifyAdmin ,editProjectSubmit)
 
 module.exports = router;
