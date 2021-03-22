@@ -14,11 +14,11 @@
         <%donationsInCart.forEach(donationsInCart => { %>
         <p><%=donationsInCart.projectID.title%></p>
         <p><%=donationsInCart.projectID.summary%></p>
-        <p><%=donationsInCart.donationAmount%></p>
+        <p>You are about to donate: <%=donationsInCart.donationAmount%> $</p>
         <% }) %>
       </div>
-      <h2>Total</h2>
-      <p><%= totalSumInCart %></p>
+      <h2>Total amount of donations</h2>
+      <p><%= totalSumInCart %> $</p>
     </main>
     <footer><%- include("./layout/footer.ejs") %></footer>
   </body>
