@@ -10,6 +10,7 @@ const adminSubmit = async (req, res) => {
   const { title, description, summary, category } = req.body;
 
   await new Project({
+    //Take the logged in admin user
     owner: req.user.user.username,
     category: category,
     title: title,
