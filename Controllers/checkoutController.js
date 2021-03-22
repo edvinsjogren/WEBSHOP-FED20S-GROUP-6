@@ -6,16 +6,22 @@ const User = require("../Models/user");
 //render projects on checkout page
 const checkoutRender = async (req, res) => {
   const projects = await Project.find();
-  const user = await User.findOne({_id: req.user.user._id}).populate(
-    "donations"
-  );
-  console.log(user);
+  const user = await User.findOne({_id: req.user.user._id});
+  await user
+    .populate({
+      path: "donations",
+      populate: {
+        path: "projects.projectID",
+      },
+    })
+    .execPopulate();
 
-  //save the list of projects added in userCartItems
-  let userCartItems = user.donations.projects;
+  //save the list of projects added in donationsInCart
+  let donationsInCart = user.donations.projects;
+  console.log(donationsInCart);
 
   //map out the sum of all cart items
-  const userCartItemPricessMap = userCartItems.map(
+  const userCartItemPricessMap = donationsInCart.map(
     (item) => item.donationAmount
   );
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -34,6 +40,8 @@ const checkoutRender = async (req, res) => {
   res.render("checkout.ejs", {
     projects: projects,
     totalSumInCart: totalSumInCart,
+    user: user,
+    donationsInCart: donationsInCart,
   });
 };
 
