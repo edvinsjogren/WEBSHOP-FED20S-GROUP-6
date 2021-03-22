@@ -1,6 +1,6 @@
 <form action="/login" method="post">
 
-    <!-- Flash message in case the account doesn't exists or incorrect password -->
+    <!-- Flash message in case the account doesn't exists or incorrect password or successfully-->
     <% if(messages.error || messages.notify) { %>
         <p><%=messages.error %></p>
         <p><%=messages.notify %></p>
@@ -31,7 +31,6 @@
     
     <a href="/register"> Register</a>
     
-    <!--<a href="/reset">Forgot password?</a>-->
-    
+  <a href="/resetPassword">Forgot password?</a>   
     
 </form>
