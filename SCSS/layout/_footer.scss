@@ -1,21 +1,48 @@
 footer {
-    .container {
-        .socialMediaLinks {
-            .facebook {
+  width: 100vw;
+  height: 30vh;
+  background-color: $primary;
+  a {
+    text-decoration: none;
+    color: $black;
+  }
+  .container {
+    @include flexCenter(row);
+    flex-wrap: wrap;
 
-            }
-            .instagram {
+    .socialMediaLinks {
+      @include flexCenter(row);
+      list-style: none;
+      width: 45%;
+      margin: auto;
 
-            }
-            .twitter {
-
-            }
-        }
-        .contacts {
-
-        }
+      .facebook {
+        @include socialMediaIcon(url("/Public/Assets/FBLogo.png"));
+      }
+      .instagram {
+        @include socialMediaIcon(url("/Public/Assets/InstaLogo.png"));
+      }
+      .twitter {
+        @include socialMediaIcon(url("/Public/Assets/twitterLogo.png"));
+      }
     }
-    @media screen and(min-width: 600px){
-        
+
+    .contacts {
+      width: 45%;
+      list-style: none;
+      margin: auto;
+
+      li {
+        margin: 1rem;
+      }
     }
+    p {
+      width: 100vw;
+      text-align: center;
+      margin-top: 3rem;
+    }
+  }
+  @media screen and(min-width: 600px) {
+    height: 30rem;
+  }
 }

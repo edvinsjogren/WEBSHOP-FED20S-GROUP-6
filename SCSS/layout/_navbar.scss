@@ -1,8 +1,23 @@
 nav {
+    background-color: $primary;
+    width: 100%;
+    padding: 5%;
+    height: 8rem;
+
     ul {
+        @include flexCenter(row);
+        justify-content: space-around;
+        height: 100%;
+        width: 100%;
+
         li {
+            font-size: 2rem;
+            list-style: none;
+            text-align: center;
+            
             a {
-                
+                text-decoration: none;
+                color: $black;
             }
         }
     }
