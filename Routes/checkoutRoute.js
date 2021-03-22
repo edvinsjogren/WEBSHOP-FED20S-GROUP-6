@@ -13,7 +13,4 @@ router.get("/checkout", verifyUser, checkoutRender);
 //finalize payment
 //router.get("/payment", verifyUser, paymentSubmit)
 
-//let user delete items from checkout
-// router.get("/delete/:id", verifyUser, deleteDonation);
-
 module.exports = router;
