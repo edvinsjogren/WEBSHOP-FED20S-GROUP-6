@@ -2,9 +2,10 @@ const Project = require("../Models/project");
 const User = require("../Models/user");
 
 const projectsRender = async (req, res) => {
-  const projects = await Project.find();
-
-  res.render("projects.ejs", { projects: projects });
+  const projects = await Project.find().populate("img");
+  console.log(projects[0].img[0].path);
+  res.render("projects.ejs", { projects: projects, img: projects.img });
+  
 };
 
 const projectsSubmit = async (req, res) => {

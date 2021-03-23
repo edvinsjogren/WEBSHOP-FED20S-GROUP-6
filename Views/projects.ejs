@@ -22,24 +22,33 @@
       <h2><%=project.title%></h2>
       <p><%=project.summary%></p>
       <p><%=project.description%></p>
-      <p><%=project.owner%></p>
+
+      <% project.img.forEach(img => { %>
+        <!--Move img styling to suitable scss file-->
+      <img
+      
+        src="/Uploads/<%=img.path%>"
+        alt="Project Image could not be displayed"
+        height="200px"
+        width="200px"
+      />
+
+      <% }) %>
 
       <form action="/projects" method="post">
-        <input type="text" name="id" value="<%=project._id%>" hidden>
+        <input type="text" name="id" value="<%=project._id%>" hidden />
         <% if(messages.error){ %>
-          <p><%= messages.error %></p>
+        <p><%= messages.error %></p>
         <% }%>
         <input type="number" name="donation" />
         <button type="submit">Donate!</button>
       </form>
 
       <% if(messages.confirmation){ %>
-        <p><%= messages.confirmation %></p>
+      <p><%= messages.confirmation %></p>
+      <% }%> <% if(messages.duplicate){ %>
+      <p><%= messages.duplicate %></p>
       <% }%>
-      <% if(messages.duplicate){ %>
-        <p><%= messages.duplicate %></p>
-      <% }%>
-
     </div>
     <% }) %>
 

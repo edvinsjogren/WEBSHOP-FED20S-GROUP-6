@@ -19,8 +19,8 @@
         <input type="text" name="category" placeholder="Category" />
         <input type="text" name="description" placeholder="Description" />
         <input type="text" name="summary" placeholder="Summary" />
-        <input type="file" name="image">
-        <input type="text" name="name">
+        <input type="file" name="image" />
+        <input type="text" name="name" />
 
         <button type="submit">Add Project</button>
       </form>
@@ -34,11 +34,16 @@
 
         <% project.img.forEach(img => { %>
 
-          <img src="/Public/Uploads/<%=img.path%>" alt="asdf" height="200px" width="200px">
-          
+          <!--Move img styling to suitable scss file-->
+        <img
+          src="/Uploads/<%=img.path%>"
+          alt="asdf"
+          height="200px"
+          width="200px"
+        />
 
         <% }) %>
-        
+
         <a href="/edit/<%=project._id %>"> Edit</a>
         <a href="/delete/<%=project._id%>"> Delete</a>
       </div>
