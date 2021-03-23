@@ -5,11 +5,40 @@
 <p><%=projects.owner%></p>
 
 <form action="/edit" method="post">
+
   <input type="text" name="id" value="<%=projects._id %>" hidden />
+  
+  <% errors.forEach(errorMessage => { %>
+    <% if(errorMessage.includes(' You forgot to choose a title! Please try again!')) { %>
+      <p><%=errorMessage%></p>
+    <% } %>
+  <% }) %>
+  <label for="title">Title: </label>
   <input type="text" name="title" placeholder="Title" />
+
+  <% errors.forEach(errorMessage => { %>
+    <% if(errorMessage.includes(' You forgot to choose a category! Please try again!')) { %>
+      <p><%=errorMessage%></p>
+    <% } %>
+  <% }) %>
+  <label for="category">Category: </label>
   <input type="text" name="category" placeholder="Category" />
+
+  <% errors.forEach(errorMessage => { %>
+    <% if(errorMessage.includes(' You forgot to choose a description! Please try again!')) { %>
+      <p><%=errorMessage%></p>
+    <% } %>
+  <% }) %>
+  <label for="description">Description: </label>
   <input type="text" name="description" placeholder="Description" />
+
+  <% errors.forEach(errorMessage => { %>
+    <% if(errorMessage.includes(' You forgot to choose a summary! Please try again!')) { %>
+      <p><%=errorMessage%></p>
+    <% } %>
+  <% }) %>
+  <label for="summary">Summary: </label>
   <input type="text" name="summary" placeholder="Summary" />
-  <input type="text" name="owner" placeholder="Owner" />
+
   <button type="submit">Update</button>
 </form>
