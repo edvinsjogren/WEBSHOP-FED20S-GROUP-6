@@ -87,11 +87,6 @@ const resetPasswordParams = async (req, res) => {
       tokenExpirationDate: {$gt: Date.now()},
     });
 
-    if (!user) {
-      req.flash("error", "Whoopsie, something went wrong! Try again!");
-      return res.redirect("/resetPassword");
-    }
-
     res.render("reset.ejs", {errors, email: user.email});
   } catch (err) {
     res.render("resetForm.ejs", {err: ""});

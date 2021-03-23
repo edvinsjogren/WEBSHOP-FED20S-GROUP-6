@@ -8,12 +8,12 @@ const projectSchema = new mongoose.Schema({
   description: {type: String},
   //behöver ett unikt id så jag kan hämta objektet... 
   // donation: {type: Number, default: 0},
-  //   img: [
-  //     {
-  //       type: mongoose.Schema.Types.ObjectId,
-  //       ref: "Image",
-  //     },
-  //   ],
+    img: [
+    
+      {  type: mongoose.Schema.Types.ObjectId,
+         ref: "Image",
+      },
+    ]
 });
 
 projectSchema.methods.addImage = function (imgId) {
