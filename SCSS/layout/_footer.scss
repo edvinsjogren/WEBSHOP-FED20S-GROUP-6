@@ -1,9 +1,8 @@
 footer {
   width: 100vw;
-  height: 30vh;
+  height: 20vh;
   background-color: $primary;
-  position: absolute;
-  bottom: 0rem;
+  margin-top: 5rem;
   a {
     text-decoration: none;
     color: $black;
@@ -19,13 +18,13 @@ footer {
       margin: auto;
 
       .facebook {
-        @include socialMediaIcon(url("/Public/Assets/FBLogo.png"));
+        @include socialMediaIcon(url("/Assets/FBLogo.png"));
       }
       .instagram {
-        @include socialMediaIcon(url("/Public/Assets/InstaLogo.png"));
+        @include socialMediaIcon(url("/Assets/InstaLogo.png"));
       }
       .twitter {
-        @include socialMediaIcon(url("/Public/Assets/twitterLogo.png"));
+        @include socialMediaIcon(url("/Assets/twitterLogo.png"));
       }
     }
 
