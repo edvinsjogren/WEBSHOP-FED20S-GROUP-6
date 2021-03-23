@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ninetynine</title>
-    <link rel="stylesheet" href="/Public/CSS/main.css" />
+    <link rel="stylesheet" href="../Public/CSS/main.css" />
   </head>
   <body>
     <header><%- include("./layout/navbar.ejs") %></header>
@@ -44,6 +44,11 @@
 
         <% }) %>
 
+          <img src="/Public/Uploads/<%=img.path%>" alt="asdf" height="200px" width="200px">
+          
+        <% }) %>
+        
+        <p>Created by: <%=project.owner%></p>
         <a href="/edit/<%=project._id %>"> Edit</a>
         <a href="/delete/<%=project._id%>"> Delete</a>
       </div>
