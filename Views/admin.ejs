@@ -19,7 +19,7 @@
         <input type="text" name="category" placeholder="Category" />
         <input type="text" name="description" placeholder="Description" />
         <input type="text" name="summary" placeholder="Summary" />
-    
+
         <input type="file" name="image">
         <input type="text" name="name">
 
@@ -32,6 +32,13 @@
         <p><%=project.category%></p>
         <p><%=project.summary%></p>
         <p><%=project.description%></p>
+
+        <% project.img.forEach(img => { %>
+
+          <img src="/Public/Uploads/<%=img.path%>" alt="asdf" height="200px" width="200px">
+          
+        <% }) %>
+        
         <p>Created by: <%=project.owner%></p>
         <a href="/edit/<%=project._id %>"> Edit</a>
         <a href="/delete/<%=project._id%>"> Delete</a>
