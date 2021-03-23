@@ -17,6 +17,12 @@
     <header><%- include("./layout/navbar.ejs") %></header>
     <header><%- include("./layout/hero.ejs") %></header>
 
+    <main>
+
+    <% if(messages.confirmation){ %>
+      <p><%= messages.confirmation %></p>
+    <% }%>
+
     <% projects.forEach(project => { %>
     <div>
       <h2><%=project.title%></h2>
@@ -33,15 +39,30 @@
         <button type="submit">Donate!</button>
       </form>
 
-      <% if(messages.confirmation){ %>
-        <p><%= messages.confirmation %></p>
-      <% }%>
       <% if(messages.duplicate){ %>
         <p><%= messages.duplicate %></p>
       <% }%>
 
     </div>
     <% }) %>
+
+    <!-- Pagination part -->
+
+    <% if(amountOfProjects == 0) { %>
+      <h1>No projects exists!</h1>
+    <% } else { %>
+      <% if( totalPages !== projectsToShow/showedProjectsPerPage ) { %>
+
+        <a href="/projects/?page=<%=(projectsToShow/showedProjectsPerPage)+1 %>">Show more</a>
+
+      <% } else { %>
+
+        <a href="/projects/?page=<%=(projectsToShow/showedProjectsPerPage)-1 %>">Show less</a>
+
+      <% } %>
+    <% } %>
+
+  </main>
 
     <footer><%- include("./layout/footer.ejs") %></footer>
   </body>
