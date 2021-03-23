@@ -17,6 +17,7 @@
     <header><%- include("./layout/navbar.ejs") %></header>
     <header><%- include("./layout/hero.ejs") %></header>
 
+    <main>
 
     <% if(messages.confirmation){ %>
       <p><%= messages.confirmation %></p>
@@ -60,6 +61,8 @@
 
       <% } %>
     <% } %>
+
+  </main>
 
     <footer><%- include("./layout/footer.ejs") %></footer>
   </body>
