@@ -3,6 +3,7 @@
 const Project = require("../Models/project");
 const Image = require("../Models/image");
 
+//Array for custom-made error messages 
 let errors = [];
 
 
