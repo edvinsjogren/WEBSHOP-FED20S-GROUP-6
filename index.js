@@ -14,6 +14,8 @@ const projectsRoute = require("./Routes/projectsRoute");
 const checkoutRoute = require("./Routes/checkoutRoute");
 
 const app = express();
+
+app.use(express.static(__dirname + "/Public"))
 app.set("view engine", "ejs");
 
 // Used to find paths to all ejs-files in view-folder

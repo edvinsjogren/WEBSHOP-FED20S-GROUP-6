@@ -1,23 +1,40 @@
 /*jshint esversion: 8 */
 
 const Project = require("../Models/project");
+const Image = require("../Models/image");
 
 const renderAdminPage = async (req, res) => {
-  const projects = await Project.find();
 
-  res.render("admin.ejs", { projects: projects });
+  const projects = await Project.find().populate("img")
+  res.render("admin.ejs", { projects: projects, img: projects.img });
+  console.log(projects);
 };
 
 const adminSubmit = async (req, res) => {
-  const { title, description, summary, category, owner } = req.body;
+  const { title, description, summary, category, owner, name } = req.body;
+  
+  const newImage = await new Image({
+    name: name,
+    path: req.file.filename,
+  }).save();
+
+  console.log(req.file.filename);
+
+  const project = await new Project({
+    owner: owner,
+
+  const { title, description, summary, category } = req.body;
 
   await new Project({
-    owner: owner,
+    //Take the logged in admin user
+    owner: req.user.user.username,
     category: category,
     title: title,
     description: description,
     summary: summary,
   }).save();
+
+  project.addImage(newImage._id);
 
   res.redirect("/admin");
 };
@@ -37,12 +54,12 @@ const renderProjectForm = async (req, res) => {
 
 // Submit project edits
 const editProjectSubmit = async (req, res) => {
-  const { title, description, summary, category, owner, id } = req.body;
+  const { title, description, summary, category, id } = req.body;
 
   await Project.updateOne(
     { _id: id },
     {
-      owner: owner,
+      owner: req.user.user.username,
       category: category,
       title: title,
       description: description,
