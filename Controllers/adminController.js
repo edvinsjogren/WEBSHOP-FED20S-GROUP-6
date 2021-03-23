@@ -4,9 +4,12 @@ const Project = require("../Models/project");
 const Image = require("../Models/image");
 
 const renderAdminPage = async (req, res) => {
+
   const projects = await Project.find().populate("img");
-  res.render("admin.ejs", {projects: projects, img: projects.img});
+
   console.log(projects);
+
+  res.render("admin.ejs", {projects: projects, img: projects.img});
 };
 
 const adminSubmit = async (req, res) => {
@@ -17,7 +20,6 @@ const adminSubmit = async (req, res) => {
     path: req.file.filename,
   }).save();
 
-  console.log(req.file.filename);
 
   const project = await new Project({
     //Take the logged in admin user
