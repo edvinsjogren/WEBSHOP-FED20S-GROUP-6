@@ -10,6 +10,7 @@ let errors = [];
 const renderAdminPage = async (req, res) => {
 
   const projects = await Project.find().populate("img");
+
   res.render("admin.ejs", 
   {
     projects: projects, 
@@ -25,6 +26,7 @@ const adminSubmit = async (req, res) => {
   errors = [];
   
   const {title, description, summary, category, picName, image} = req.body;
+
 
   //error handling in case the user hasn't typed iu anything 
   if(!title){
