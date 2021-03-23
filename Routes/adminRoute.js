@@ -24,4 +24,5 @@ router.get("/delete/:id", verifyAdmin, deleteProject);
 router.get("/edit/:id", renderProjectForm)
 router.post("/edit", verifyAdmin ,editProjectSubmit)
 
+
 module.exports = router;

@@ -16,7 +16,8 @@
   <body>
     <header><%- include("./layout/navbar.ejs") %></header>
     <header><%- include("./layout/hero.ejs") %></header>
-
+    <% if(messages.notify){ %>
+    <p><%= messages.notify %></p>
     <main>
 
     <% if(messages.confirmation){ %>
@@ -56,7 +57,7 @@
       <% if(messages.duplicate){ %>
       <p><%= messages.duplicate %></p>
       <% }%>
-
+      
     </div>
     <% }) %>
 

@@ -1,3 +1,4 @@
+/*jshint esversion: 8 */
 const jwt = require("jsonwebtoken");
 const {secretKey} = require("../Config/config");
 

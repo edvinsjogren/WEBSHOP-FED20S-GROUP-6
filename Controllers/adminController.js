@@ -1,3 +1,5 @@
+/*jshint esversion: 8 */
+
 const Project = require("../Models/project");
 const Image = require("../Models/image");
 
