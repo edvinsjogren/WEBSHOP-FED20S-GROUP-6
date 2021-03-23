@@ -1,24 +1,168 @@
-nav {
-    background-color: $primary;
+.menu {
+    position: static;
+  }
+  .menu .navbar {
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+  }
+  .menu .hamburger {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: .4rem;
+    border-radius: .6rem;
+  }
+  .menu .hamburger .segment {
     width: 100%;
-    padding: 5%;
-    height: 8rem;
+    background: black;
+    height: .5rem;
+    border-radius: .2rem;
+    box-sizing: border-box;
+    transition: transform 400ms ease-in-out, opacity 400ms ease-in-out;
+    border: .1rem solid black;
+  }
+  .menu .menu-icon {
+    cursor: pointer;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 1.5rem;
+  }
+  .menu .menu-btn:checked ~ .navbar {
+    max-height: 23rem;
+    padding-bottom: 1rem;
+  }
+  .menu .menu-btn:checked ~ .menu-icon .hamburger {
+    justify-content: center;
+  }
+  .menu .menu-btn:checked ~ .menu-icon .hamburger .segment:nth-child(1) {
+    transform: translate(0, .5rem) rotate(-45deg);
+    transition: transform 400ms ease-in-out;
+  }
+  .menu .menu-btn:checked ~ .menu-icon .hamburger .segment:nth-child(2) {
+    opacity: 0;
+    transition: opacity 400ms ease-in-out;
+  }
+  .menu .menu-btn:checked ~ .menu-icon .hamburger .segment:nth-child(3) {
+    transform: translate(0, -.5rem) rotate(45deg);
+    transition: transform 400ms ease-in-out;
+  }
+  .menu .menu-btn {
+    display: none;
+  }
 
-    ul {
-        @include flexCenter(row);
-        justify-content: space-around;
-        height: 100%;
-        width: 100%;
+  .menu ul {
 
-        li {
-            font-size: 2rem;
-            list-style: none;
-            text-align: center;
-            
-            a {
-                text-decoration: none;
-                color: $black;
-            }
-        }
+    z-index: 1;
+
+    opacity: .9;
+
+    list-style-type: none;
+    
+    padding-left: 0;
+    
+    overflow: hidden;
+    
+    margin: 0;
+    
+    position: absolute;
+    
+    width: 100vw;
+    
+    max-width: 100%;
+    
+    background-color: rgb(235, 235, 235);
+    
+    padding-top: 10px;
+    
     }
-}
+    
+    
+    
+    @media screen and (min-width: 769px) {
+    
+    .menu ul {
+    
+    padding-top: 0;
+    
+    background-color: none;
+    
+    }
+    
+    }
+    
+    
+    
+    .menu ul li {
+    
+    text-align: center;
+    
+    }
+    
+    .menu ul a {
+    
+    display: block;
+    
+    padding: 5px;
+    
+    text-decoration: none;
+    
+    font-size: 1.5em;
+    
+    color: black;
+    
+    }
+    
+    
+    
+    @media screen and (min-width: 769px) {
+    
+    .menu {
+    
+    height: 60px;
+    
+    }
+    
+    .menu .navbar {
+    
+    clear: none;
+    
+    max-height: none;
+    
+    display: flex;
+    
+    flex-direction: row;
+    
+    justify-content: flex-start;
+    
+    }
+    
+    .menu ul a {
+    
+    font-size: 1.3em;
+    
+    }
+    
+    .menu ul a:hover {
+    
+    text-decoration: underline;
+    
+    }
+    
+    .menu .menu-icon {
+    
+    display: none;
+    
+    }
+    
+    .menu li a {
+    
+    padding: 18px 30px;
+    
+    }
+    
+    }

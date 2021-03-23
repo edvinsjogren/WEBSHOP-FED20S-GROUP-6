@@ -2,6 +2,8 @@ footer {
   width: 100vw;
   height: 30vh;
   background-color: $primary;
+  position: absolute;
+  bottom: 0rem;
   a {
     text-decoration: none;
     color: $black;
