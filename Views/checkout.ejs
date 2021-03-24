@@ -12,15 +12,31 @@
     <main>
       <div>
         <%donationsInCart.forEach(donationsInCart => { %>
-        <p><%=donationsInCart.projectID.title%></p>
-        <p><%=donationsInCart.projectID.summary%></p>
-        <p>You are about to donate: <%=donationsInCart.donationAmount%> $</p>
+          <p><%=donationsInCart.projectID.title%></p>
+          <p><%=donationsInCart.projectID.summary%></p>
+          <p>You are about to donate: <%=donationsInCart.donationAmount%> $</p>
         <% }) %>
       </div>
       <h2>Total amount of donations</h2>
       <p><%= totalSumInCart %> $</p>
+
+
+      <button type="submit" class="checkout"> Buy </button>
+
     </main>
     <footer><%- include("./layout/footer.ejs") %></footer>
 </body>
 </html>
 
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+
+var stripe = Stripe('<%=stripePublicKey%>');
+
+document.querySelector(".checkout").addEventListener( "click", ()=>{
+    stripe.redirectToCheckout({ sessionId: "<%=sessionId %>" });
+})
+
+
+</script>
