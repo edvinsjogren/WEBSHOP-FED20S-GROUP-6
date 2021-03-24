@@ -14,6 +14,17 @@
         <%donationsInCart.forEach(donationsInCart => { %>
         <h2><%=donationsInCart.projectID.title%></h2>
         <p><%=donationsInCart.projectID.summary%></p>
+
+        <% donationsInCart.projectID.img.forEach(img => { %>
+        <!--Move img styling to suitable scss file-->
+        <img
+          src="/Uploads/<%=donationsInCart.projectID.img.path%>"
+          alt="Project Image could not be displayed"
+          height="200px"
+          width="200px"
+        />
+        <% }) %>
+
         <p>
           You are about to donate: <%=donationsInCart.donationAmount%> $ to this
           project

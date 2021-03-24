@@ -6,7 +6,8 @@ const Image = require("../Models/image");
 
 //render projects on checkout page/in shoppingcart
 const checkoutRender = async (req, res) => {
-  const projects = await Project.find();
+  const projects = await Project.find().populate("Image");
+  console.log(projects);
   const user = await User.findOne({_id: req.user.user._id});
 
   //populate the user with the added projects specific for that user
@@ -21,6 +22,7 @@ const checkoutRender = async (req, res) => {
 
   //save the list of projects specific for the user, in donationsInCart
   const donationsInCart = user.donations.projects;
+  console.log(donationsInCart);
 
   //map out/loop through and calculate sum of all cart items, in totalSumInCart
   const userCartItemPricessMap = donationsInCart.map(
@@ -72,9 +74,9 @@ const editRender = async (req, res) => {
 
   //save the list of projects specific for the user, in donationsInCart
   const donationsInCart = user.donations.projects;
-  console.log(donationsInCart);
+  //console.log(donationsInCart);
 
-  //render the edit page 
+  //render the edit page
   res.render("checkoutEdit.ejs", {
     projects: projects,
     user: user,
@@ -84,7 +86,9 @@ const editRender = async (req, res) => {
 
 //post the edited amount on the checkout page
 const editedAmountDonation = async (req, res) => {
-  const {donationAmount} = req.body;
+  const donationAmount = req.body.donationAmount;
+
+  await User.updateOne({_id: id}, {donationAmount: donationAmount});
 
   res.redirect("/checkout");
 };
