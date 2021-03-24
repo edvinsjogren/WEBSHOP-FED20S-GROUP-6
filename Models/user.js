@@ -44,15 +44,18 @@ userSchema.methods.addDonation = function (incomingProjectID, donation) {
 
 //remove selected items from checkout
 userSchema.methods.removeFromCheckout = function (incomingProjectID) {
-  const updatedDonation = this.donations.projects.filter((item) => {
-    return item.incomingProjectID.toString() !== incomingProjectID.toString();
-  });
+  index = this.donations.projects
+    .map(function (projects) {
+      console.log(projects._id);
+      return projects._id;
+    })
+    .indexOf(incomingProjectID);
 
-  this.donations.projects = updatedDonation;
-  return this.save();
+  this.donations.projects.splice(index, 1);
+  this.save();
+  console.log("Removed from checkout");
 };
 
-//refresh the donations in checkout from the deleted one
 userSchema.methods.clearCheckout = function () {
   this.donations = {items: []};
   return this.save();

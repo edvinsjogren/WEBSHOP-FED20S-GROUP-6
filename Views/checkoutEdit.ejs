@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ninetynine</title>
+    <link rel="stylesheet" href="/CSS/main.css" />
+  </head>
+  <body>
+    <header><%- include("./layout/navbar.ejs") %></header>
+    <main>
+      <div>
+        <%donationsInCart.forEach(donationsInCart => { %>
+        <h2><%=donationsInCart.projectID.title%></h2>
+        <p><%=donationsInCart.projectID.summary%></p>
+        <%}) %>
+        <form action="/editDonation" method="post">
+          <input
+            type="text"
+            name="id"
+            value="<%=donationsInCart._id %>"
+            hidden
+          />
+          <label for="donationAmount">Edit amount</label>
+          <input type="number" name="donationAmount" placeholder="New amount" />
+          <button type="submit">Done!</button>
+        </form>
+      </div>
+    </main>
+    <footer><%- include("./layout/footer.ejs") %></footer>
+  </body>
+</html>

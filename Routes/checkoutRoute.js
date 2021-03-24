@@ -3,18 +3,20 @@ const router = express.Router();
 const verifyUser = require("../middleware/verifyUser");
 const multer = require("multer");
 
-const {checkoutRender} = require("../Controllers/checkoutController"); //dont forget to get paymentSubmit
-
+const {
+  checkoutRender,
+  deleteFromCheckout,
+  editRender,
+  editedAmountDonation,
+} = require("../Controllers/checkoutController");
 //render projects on checkout page
 router.get("/checkout", verifyUser, checkoutRender);
 
 //let user delete donation from checkoutpage
-//router.post("/delete/:id", verifyUser,  )
+router.post("/deleteDonation/:id", verifyUser, deleteFromCheckout);
 
-//let user edit donation amount in checkoutpage
-//router.get("/editDonation/:id", editAmountDonation)
-
-//finalize payment
-//router.get("/payment", verifyUser, paymentSubmit)
+//direct the user to a form where they can edit the donation amount in checkoutpage
+router.get("/editDonation/:id", verifyUser, editRender);
+router.post("/editDonation", verifyUser, editedAmountDonation);
 
 module.exports = router;

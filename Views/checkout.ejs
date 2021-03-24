@@ -12,10 +12,16 @@
     <main>
       <div>
         <%donationsInCart.forEach(donationsInCart => { %>
-        <p><%=donationsInCart.projectID.title%></p>
+        <h2><%=donationsInCart.projectID.title%></h2>
         <p><%=donationsInCart.projectID.summary%></p>
-        <p>You are about to donate: <%=donationsInCart.donationAmount%> $</p>
-        <form action="/delete/:id" method="get">
+        <p>
+          You are about to donate: <%=donationsInCart.donationAmount%> $ to this
+          project
+        </p>
+        <p>Do you want to edit this amount? Click on edit below!</p>
+        <a href="/editDonation/<%=donationsInCart._id%>"> Edit</a>
+        <form action="/deleteDonation/<%=projects._id%>" method="post">
+          <input type="text" name="id" value="<%=projects._id%>" hidden />
           <button type="submit">Delete</button>
         </form>
         <% }) %>
