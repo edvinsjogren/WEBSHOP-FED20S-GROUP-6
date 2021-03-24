@@ -2,6 +2,7 @@
 
 const Project = require("../Models/project");
 const User = require("../Models/user");
+const Image = require("../Models/image");
 
 //render projects on checkout page
 const checkoutRender = async (req, res) => {
@@ -26,7 +27,7 @@ const checkoutRender = async (req, res) => {
   );
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
   const totalSumInCart = userCartItemPricessMap.reduce(reducer, 0);
-  console.log(totalSumInCart);
+  //console.log(totalSumInCart);
 
   //if cart is empty, redirect user to projects page
   if (!totalSumInCart) {
@@ -45,14 +46,12 @@ const checkoutRender = async (req, res) => {
   });
 };
 
-// const paymentSubmit = async (req, res) => {
-//find the projects that the user wants to pay for
-// const user = await User.findOne({_id: req.user.user.id}).populate(
-//   "projects"
-// );
-//create a stripe session
-//  res.render("payment.ejs");
+// const editAmountDonation = async (req, res) => {
+//   const {donationAmount} = req.body;
+//   await User.update({_id: id}, {donationAmount: donationAmount});
+//   res.redirect("/checkout");
 // };
+
 
 module.exports = {
   checkoutRender,

@@ -42,6 +42,22 @@ userSchema.methods.addDonation = function (incomingProjectID, donation) {
   this.save();
 };
 
+//remove selected items from checkout
+userSchema.methods.removeFromCheckout = function (incomingProjectID) {
+  const updatedDonation = this.donations.projects.filter((item) => {
+    return item.incomingProjectID.toString() !== incomingProjectID.toString();
+  });
+
+  this.donations.projects = updatedDonation;
+  return this.save();
+};
+
+//refresh the donations in checkout from the deleted one
+userSchema.methods.clearCheckout = function () {
+  this.donations = {items: []};
+  return this.save();
+};
+
 const User = mongoose.model("user", userSchema);
 
 module.exports = User;
