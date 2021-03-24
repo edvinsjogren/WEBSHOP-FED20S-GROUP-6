@@ -29,7 +29,7 @@ const checkoutRender = async (req, res) => {
   );
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
   const totalSumInCart = userCartItemPricessMap.reduce(reducer, 0);
-  console.log(totalSumInCart);
+  console.log(user.donations.projects[0].projectID.title);
 
   //if cart is empty, redirect user to projects page
   if (!totalSumInCart) {
@@ -91,7 +91,22 @@ const transport = nodemailer.createTransport({
 //After the user paid an email is send to the user where you can see the donations that has been made
 const sucessfulDonation = async (req,res) => {
 
+
+ 
+
   const user = await User.findOne({_id: req.user.user._id});
+
+   //save the list of projects added in donationsInCart
+   let donationsInCart = user.donations.projects;
+   console.log(donationsInCart);
+ 
+   //map out the sum of all cart items
+   const userCartItemPricessMap = donationsInCart.map(
+     (item) => item.donationAmount
+   );
+   const reducer = (accumulator, currentValue) => accumulator + currentValue;
+   const totalSumInCart = userCartItemPricessMap.reduce(reducer, 0);
+
   await user
     .populate({
       path: "donations",
@@ -102,19 +117,31 @@ const sucessfulDonation = async (req,res) => {
     .execPopulate();
 
 
-  console.log(user)
-
   //Work in progress, NOT DONE!!!
   await transport.sendMail({
     from: nodeMailerUser,
     to: user.email,
     subject: "Your donation(s) has been made!",
-    html: `<h1>Thank you for your donation ${user.username}!</h1>
-      <p>This is a test!</p>`,
+    html: 
+    
+      `
+        <h1>Thank you for your donation ${user.username}!</h1>
+        <p>Your donations:</p>
+        <p></p>
+      `
+    
+      
+      
+      `
+      <p>Total amount: ${totalSumInCart} USD</p>  
+      `
+    
   });
 
   res.render("payment.ejs");
-  //res.send("It works!");
+
+  //clears the donationCart
+  user.clearDonationCart();
 }
 
 module.exports = {
