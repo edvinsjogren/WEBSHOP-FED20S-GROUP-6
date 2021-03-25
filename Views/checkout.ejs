@@ -10,35 +10,38 @@
   <body>
     <header><%- include("./layout/navbar.ejs") %></header>
     <main>
-      <div>
-        <%donationsInCart.forEach(donationsInCart => { %>
-        <h2><%=donationsInCart.projectID.title%></h2>
-        <p><%=donationsInCart.projectID.summary%></p>
 
-        
-        <% donationsInCart.projectID.img.forEach(img => { %>
+      <% if(messages.error) { %>
+        <p><%= messages.error %></p>
+        <% } %> 
+
+      <%donationsInCart.forEach(project => { %>
+      <div>
+
+        <h2><%=project.projectID.title%></h2>
+        <p><%=project.projectID.summary%></p>
+
+        <% project.projectID.img.forEach(img => { %>
         <!--Move img styling to suitable scss file-->
         <img
-          src="/Uploads/<%=donationsInCart.projectID.img.path%>"
+          src="/Uploads/<%=img.path%>"
           alt="Project Image could not be displayed"
           height="200px"
           width="200px"
         />
         <% }) %>
 
-        <p>
-          You are about to donate: <%=donationsInCart.donationAmount%> $ to this
-          project
-        </p>
-        <p>Do you want to edit this amount? Click on edit below!</p>
-        <a href="/editDonation/<%=donationsInCart._id%>"> Edit</a>
-        
-        <form action="/deleteDonation/<%=projects._id%>" method="post">
-          <input type="text" name="id" value="<%=projects._id%>" hidden />
+        <p> You are about to donate: <%=project.donationAmount%> $ to this project </p>
+        <p>Do you want to edit this amount? Click the button below!</p>
+        <a href="/donation/<%=project._id%>"> Edit</a>
+
+        <form action="/checkout/delete" method="post">
+          <input type="text" name="id" value="<%=project._id%>" hidden />
           <button type="submit">Delete</button>
         </form>
-        <% }) %>
       </div>
+      <% }) %>
+
       <h2>Total sum of donations</h2>
       <p><%= totalSumInCart %> $</p>
     </main>

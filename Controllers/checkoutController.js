@@ -2,12 +2,12 @@
 
 const Project = require("../Models/project");
 const User = require("../Models/user");
-const Image = require("../Models/image");
 
 //render projects on checkout page/in shoppingcart
 const checkoutRender = async (req, res) => {
-  const projects = await Project.find().populate("Image");
-  const user = await User.findOne({_id: req.user.user._id});
+  const projects = await Project.find().populate("img");
+
+  const user = await User.findOne({ _id: req.user.user._id });
 
   //populate the user with the added projects specific for that user
   await user
@@ -15,20 +15,24 @@ const checkoutRender = async (req, res) => {
       path: "donations",
       populate: {
         path: "projects.projectID",
+        populate: {
+          path: "img",
+          select: "path",
+        },
       },
     })
     .execPopulate();
 
   //save the list of projects specific for the user, in donationsInCart
   const donationsInCart = user.donations.projects;
-  console.log(donationsInCart);
+  //console.log(donationsInCart);
 
   //map out/loop through and calculate sum of all cart items, in totalSumInCart
-  const userCartItemPricessMap = donationsInCart.map(
+  const userCartItemPricesMap = donationsInCart.map(
     (item) => item.donationAmount
   );
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
-  const totalSumInCart = userCartItemPricessMap.reduce(reducer, 0);
+  const totalSumInCart = userCartItemPricesMap.reduce(reducer, 0);
 
   //if cart is empty, redirect user to projects page
   if (!totalSumInCart) {
@@ -38,6 +42,7 @@ const checkoutRender = async (req, res) => {
     );
     return res.redirect("/projects");
   }
+  //console.log(donationsInCart);
 
   //render the projects specific for the user, on checkout page
   res.render("checkout.ejs", {
@@ -49,17 +54,16 @@ const checkoutRender = async (req, res) => {
 };
 
 //create request to delete a specific donation in the cart
-const deleteFromCheckout = async (req, res) => {
-  const user = await User.findOne({_id: req.user.user._id});
-  const chosenProjectId = req.body.id;
-  user.removeFromCheckout(chosenProjectId);
+const deleteSubmit = async (req, res) => {
+  const user = await User.findOne({ _id: req.user.user._id });
+  const idToRemove = req.body.id;
+  user.removeFromCheckout(idToRemove);
   res.redirect("/checkout");
 };
 
 //render the projects that are to be edited on new route
 const editRender = async (req, res) => {
-  const projects = await Project.find();
-  const user = await User.findOne({_id: req.user.user._id});
+  const user = await User.findOne({ _id: req.user.user._id });
 
   //populate the user with the added projects specific for that user
   await user
@@ -67,35 +71,47 @@ const editRender = async (req, res) => {
       path: "donations",
       populate: {
         path: "projects.projectID",
+        populate: {
+          path: "img",
+          select: "path",
+        },
       },
     })
     .execPopulate();
 
-  //save the list of projects specific for the user, in donationsInCart
-  const donationsInCart = user.donations.projects;
-  //console.log(donationsInCart);
+  // find the specific project to render, based on req.params
+  const selectedDonation = user.donations.projects.find(
+    (project) => project._id == req.params.id
+  );
 
-  //render the edit page
-  res.render("checkoutEdit.ejs", {
-    projects: projects,
-    user: user,
-    donationsInCart: donationsInCart,
-  });
+  res.render("checkoutEdit.ejs", { project: selectedDonation });
 };
 
 //post the edited amount on the checkout page
-const editedAmountDonation = async (req, res) => {
-  const user = await User.findOne({_id: req.user.user._id});
-  const {donationAmount, id} = req.body;
+const editSubmit = async (req, res) => {
+  const user = await User.findOne({ _id: req.user.user._id });
+  const { donationAmount, id } = req.body;
+
+  if (!donationAmount) {
+    req.flash(
+      "error",
+      "You haven't chosen an amount to donate! Please try again!"
+    );
+    return res.redirect("/checkout")
+  }
 
   //await User.updateOne({_id: id}, {donationAmount: donationAmount});
-  // user.editAmountInCart(id, donationsAmount)
+  user.editDonation(id, donationAmount)
+  req.flash(
+    "success",
+    "You've updated your donation, time to seal the deal!"
+  );
   res.redirect("/checkout");
 };
 
 module.exports = {
   checkoutRender,
-  deleteFromCheckout,
+  deleteSubmit,
   editRender,
-  editedAmountDonation,
+  editSubmit,
 };
