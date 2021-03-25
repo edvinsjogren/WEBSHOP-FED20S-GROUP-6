@@ -12,12 +12,12 @@
         <div>
             <% projects.forEach(yourDonation => { %>
                 <p>Project: <%=yourDonation.projectID.title%></p>
-                <p>Amount you donated: <%=yourDonation.donationAmount%></p>
+                <p>Amount you donated: <%=yourDonation.donationAmount%> USD</p>
             <% }) %>
         </div>
 
         <hr>
 
-        <p>Total amount: <%=totalSumInCart%></p>
+        <p>Total amount: <%=totalSumInCart%> USD</p>
     <% } %>
 </div>
