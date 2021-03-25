@@ -8,7 +8,7 @@ const stripe = require("stripe")(stripeSecretKey);
 
 //render projects on checkout page
 const checkoutRender = async (req, res) => {
-  const projects = await Project.find();
+  const projects = await Project.find().populate("img");
   const user = await User.findOne({_id: req.user.user._id});
   await user
     .populate({
@@ -18,6 +18,7 @@ const checkoutRender = async (req, res) => {
       },
     })
     .execPopulate();
+
 
   //save the list of projects added in donationsInCart
   let donationsInCart = user.donations.projects;
@@ -29,7 +30,8 @@ const checkoutRender = async (req, res) => {
   );
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
   const totalSumInCart = userCartItemPricessMap.reduce(reducer, 0);
-  console.log(user.donations.projects[0].projectID.title);
+
+  
 
   //if cart is empty, redirect user to projects page
   if (!totalSumInCart) {
@@ -94,17 +96,6 @@ const sucessfulDonation = async (req,res) => {
 
   const user = await User.findOne({_id: req.user.user._id});
 
-   //save the list of projects added in donationsInCart
-   let donationsInCart = user.donations.projects;
-   console.log(donationsInCart);
- 
-   //map out the sum of all cart items
-   const userCartItemPricessMap = donationsInCart.map(
-     (item) => item.donationAmount
-   );
-   const reducer = (accumulator, currentValue) => accumulator + currentValue;
-   const totalSumInCart = userCartItemPricessMap.reduce(reducer, 0);
-
   await user
     .populate({
       path: "donations",
@@ -114,31 +105,66 @@ const sucessfulDonation = async (req,res) => {
     })
     .execPopulate();
 
-
-  //Work in progress, NOT DONE!!!
+  //Send confirmation mail with a link, showing the donations and the projects the user made
   await transport.sendMail({
     from: nodeMailerUser,
     to: user.email,
     subject: "Your donation(s) has been made!",
     html: 
-    
       `
         <h1>Thank you for your donation ${user.username}!</h1>
-        
-        <p></p>
-      
-      <p>Total amount: ${totalSumInCart} USD</p>  
+        <p>Thank you for your contribution to these projects!</p>
+        <p>For more information regarding to the projects you have made, visit <a href="http://localhost:8000/donationsMade">this link</a></p>
+
+        <p>Best regards,</p>
+        <p>The Other 99</p>
+
       `
-    
   });
 
   res.render("payment.ejs");
 
-  //clears the donationCart
+
+}
+
+//A "receipt" on the donations the user made. 
+const renderDonationsMade = async (req,res) => {
+
+  const user = await User.findOne({_id: req.user.user._id});
+
+  await user
+  .populate({
+    path: "donations",
+    populate: {
+      path: "projects.projectID",
+    },
+  })
+  .execPopulate();
+
+  let donationsInCart = user.donations.projects;
+  console.log(donationsInCart);
+
+  //map out the sum of all cart items
+  const userCartItemPricessMap = donationsInCart.map(
+    (item) => item.donationAmount
+  );
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  //Total sum of the all the money that has been donated to the project 
+  const totalSumInCart = userCartItemPricessMap.reduce(reducer, 0);
+
+  res.render("donatedProjects.ejs", {
+    user: user, 
+    projects: user.donations.projects,
+    totalSumInCart: totalSumInCart
+  })
+
+  //clears the donationCart after the user has seen the purchase
   user.clearDonationCart();
+
 }
 
 module.exports = {
   checkoutRender,
-  sucessfulDonation
+  sucessfulDonation,
+  renderDonationsMade
 };

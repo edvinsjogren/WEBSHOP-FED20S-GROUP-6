@@ -1,0 +1,23 @@
+<!-- This is like a receipt so the user can see what donations he/she made when they have donated -->
+
+<!--Needs styling!!!-->
+<div>
+    <% if(projects.length === 0) {%>
+        <h1>This link doesn't work anymore!</h1>
+    <% } else { %>
+        <h3>Your donations: </h3>
+
+        <hr>
+
+        <div>
+            <% projects.forEach(yourDonation => { %>
+                <p>Project: <%=yourDonation.projectID.title%></p>
+                <p>Amount you donated: <%=yourDonation.donationAmount%></p>
+            <% }) %>
+        </div>
+
+        <hr>
+
+        <p>Total amount: <%=totalSumInCart%></p>
+    <% } %>
+</div>
