@@ -80,6 +80,14 @@
     padding-top: 10px;
     
     }
+
+    .profileIcon {
+      @include profileIcon(url("/Assets/icon_profile.png"))
+    }
+
+    .shoppingCart {
+      @include profileIcon(url("/Assets/icon_shoppingcart.png"))
+    }
     
     
     

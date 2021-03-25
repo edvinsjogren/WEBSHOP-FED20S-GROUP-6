@@ -1,0 +1,32 @@
+@mixin socialMediaIcon($url) {
+  width: 4rem;
+  height: 4rem;
+  margin: 1rem;
+  background-image: $url;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+@mixin wishIcon($url) {
+  width: 2rem;
+  height: 2rem;
+  margin: 1rem;
+  background-image: $url;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+@mixin profileIcon($url) {
+  width: 2rem;
+  height: 2rem;
+  margin: 1rem;
+  background-image: $url;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
