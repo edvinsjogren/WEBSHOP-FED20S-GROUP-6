@@ -7,7 +7,6 @@ const Image = require("../Models/image");
 //render projects on checkout page/in shoppingcart
 const checkoutRender = async (req, res) => {
   const projects = await Project.find().populate("Image");
-  console.log(projects);
   const user = await User.findOne({_id: req.user.user._id});
 
   //populate the user with the added projects specific for that user
@@ -86,10 +85,11 @@ const editRender = async (req, res) => {
 
 //post the edited amount on the checkout page
 const editedAmountDonation = async (req, res) => {
-  const donationAmount = req.body.donationAmount;
+  const user = await User.findOne({_id: req.user.user._id});
+  const {donationAmount, id} = req.body;
 
-  await User.updateOne({_id: id}, {donationAmount: donationAmount});
-
+  //await User.updateOne({_id: id}, {donationAmount: donationAmount});
+  // user.editAmountInCart(id, donationsAmount)
   res.redirect("/checkout");
 };
 

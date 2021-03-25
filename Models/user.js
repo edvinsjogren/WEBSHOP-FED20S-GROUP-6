@@ -61,6 +61,11 @@ userSchema.methods.clearCheckout = function () {
   return this.save();
 };
 
+userSchema.methods.editAmountInCart = function(incomingProjectID, updatedDonationAmount){
+//const projectId = hitta project is skicka med funktion 
+// const donationAmount = hitta donationAmount skcika
+};
+
 const User = mongoose.model("user", userSchema);
 
 module.exports = User;

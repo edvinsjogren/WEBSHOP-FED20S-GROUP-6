@@ -15,6 +15,7 @@
         <h2><%=donationsInCart.projectID.title%></h2>
         <p><%=donationsInCart.projectID.summary%></p>
 
+        
         <% donationsInCart.projectID.img.forEach(img => { %>
         <!--Move img styling to suitable scss file-->
         <img
@@ -31,6 +32,7 @@
         </p>
         <p>Do you want to edit this amount? Click on edit below!</p>
         <a href="/editDonation/<%=donationsInCart._id%>"> Edit</a>
+        
         <form action="/deleteDonation/<%=projects._id%>" method="post">
           <input type="text" name="id" value="<%=projects._id%>" hidden />
           <button type="submit">Delete</button>
