@@ -90,8 +90,6 @@ const transport = nodemailer.createTransport({
 
 //After the user paid an email is send to the user where you can see the donations that has been made
 const sucessfulDonation = async (req,res) => {
-
-
  
 
   const user = await User.findOne({_id: req.user.user._id});
@@ -126,13 +124,9 @@ const sucessfulDonation = async (req,res) => {
     
       `
         <h1>Thank you for your donation ${user.username}!</h1>
-        <p>Your donations:</p>
+        
         <p></p>
-      `
-    
       
-      
-      `
       <p>Total amount: ${totalSumInCart} USD</p>  
       `
     
