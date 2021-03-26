@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ninetynine</title>
+    <link rel="stylesheet" href="/CSS/main.css" />
+  </head>
+  <body>
+    <header><%- include("./layout/navbar.ejs") %></header>
+    <main>
+      <div>
+
+        <% if(messages.error) { %>
+          <p><%= messages.error %></p>
+          <% } %> 
+
+          <% if(messages.success) { %>
+          <p><%= messages.success %></p>
+          <% } %>
+
+        <h2><%=project.projectID.title%></h2>
+        <p><%=project.projectID.summary%></p>
+
+        <% project.projectID.img.forEach(img => { %>
+        <!--Move img styling to suitable scss file-->
+        <img
+          src="/Uploads/<%=img.path%>"
+          alt="Project Image could not be displayed"
+          height="200px"
+          width="200px"
+        />
+        <% }) %>
+
+        <p> You've previously selected to donate: <%=project.donationAmount%> $ to this project </p>
+        <p> If you'd like to update this amount, fill in the field below and click the button!</p>
+       
+        <form action="/editDonation" method="post">
+          <input
+            type="text"
+            name="id"
+            value="<%=project._id%>"
+            hidden
+          />
+          <label for="donationAmount">Edit amount</label>
+          <input type="number" name="donationAmount" placeholder="New amount" />
+          <button type="submit">Done!</button>
+
+          <p>Changed your mind?</p>
+          <a href="/checkout">Back</a>
+      </div>
+    </main>
+    <footer><%- include("./layout/footer.ejs") %></footer>
+  </body>
+</html>

@@ -2,6 +2,8 @@ const Project = require("../Models/project");
 const User = require("../Models/user");
 
 const projectsRender = async (req, res) => {
+  // res.render("projects.ejs", {projects: projects, img: projects.img});
+
   const page = req.query.page || 1;
 
   //How many projects we have
