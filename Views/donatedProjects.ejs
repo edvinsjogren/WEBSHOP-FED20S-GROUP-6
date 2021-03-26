@@ -2,7 +2,7 @@
 
 <!--Needs styling!!!-->
 <div>
-    <% if(projects.length === 0) {%>
+    <% if(donatedProjects.length === 0) {%>
         <h1>This link doesn't work anymore!</h1>
     <% } else { %>
         <h3>Your donations: </h3>
@@ -10,13 +10,28 @@
         <hr>
 
         <div>
-            <% projects.forEach(yourDonation => { %>
+            <% donatedProjects.forEach(yourDonation => { %>
                 <p>Project: <%=yourDonation.projectID.title%></p>
+                <p>Summary: <%=yourDonation.projectID.summary%></p>
+
                 <p>Amount you donated: <%=yourDonation.donationAmount%> USD</p>
+                
+                <% yourDonation.projectID.img.forEach(img => { %>
+                    <!--Move img styling to suitable scss file-->
+                    <img
+                    src="/Uploads/<%=img.path%>"
+                    alt="Project Image could not be displayed"
+                    height="200px"
+                    width="200px"
+                    />
+                <% }) %>
+        
+               
+
+                <hr>
+
             <% }) %>
         </div>
-
-        <hr>
 
         <p>Total amount: <%=totalSumInCart%> USD</p>
     <% } %>

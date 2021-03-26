@@ -10,11 +10,17 @@ const stripe = require("stripe")(stripeSecretKey);
 const checkoutRender = async (req, res) => {
   const projects = await Project.find().populate("img");
   const user = await User.findOne({_id: req.user.user._id});
+
+ //populate the user with the added projects specific for that user
   await user
     .populate({
       path: "donations",
       populate: {
         path: "projects.projectID",
+        populate: {
+          path: "img",
+          select: "path",
+        },
       },
     })
     .execPopulate();
@@ -22,7 +28,6 @@ const checkoutRender = async (req, res) => {
 
   //save the list of projects added in donationsInCart
   let donationsInCart = user.donations.projects;
-  console.log(donationsInCart);
 
   //map out the sum of all cart items
   const userCartItemPricessMap = donationsInCart.map(
@@ -92,7 +97,6 @@ const transport = nodemailer.createTransport({
 
 //After the user paid an email is send to the user where you can see the donations that has been made
 const sucessfulDonation = async (req,res) => {
- 
 
   const user = await User.findOne({_id: req.user.user._id});
 
@@ -125,6 +129,7 @@ const sucessfulDonation = async (req,res) => {
   res.render("payment.ejs");
 
 
+
 }
 
 //A "receipt" on the donations the user made. 
@@ -137,12 +142,15 @@ const renderDonationsMade = async (req,res) => {
     path: "donations",
     populate: {
       path: "projects.projectID",
+      populate: {
+        path: "img",
+        select: "path"
+      }
     },
   })
   .execPopulate();
 
   let donationsInCart = user.donations.projects;
-  console.log(donationsInCart);
 
   //map out the sum of all cart items
   const userCartItemPricessMap = donationsInCart.map(
@@ -154,7 +162,7 @@ const renderDonationsMade = async (req,res) => {
 
   res.render("donatedProjects.ejs", {
     user: user, 
-    projects: user.donations.projects,
+    donatedProjects: donationsInCart,
     totalSumInCart: totalSumInCart
   })
 
