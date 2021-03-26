@@ -119,6 +119,8 @@ const sucessfulDonation = async (req,res) => {
         <h1>Thank you for your donation ${user.username}!</h1>
         <p>Thank you for your contribution to these projects!</p>
         <p>For more information regarding to the projects you have made, visit <a href="http://localhost:8000/donationsMade">this link</a></p>
+        
+        <p>OBS! The link only works one time!</p>
 
         <p>Best regards,</p>
         <p>The Other 99</p>
