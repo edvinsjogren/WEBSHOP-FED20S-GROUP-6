@@ -13,6 +13,7 @@ const renderAdminPage = async (req, res) => {
     projects: projects,
     img: projects.img,
     errors: errors,
+    user: req.body,
   });
   console.log(projects);
 };
