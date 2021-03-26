@@ -18,6 +18,12 @@ const userSchema = new mongoose.Schema({
       },
     ],
   },
+  wishlist: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Project",
+    },
+  ],
 });
 
 userSchema.methods.addDonation = function (incomingProjectID, donation) {
@@ -39,7 +45,33 @@ userSchema.methods.addDonation = function (incomingProjectID, donation) {
 
   //Update the donations with the updatedDonation and add it to the DB
   this.donations = updatedDonation;
+
+  // Check if project exists in wishlist, if true, remove
+  console.log(incomingProjectID);
+  console.log(this.wishlist);
+  const index = this.wishlist.indexOf(incomingProjectID);
+  if (index > -1) {
+    this.wishlist.splice(index, 1)
+    console.log("Removed from wishlist, added to projects!");
+  }
+    this.save();
+};
+
+// Push and save projectID into user.wishlist
+userSchema.methods.addToWishlist = function (incomingProjectID) {
+  this.wishlist.push(incomingProjectID);
   this.save();
+  console.log("Added to wishlist");
+};
+
+//Check if project exists in wishlist, if true, remove
+userSchema.methods.removeFromWishlist = function (incomingProjectID) {
+  const index = this.wishlist.indexOf(incomingProjectID);
+  if (index > -1) {
+    this.wishlist.splice(index, 1)
+  }
+  this.save();
+  console.log("Removed from wishlist");
 };
 
 //remove selected items from checkout

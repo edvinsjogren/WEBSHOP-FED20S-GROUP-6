@@ -32,9 +32,9 @@ const projectsRender = async (req, res) => {
 };
 
 const projectsSubmit = async (req, res) => {
-  const {donation, id} = req.body;
-  const project = await Project.findOne({_id: id});
-  const user = await User.findOne({_id: req.user.user._id});
+  const { donation, id } = req.body;
+  const project = await Project.findOne({ _id: id });
+  const user = await User.findOne({ _id: req.user.user._id });
 
   //Check if the user didn't type in an amount
   if (!donation) {
@@ -56,6 +56,7 @@ const projectsSubmit = async (req, res) => {
     }
   }
 
+  // use schema method to add project and donation data to user DB
   user.addDonation(project._id, donation);
   req.flash(
     "confirmation",
@@ -65,7 +66,50 @@ const projectsSubmit = async (req, res) => {
   return res.redirect("/projects");
 };
 
+const wishlistSubmit = async (req, res) => {
+  const wishId = req.body.wishId;
+
+  const project = await Project.findOne({ _id: wishId });
+  const user = await User.findOne({ _id: req.user.user._id });
+
+  const isInWishlist = user.wishlist.includes(project._id)
+  
+  const projectIdArray = user.donations.projects
+  .map(function (project) {
+  return project.projectID;
+  })
+  const isInDonations = projectIdArray.includes(project._id);
+
+    // Check if specific objectID exists in user.wishlist (array)
+  if (isInWishlist === true) {
+    req.flash(
+      "duplicateWish",
+      "You already have this project under observation!"
+    );
+    return res.redirect("/projects") 
+
+    // Check if specific objectID already exists in user.donations (array)
+  } else if (isInDonations === true){
+    req.flash(
+      "duplicateWishDonation",
+      "You've already registered a donation to this project!"
+    );
+    return res.redirect("/projects") 
+
+    //if not, run schema method, adding it to user.wishlist
+    } else {
+    user.addToWishlist(project._id);
+    
+    req.flash(
+      "addedWish", 
+      "Project is now under your observation!"
+    );
+    return res.redirect("/projects");
+    }
+  }
+
 module.exports = {
   projectsRender,
   projectsSubmit,
+  wishlistSubmit,
 };

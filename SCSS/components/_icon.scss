@@ -1,9 +1,0 @@
-@mixin socialMediaIcon($url) {
-  width: 4rem;
-  height: 4rem;
-  margin: 1rem;
-  background-image: $url;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
