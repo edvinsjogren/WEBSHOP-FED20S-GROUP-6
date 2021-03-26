@@ -9,7 +9,6 @@ const projectSchema = new mongoose.Schema({
   //behöver ett unikt id så jag kan hämta objektet... 
   // donation: {type: Number, default: 0},
     img: [
-    
       {  type: mongoose.Schema.Types.ObjectId,
          ref: "Image",
       },

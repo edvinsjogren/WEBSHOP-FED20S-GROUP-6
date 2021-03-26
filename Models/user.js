@@ -74,6 +74,40 @@ userSchema.methods.removeFromWishlist = function (incomingProjectID) {
   console.log("Removed from wishlist");
 };
 
+//remove selected items from checkout
+userSchema.methods.removeFromCheckout = function (incomingProjectID) {
+  const index = this.donations.projects
+    .map(function (projects) {
+      return projects._id;
+    })
+    .indexOf(incomingProjectID);
+
+  this.donations.projects.splice(index, 1);
+
+  this.save();
+  //console.log("Removed from checkout");
+};
+
+userSchema.methods.clearCheckout = function () {
+  this.donations.projects = [];
+  return this.save();
+};
+
+userSchema.methods.editDonation = function (
+  incomingProjectID,
+  incomingDonationAmount
+) {
+  // find the specific project of which to update value
+  const selectedDonation = this.donations.projects.find(
+    (project) => project._id == incomingProjectID
+  );
+
+  // update the project with incoming value
+  selectedDonation.donationAmount = incomingDonationAmount;
+
+  this.save();
+};
+
 const User = mongoose.model("user", userSchema);
 
 module.exports = User;

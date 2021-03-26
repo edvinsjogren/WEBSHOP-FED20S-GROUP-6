@@ -17,10 +17,11 @@
     <header><%- include("./layout/navbar.ejs") %></header>
     <header><%- include("./layout/hero.ejs") %></header>
     <main>
-      <% if(messages.notify){ %>
+      <% if(messages.notify) { %>
       <p><%= messages.notify %></p>
-      <%}%> <% if(messages.confirmation){ %>
+      <% } %> <% if(messages.confirmation){ %>
       <p><%= messages.confirmation %></p>
+
       <% }%> <% if(messages.duplicateWish){ %>
       <p><%= messages.duplicateWish %></p>
       <% }%> <% if(messages.addedWish){ %>
@@ -34,6 +35,11 @@
       <% }%>
       <% projects.forEach(project => { %>
       <div class="projectContainer">
+
+      
+      <% } %> <% projects.forEach(project => { %>
+      <div>
+
         <h2><%=project.title%></h2>
 
         <!-- Wishlist button post method-->

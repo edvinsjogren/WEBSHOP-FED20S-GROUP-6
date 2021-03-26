@@ -4,13 +4,19 @@ const verifyUser = require("../middleware/verifyUser");
 
 const {
   checkoutRender,
-  deleteDonation,
-} = require("../Controllers/checkoutController"); //dont forget to get paymentSubmit
+  deleteSubmit,
+  editRender,
+  editSubmit,
+} = require("../Controllers/checkoutController");
 
 //render projects on checkout page
 router.get("/checkout", verifyUser, checkoutRender);
 
-//finalize payment
-//router.get("/payment", verifyUser, paymentSubmit)
+//let user delete donation from checkoutpage
+router.post("/checkout/delete", verifyUser, deleteSubmit);
+
+//direct the user to a form where they can edit the donation amount in checkoutpage
+router.get("/donation/:id", verifyUser, editRender);
+router.post("/editDonation", verifyUser, editSubmit);
 
 module.exports = router;
