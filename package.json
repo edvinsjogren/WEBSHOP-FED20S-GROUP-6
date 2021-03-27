@@ -6,7 +6,6 @@
     "start": "node index.js",
     "build-css": "node-sass -o public/css scss",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js"
   },
   "repository": {
@@ -35,7 +34,8 @@
     "node-sass": "^5.0.0",
     "nodemailer": "^6.5.0",
     "nodemon": "^2.0.7",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "stripe": "^8.139.0"
   },
   "description": ""
 }
