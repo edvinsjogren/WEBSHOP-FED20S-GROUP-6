@@ -2,7 +2,9 @@ const Project = require("../Models/project");
 const User = require("../Models/user");
 
 const projectsRender = async (req, res) => {
-  // res.render("projects.ejs", {projects: projects, img: projects.img});
+  const user = await User.findOne({ _id: req.user.user._id });
+
+  //const user = null
 
   const page = req.query.page || 1;
 
@@ -21,6 +23,7 @@ const projectsRender = async (req, res) => {
   const projects = await Project.find().populate("img").limit(projectsToShow);
 
   res.render("projects.ejs", {
+    user: user,
     projects: projects,
     page,
     amountOfProjects,

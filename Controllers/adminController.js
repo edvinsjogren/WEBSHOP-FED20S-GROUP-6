@@ -1,6 +1,7 @@
 /*jshint esversion: 8 */
 const Project = require("../Models/project");
 const Image = require("../Models/image");
+const User = require("../Models/user");
 
 //Array for custom-made error messages
 let errors = [];
@@ -8,13 +9,14 @@ let errors = [];
 const renderAdminPage = async (req, res) => {
   // Render all projects while populating img ID
   const projects = await Project.find().populate("img");
+  const user = await User.findOne({ _id: req.user.user._id });
 
   res.render("admin.ejs", {
     projects: projects,
     img: projects.img,
     errors: errors,
+    user: user,
   });
-  console.log(projects);
 };
 
 const adminSubmit = async (req, res) => {
