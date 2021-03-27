@@ -4,6 +4,8 @@ const User = require("../Models/user");
 const projectsRender = async (req, res) => {
   const user = await User.findOne({ _id: req.user.user._id });
 
+  //const user = null
+
   const page = req.query.page || 1;
 
   //How many projects we have
