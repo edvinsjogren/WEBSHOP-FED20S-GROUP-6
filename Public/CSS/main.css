@@ -82,6 +82,26 @@ body {
   background-color: #ebebeb;
   padding-top: 10px; }
 
+.profileIcon {
+  width: 2rem;
+  height: 2rem;
+  margin: 1rem;
+  background-image: url("/Assets/icon_profile.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer; }
+
+.shoppingCart {
+  width: 2rem;
+  height: 2rem;
+  margin: 1rem;
+  background-image: url("/Assets/icon_shoppingcart.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer; }
+
 @media screen and (min-width: 769px) {
   .menu ul {
     padding-top: 0;
@@ -144,7 +164,8 @@ footer {
         background-image: url("/Assets/FBLogo.png");
         background-size: contain;
         background-repeat: no-repeat;
-        background-position: center; }
+        background-position: center;
+        cursor: pointer; }
       footer .container .socialMediaLinks .instagram {
         width: 4rem;
         height: 4rem;
@@ -152,7 +173,8 @@ footer {
         background-image: url("/Assets/InstaLogo.png");
         background-size: contain;
         background-repeat: no-repeat;
-        background-position: center; }
+        background-position: center;
+        cursor: pointer; }
       footer .container .socialMediaLinks .twitter {
         width: 4rem;
         height: 4rem;
@@ -160,7 +182,8 @@ footer {
         background-image: url("/Assets/twitterLogo.png");
         background-size: contain;
         background-repeat: no-repeat;
-        background-position: center; }
+        background-position: center;
+        cursor: pointer; }
     footer .container .contacts {
       width: 45%;
       list-style: none;
@@ -178,3 +201,13 @@ footer {
 main {
   position: relative;
   top: 5rem; }
+
+.wishIcon {
+  width: 2rem;
+  height: 2rem;
+  margin: 1rem;
+  background-image: url("/Assets/icon_binoculars.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer; }

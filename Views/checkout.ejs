@@ -5,49 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ninetynine</title>
-    <link rel="stylesheet" href="/CSS/main.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/CSS/main.css" />
+  </head>
+  <body>
     <header><%- include("./layout/navbar.ejs") %></header>
     <main>
-      <div>
-        <%donationsInCart.forEach(project  => { %>
-          <p><%=project.projectID.title%></p>
+
+      <% if(messages.error) { %>
+        <p><%= messages.error %></p>
+        <% } %> 
+
+      <%donationsInCart.forEach(project => { %>
+        <div>
+          <h2><%=project.projectID.title%></h2>
           <p><%=project.projectID.summary%></p>
-          <p>You are about to donate: <%=project.donationAmount%> $</p>
 
           <% project.projectID.img.forEach(img => { %>
             <!--Move img styling to suitable scss file-->
             <img
-            src="/Uploads/<%=img.path%>"
-            alt="Project Image could not be displayed"
-            height="200px"
-            width="200px"
+              src="/Uploads/<%=img.path%>"
+              alt="Project Image could not be displayed"
+              height="200px"
+              width="200px"
             />
           <% }) %>
 
-        <% }) %>
-      </div>
-      <h2>Total amount of donations</h2>
+          <p> You are about to donate: <%=project.donationAmount%> $ to this project </p>
+          <p>Do you want to edit this amount? Click the button below!</p>
+          <a href="/donation/<%=project._id%>"> Edit</a>
+
+          <form action="/checkout/delete" method="post">
+            <input type="text" name="id" value="<%=project._id%>" hidden />
+            <button type="submit">Delete</button>
+          </form>
+        </div>
+      <% }) %>
+
+      <h2>Total sum of donations</h2>
       <p><%= totalSumInCart %> $</p>
 
-
+      <!--Activate Stripe-->
       <button type="submit" class="activateStripe"> Proceed to donation checkout! </button>
 
     </main>
     <footer><%- include("./layout/footer.ejs") %></footer>
-</body>
+  </body>
 </html>
+
 
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>
 
-var stripe = Stripe('<%=stripePublicKey%>');
+  var stripe = Stripe('<%=stripePublicKey%>');
 
-document.querySelector(".activateStripe").addEventListener( "click", ()=>{
-    stripe.redirectToCheckout({ sessionId: "<%=sessionId %>" });
-})
-
+  document.querySelector(".activateStripe").addEventListener( "click", ()=>{
+      stripe.redirectToCheckout({ sessionId: "<%=sessionId %>" });
+  })
 
 </script>

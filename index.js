@@ -12,6 +12,8 @@ const userRoute = require("./Routes/userRoute");
 const adminRoute = require("./Routes/adminRoute");
 const projectsRoute = require("./Routes/projectsRoute");
 const checkoutRoute = require("./Routes/checkoutRoute");
+const profileRoute = require("./Routes/profileRoute")
+const landingRoute = require("./Routes/landingRoute")
 
 const app = express();
 
@@ -45,6 +47,8 @@ app.use(userRoute);
 app.use(adminRoute);
 app.use(projectsRoute);
 app.use(checkoutRoute);
+app.use(profileRoute);
+app.use(landingRoute);
 
 const options = {
   useNewUrlParser: true,
