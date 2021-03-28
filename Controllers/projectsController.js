@@ -4,9 +4,7 @@ const User = require("../Models/user");
 const projectsRender = async (req, res) => {
   const user = await User.findOne({ _id: req.user.user._id });
 
-  //const user = null
-
-  const page = req.query.page || 1;
+  const page = +req.query.page || 1;
 
   //How many projects we have
   const amountOfProjects = await Project.find().countDocuments();
@@ -35,7 +33,7 @@ const projectsRender = async (req, res) => {
 };
 
 const projectsSubmit = async (req, res) => {
-  const { donation, id } = req.body;
+  const { donation, id, page} = req.body;
   const project = await Project.findOne({ _id: id });
   const user = await User.findOne({ _id: req.user.user._id });
 
@@ -45,7 +43,7 @@ const projectsSubmit = async (req, res) => {
       "error",
       "You haven't chosen an amount to donate! Please try again!"
     );
-    return res.redirect("/projects");
+    return res.redirect("/projects/?page="+page) 
   }
 
   for (let i = 0; i < user.donations.projects.length; i++) {
@@ -55,7 +53,7 @@ const projectsSubmit = async (req, res) => {
         "duplicate",
         "You've already donated to this project! Visit the checkout page to alter your donations!"
       );
-      return res.redirect("/projects");
+      return res.redirect("/projects/?page="+page) 
     }
   }
 
@@ -66,11 +64,11 @@ const projectsSubmit = async (req, res) => {
     "Donation successfully added to your list of donations, proceed to checkout to complete your donation!"
   );
 
-  return res.redirect("/projects");
+  return res.redirect("/projects/?page="+page) 
 };
 
 const wishlistSubmit = async (req, res) => {
-  const wishId = req.body.wishId;
+  const {wishId, page} = req.body;
 
   const project = await Project.findOne({ _id: wishId });
   const user = await User.findOne({ _id: req.user.user._id });
@@ -89,7 +87,7 @@ const wishlistSubmit = async (req, res) => {
       "duplicateWish",
       "You already have this project under observation!"
     );
-    return res.redirect("/projects") 
+    return res.redirect("/projects/?page="+page) 
 
     // Check if specific objectID already exists in user.donations (array)
   } else if (isInDonations === true){
@@ -97,7 +95,7 @@ const wishlistSubmit = async (req, res) => {
       "duplicateWishDonation",
       "You've already registered a donation to this project!"
     );
-    return res.redirect("/projects") 
+    return res.redirect("/projects/?page="+page) 
 
     //if not, run schema method, adding it to user.wishlist
     } else {
@@ -107,7 +105,7 @@ const wishlistSubmit = async (req, res) => {
       "addedWish", 
       "Project is now under your observation!"
     );
-    return res.redirect("/projects");
+    return res.redirect("/projects/?page="+page) 
     }
   }
 
