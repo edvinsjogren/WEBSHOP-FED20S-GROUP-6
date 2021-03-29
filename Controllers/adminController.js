@@ -7,6 +7,8 @@ const User = require("../Models/user");
 let errors = [];
 
 const renderAdminPage = async (req, res) => {
+   errors = [];
+   console.log(errors);
   // Render all projects while populating img ID
   const projects = await Project.find().populate("img");
   const user = await User.findOne({ _id: req.user.user._id });
@@ -20,6 +22,8 @@ const renderAdminPage = async (req, res) => {
 };
 
 const adminSubmit = async (req, res) => {
+  const user = await User.findOne({ _id: req.user.user._id });
+
   //reset error-message array
   errors = [];
 
@@ -75,6 +79,7 @@ const adminSubmit = async (req, res) => {
         projects: projects,
         img: projects.img,
         errors: errors,
+        user: user,
       });
     }
   }
