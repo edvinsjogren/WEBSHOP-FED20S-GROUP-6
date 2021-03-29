@@ -33,7 +33,14 @@
       <p><%= messages.duplicate %></p>
       <% }%> <% if(messages.duplicateWishDonation){ %>
       <p><%= messages.duplicateWishDonation %></p>
-      <% }%> <% projects.forEach(project => { %>
+      <% }%>
+      
+      <% if(messages.donationTooBig){ %>
+        <p><%= messages.donationTooBig %></p>
+      <% }%>
+
+      <% projects.forEach(project => { %>
+
       <div class="projectContainer">
         <h2><%=project.title%></h2>
         <% if(user==null){ %>
