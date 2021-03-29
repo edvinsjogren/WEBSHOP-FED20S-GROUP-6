@@ -8,7 +8,7 @@ let errors = [];
 
 const renderAdminPage = async (req, res) => {
    errors = [];
-   console.log(errors);
+   //console.log(errors);
   // Render all projects while populating img ID
   const projects = await Project.find().populate("img");
   const user = await User.findOne({ _id: req.user.user._id });
@@ -46,9 +46,7 @@ const adminSubmit = async (req, res) => {
     errors.push(" You forgot a name for your picture! Please try again!");
   }
   if (!image) {
-    errors.push(
-      " You forgot to choose a picture in PNG-format! Please try again!"
-    );
+    errors.push(" You forgot to choose a picture in PNG-format! Please try again!");
   }
 
   try {
@@ -94,7 +92,8 @@ const deleteProject = async (req, res) => {
 
 // Render the project that will be edited
 const renderProjectForm = async (req, res) => {
-  const projects = await Project.findOne({ _id: req.params.id });
+  const projects = await Project.findOne({ _id: req.params.id }).populate("img");
+  //console.log(projects);
   res.render("adminEdit.ejs", { projects: projects, errors: errors });
 };
 
@@ -103,7 +102,7 @@ const editProjectSubmit = async (req, res) => {
   //reset error-message array
   errors = [];
 
-  const { title, description, summary, category, id } = req.body;
+  const { title, description, summary, category, id, picName, image, imageID } = req.body;
 
   //error handling in case the user hasn't typed iu anything
   if (!title) {
@@ -118,10 +117,25 @@ const editProjectSubmit = async (req, res) => {
   if (!category) {
     errors.push(" You forgot to choose a category! Please try again!");
   }
-
-  if (!title || !description || !summary || !category) {
+  if(!image) {
+    errors.push(" You forgot to choose a picture in PNG-format! Please try again!");
+  }
+  if(!picName) {
+    errors.push(" You forgot a name for your picture! Please try again!");
+  }
+  //Redirect back to adminEdit.ejs in case the user hasn't put in the info required
+  if (!title || !description || !summary || !category || !req.file.filename || !picName) {
     return res.redirect("/edit/" + id);
   }
+
+  //Updating image
+  await Image.updateOne(
+    {_id: imageID},
+    {
+      name: picName,
+      path: req.file.filename,
+    }
+  );
 
   // update project with new data
   await Project.updateOne(
