@@ -45,6 +45,10 @@
       <p><%= messages.duplicateWishDonation %></p>
       <% }%>
       
+      <% if(messages.donationTooBig){ %>
+        <p><%= messages.donationTooBig %></p>
+      <% }%>
+
       <% projects.forEach(project => { %>
       <div class="projectContainer">
 
