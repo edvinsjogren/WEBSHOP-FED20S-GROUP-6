@@ -116,6 +116,8 @@ const sucessfulDonation = async (req, res) => {
         
         <p>OBS! The link only works one time!</p>
 
+        <p> To visit our website, please click <a href="http://localhost:8000/">here!</a></p>
+
         <p>Best regards,</p>
         <p>The Other 99</p>
 
