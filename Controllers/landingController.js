@@ -1,4 +1,4 @@
-const User = require("../Models/user");
+const {User} = require("../Models/user");
 let errors = [];
 
 const landingRender = async (req, res) => {

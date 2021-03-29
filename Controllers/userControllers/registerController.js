@@ -1,4 +1,4 @@
-const User = require("../../Models/user");
+const {User, validateUser} = require("../../Models/user");
 const bcrypt = require("bcrypt");
 
 // Array to send custom error messages
@@ -11,6 +11,13 @@ const renderRegisterPage = async (req, res) => {
 const submitNewAccount = async (req, res) => {
   //reset error-array
   errors = [];
+
+  //validate received data from user by calling on function from userSchema
+  const {error} = validateUser(req.body);
+  console.log(error);
+  if (error) {
+    return res.send(error);
+  }
 
   //get data from req.body
   const {username, email, password} = req.body;

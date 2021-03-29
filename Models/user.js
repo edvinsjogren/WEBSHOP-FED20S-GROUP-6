@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
+const Joi = require("joi");
 
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
   },
-  email: {type: String, required: true, unique: true},
+  email: {type: String, unique: true, required: true},
   password: {type: String, required: true},
   role: String,
   token: String,
@@ -64,11 +65,6 @@ userSchema.methods.clearCheckout = function () {
   return this.save();
 };
 
-userSchema.methods.editAmountInCart = function (incomingProjectID) {
-  //const projectId = hitta project is skicka med funktion
-  // const donationAmount = hitta donationAmount skcika
-};
-
 //Clear all the projects the user donated to after the donation transaction was sucessfull
 userSchema.methods.clearDonationCart = function () {
   this.donations = {projects: []};
@@ -76,6 +72,18 @@ userSchema.methods.clearDonationCart = function () {
   return this.save();
 };
 
+function validateUser(user) {
+  const schema = {
+    username: Joi.string().min(4).max(15).required(),
+    email: Joi.string().min(5).max(50).required().email(),
+    password: Joi.string().min(8).max(100).required(),
+  };
+  return schema.validate(user);
+}
+
 const User = mongoose.model("user", userSchema);
 
-module.exports = User;
+module.exports = {User, validateUser};
+//module.exports.User = User;
+//module.exports.validateUser = validateUser;
+//const {user, validateUser} = require("./")
