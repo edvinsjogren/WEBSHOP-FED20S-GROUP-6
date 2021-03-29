@@ -53,6 +53,7 @@
         <!-- Wishlist button post method-->
         <form action="/projects/wishlist" method="post">
           <input type="text" name="wishId" value="<%=project._id%>" hidden />
+          <input type="text" name="page" value="<%=page%>" hidden />
           <button type="submit"><div class="wishIcon"></div></button>
         </form>
 
@@ -72,6 +73,7 @@
         <form action="/projects" method="post">
           <input type="text" name="id" value="<%=project._id%>" hidden />
 
+          <input type="text" name="page" value="<%=page%>" hidden />
           <input type="number" name="donation" />
           <button type="submit">Donate!</button>
         </form>

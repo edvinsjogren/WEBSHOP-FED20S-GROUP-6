@@ -8,7 +8,7 @@ const {
   wishlistSubmit,
 } = require("../Controllers/projectsController");
 
-router.get("/projects", projectsRender);
+router.get("/projects", verifyUser, projectsRender);
 
 router.post("/projects", verifyUser, projectsSubmit);
 router.post("/projects/wishlist", verifyUser, wishlistSubmit)

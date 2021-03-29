@@ -9,6 +9,7 @@ footer {
   }
   .container {
     @include flexCenter(row);
+    height: 100%;
     flex-wrap: wrap;
 
     .socialMediaLinks {
@@ -40,7 +41,6 @@ footer {
     p {
       width: 100vw;
       text-align: center;
-      margin-top: 3rem;
     }
   }
   @media screen and(min-width: 600px) {

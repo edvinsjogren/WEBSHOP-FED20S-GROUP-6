@@ -6,6 +6,7 @@ const profileRender = async (req, res) => {
     .populate("wishlist")
     .populate({path: "wishlist", populate: {path: "img"}});
 
+    console.log(process)
   res.render("profile.ejs", { user: user });
 };
 

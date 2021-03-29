@@ -66,6 +66,15 @@ userSchema.methods.editAmountInCart = function(incomingProjectID,){
 // const donationAmount = hitta donationAmount skcika
 };
 
+//Clear all the projects the user donated to after the donation transaction was sucessfull
+userSchema.methods.clearDonationCart = function() {
+
+  this.donations = { projects: [] };
+  console.log("All the projects was been removed from the cart!");
+  return this.save();
+
+}
+
 const User = mongoose.model("user", userSchema);
 
 module.exports = User;

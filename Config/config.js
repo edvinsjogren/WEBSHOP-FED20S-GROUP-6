@@ -6,6 +6,8 @@ const flashKey = process.env.FLASH_KEY;
 const secretKey = process.env.SECRET_KEY;
 const nodeMailerPassword = process.env.NODEMAILER_PASS;
 const nodeMailerUser = process.env.NODEMAILER_USER;
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY
+const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
 
 module.exports = {
   database,
@@ -13,5 +15,7 @@ module.exports = {
   flashKey,
   secretKey,
   nodeMailerPassword,
-  nodeMailerUser
+  nodeMailerUser,
+  stripeSecretKey,
+  stripePublicKey
 };
