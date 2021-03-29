@@ -35,7 +35,7 @@
     "nodemailer": "^6.5.0",
     "nodemon": "^2.0.7",
     "path": "^0.12.7",
-    "stripe": "^8.139.0"
+    "stripe": "^8.140.0"
   },
   "description": ""
 }
