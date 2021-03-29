@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-  username: {type: String, required: true},
+  username: {
+    type: String,
+    required: true,
+  },
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   role: String,
@@ -61,19 +64,17 @@ userSchema.methods.clearCheckout = function () {
   return this.save();
 };
 
-userSchema.methods.editAmountInCart = function(incomingProjectID,){
-//const projectId = hitta project is skicka med funktion 
-// const donationAmount = hitta donationAmount skcika
+userSchema.methods.editAmountInCart = function (incomingProjectID) {
+  //const projectId = hitta project is skicka med funktion
+  // const donationAmount = hitta donationAmount skcika
 };
 
 //Clear all the projects the user donated to after the donation transaction was sucessfull
-userSchema.methods.clearDonationCart = function() {
-
-  this.donations = { projects: [] };
+userSchema.methods.clearDonationCart = function () {
+  this.donations = {projects: []};
   console.log("All the projects was been removed from the cart!");
   return this.save();
-
-}
+};
 
 const User = mongoose.model("user", userSchema);
 
