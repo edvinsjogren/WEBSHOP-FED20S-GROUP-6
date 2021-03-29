@@ -7,11 +7,12 @@ const User = require("../Models/user");
 let errors = [];
 
 const renderAdminPage = async (req, res) => {
+
    errors = [];
-   //console.log(errors);
+
   // Render all projects while populating img ID
   const projects = await Project.find().populate("img");
-  const user = await User.findOne({ _id: req.user.user._id });
+  const user = await User.findOne({_id: req.user.user._id});
 
   res.render("admin.ejs", {
     projects: projects,
@@ -22,12 +23,12 @@ const renderAdminPage = async (req, res) => {
 };
 
 const adminSubmit = async (req, res) => {
-  const user = await User.findOne({ _id: req.user.user._id });
+  const user = await User.findOne({_id: req.user.user._id});
 
   //reset error-message array
   errors = [];
 
-  const { title, description, summary, category, picName, image } = req.body;
+  const {title, description, summary, category, picName, image} = req.body;
 
   //error handling in case the user hasn't typed in anything
   if (!title) {
@@ -85,16 +86,18 @@ const adminSubmit = async (req, res) => {
 
 // delete project
 const deleteProject = async (req, res) => {
-  await Project.deleteOne({ _id: req.params.id });
+  await Project.deleteOne({_id: req.params.id});
 
   res.redirect("/admin");
 };
 
 // Render the project that will be edited
 const renderProjectForm = async (req, res) => {
+
   const projects = await Project.findOne({ _id: req.params.id }).populate("img");
-  //console.log(projects);
+
   res.render("adminEdit.ejs", { projects: projects, errors: errors });
+
 };
 
 // Submit project edits
@@ -139,7 +142,7 @@ const editProjectSubmit = async (req, res) => {
 
   // update project with new data
   await Project.updateOne(
-    { _id: id },
+    {_id: id},
     {
       owner: req.user.user.username,
       category: category,
