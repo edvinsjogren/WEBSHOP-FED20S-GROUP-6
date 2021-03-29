@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer");
 
 const verifyAdmin = require("../Middleware/verifyAdmin");
 const {upload} = require("../Middleware/multerUpload");
@@ -21,7 +20,7 @@ router.post("/admin", upload.single("image"), verifyAdmin, adminSubmit);
 router.get("/delete/:id", verifyAdmin, deleteProject);
 
 //let admin update
-router.get("/edit/:id", renderProjectForm);
-router.post("/edit", verifyAdmin, editProjectSubmit);
+router.get("/edit/:id", verifyAdmin, renderProjectForm);
+router.post("/edit", upload.single("image"), verifyAdmin, editProjectSubmit);
 
 module.exports = router;
