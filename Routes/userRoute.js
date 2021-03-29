@@ -35,4 +35,9 @@ router.post("/resetPassword", submitResetPasswordPage);
 router.get("/resetPassword/:token", resetPasswordParams);
 router.post("/resetPasswordForm", submitResetPasswordFormPage);
 
+//Logout
+router.get("/logout", (req, res) => {
+  res.clearCookie("jsonWebToken").redirect("/");
+})
+
 module.exports = router;
