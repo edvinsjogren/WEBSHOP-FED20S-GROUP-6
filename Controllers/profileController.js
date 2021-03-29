@@ -5,8 +5,7 @@ const profileRender = async (req, res) => {
   const user = await User.findOne({ _id: req.user.user._id })
     .populate("wishlist")
     .populate({path: "wishlist", populate: {path: "img"}});
-
-    console.log(process)
+    
   res.render("profile.ejs", { user: user });
 };
 
