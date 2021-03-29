@@ -34,6 +34,10 @@
         <p><%= messages.duplicate %></p>
         <% }%>
 
+        <% if(messages.donationTooBig){ %>
+          <p><%= messages.donationTooBig %></p>
+        <% }%>
+
         <% user.wishlist.forEach(project => { %>
         
           <div>
