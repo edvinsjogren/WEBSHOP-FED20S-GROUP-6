@@ -57,6 +57,15 @@ const projectsSubmit = async (req, res) => {
     }
   }
 
+  //Stripe won't allow more than 999,999.999 USD as an amount. This prevents the user from donatin that much
+  if(donation >= 999999) {
+    req.flash(
+      "donationTooBig",
+      "Attention! You cannot give away more than 999,999.00 US dollars. Please choose a lower amount or contact customer service!"
+    );
+    return res.redirect("/projects/?page="+page)
+  }
+
   // use schema method to add project and donation data to user DB
   user.addDonation(project._id, donation);
   req.flash(

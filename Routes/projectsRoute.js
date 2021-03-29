@@ -10,7 +10,10 @@ const {
 
 router.get("/projects", verifyUser, projectsRender);
 
+//Submit a donation
 router.post("/projects", verifyUser, projectsSubmit);
+
+//Adding project to whishlist
 router.post("/projects/wishlist", verifyUser, wishlistSubmit)
 
 module.exports = router;
