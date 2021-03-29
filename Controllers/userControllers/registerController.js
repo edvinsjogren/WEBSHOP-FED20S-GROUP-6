@@ -14,9 +14,10 @@ const submitNewAccount = async (req, res) => {
 
   //validate received data from user by calling on function from userSchema
   const {error} = validateUser(req.body);
-  console.log(error);
+
   if (error) {
-    return res.send(error);
+    errors.push(error.details[0].message);
+    //return res.send(error.details[0].message);
   }
 
   //get data from req.body

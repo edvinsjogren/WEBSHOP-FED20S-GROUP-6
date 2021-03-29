@@ -73,17 +73,15 @@ userSchema.methods.clearDonationCart = function () {
 };
 
 function validateUser(user) {
-  const schema = {
+  const schema = Joi.object({
     username: Joi.string().min(4).max(15).required(),
     email: Joi.string().min(5).max(50).required().email(),
     password: Joi.string().min(8).max(100).required(),
-  };
+  });
   return schema.validate(user);
 }
 
 const User = mongoose.model("user", userSchema);
 
 module.exports = {User, validateUser};
-//module.exports.User = User;
-//module.exports.validateUser = validateUser;
-//const {user, validateUser} = require("./")
+
