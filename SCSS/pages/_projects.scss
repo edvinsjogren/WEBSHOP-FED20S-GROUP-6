@@ -1,3 +1,22 @@
 .wishIcon {
     @include wishIcon(url("/Assets/Icons/icon_binoculars.png"));
 }
+
+main {
+    @include styleProject;
+
+    .projectForms {
+        
+        @include flexCenter(row);
+        
+        .donateForm {
+            @include flexCenter(column);
+            margin: 2rem;
+        }
+        .wishlistForm {
+            @include flexCenter(column);
+            margin: 2rem;
+        }
+    }
+
+}

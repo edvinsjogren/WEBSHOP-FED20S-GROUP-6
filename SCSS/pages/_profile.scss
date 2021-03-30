@@ -10,5 +10,12 @@ main {
     .wishIcon {
       @include bigIcon(url("/Assets/Icons/icon_binoculars.png"));
     }
+<<<<<<< HEAD
   }
 }
+=======
+    
+    @include styleProject;
+
+}
+>>>>>>> develop

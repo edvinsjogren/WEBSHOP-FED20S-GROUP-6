@@ -10,19 +10,28 @@
       <%- include("./helpers/flash_messages.ejs") %>
 
       <%donationsInCart.forEach(project => { %>
-        <div>
-          <h2><%=project.projectID.title%></h2>
-          <p><%=project.projectID.summary%></p>
+        <div class="projectContainer">
 
-          <% project.projectID.img.forEach(img => { %>
-            <!--Move img styling to suitable scss file-->
-            <img
-              src="/Uploads/<%=img.path%>"
-              alt="Project Image could not be displayed"
-              height="200px"
-              width="200px"
-            />
-          <% }) %>
+          <h2><%=project.projectID.title%></h2>
+
+          <div class="projectImgAndDesc">
+            
+            <div class="projectImage">
+              <% project.projectID.img.forEach(img => { %>
+                <!--Move img styling to suitable scss file-->
+                <img
+                  src="/Uploads/<%=img.path%>"
+                  alt="Project Image could not be displayed"
+                  height="200px"
+                  width="200px"
+                />
+              <% }) %>
+            </div>
+            <div class="projectDesc">
+              <p><%=project.projectID.summary%></p>
+            </div>
+
+          </div>
 
           <p> You are about to donate: <%=project.donationAmount%> $ to this project </p>
           <p>Do you want to edit this amount? Click the button below!</p>
@@ -30,31 +39,27 @@
 
           <form action="/checkout/delete" method="post">
             <input type="text" name="id" value="<%=project._id%>" hidden />
-            <button type="submit">Delete</button>
+            <button type="submit" class="bigButton">Delete</button>
           </form>
         </div>
       <% }) %>
 
-      <h2>Total sum of donations</h2>
-      <p><%= totalSumInCart %> $</p>
+      <div class="totalSum">
+        <h2>Total sum of donations: </h2>
+        <h2><%= totalSumInCart %> $</h2>
+      </div>
 
       <!--Activate Stripe-->
-      <button type="submit" class="activateStripe"> Proceed to donation checkout! </button>
+      <button type="submit" class="activateStripe bigButton"> Proceed to donation checkout! </button>
 
     </main>
     <footer><%- include("./layout/footer.ejs") %></footer>
   </body>
-
 </html>
-
 <script src="https://js.stripe.com/v3/"></script>
-
 <script>
-
   var stripe = Stripe('<%=stripePublicKey%>');
-
   document.querySelector(".activateStripe").addEventListener( "click", ()=>{
       stripe.redirectToCheckout({ sessionId: "<%=sessionId %>" });
   })
-
 </script>

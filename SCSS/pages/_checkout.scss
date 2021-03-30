@@ -1,0 +1,7 @@
+main {
+    @include styleProject;
+
+    .totalSum {
+        @include flexCenter(row);
+    }
+}

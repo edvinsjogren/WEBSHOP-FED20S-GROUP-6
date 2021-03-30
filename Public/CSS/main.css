@@ -293,18 +293,217 @@ main .landingModule {
   background-position: center;
   cursor: pointer; }
 
+main .projectContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 3rem; }
+  main .projectContainer .projectImgAndDesc {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    main .projectContainer .projectImgAndDesc .projectImage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 2rem; }
+      main .projectContainer .projectImgAndDesc .projectImage img {
+        width: 40vh;
+        height: 30vh; }
+
+@media screen and (min-width: 1024px) {
+  main .projectContainer .projectImgAndDesc {
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; }
+    main .projectContainer .projectImgAndDesc .projectImage img {
+      width: 40vh;
+      height: 30vh; }
+    main .projectContainer .projectImgAndDesc .projectDesc {
+      margin-left: 2rem; } }
+
+main .projectForms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row; }
+  main .projectForms .donateForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem; }
+  main .projectForms .wishlistForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem; }
+
+main .projectContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 3rem; }
+  main .projectContainer .projectImgAndDesc {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    main .projectContainer .projectImgAndDesc .projectImage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 2rem; }
+      main .projectContainer .projectImgAndDesc .projectImage img {
+        width: 40vh;
+        height: 30vh; }
+
+@media screen and (min-width: 1024px) {
+  main .projectContainer .projectImgAndDesc {
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; }
+    main .projectContainer .projectImgAndDesc .projectImage img {
+      width: 40vh;
+      height: 30vh; }
+    main .projectContainer .projectImgAndDesc .projectDesc {
+      margin-left: 2rem; } }
+
+main .totalSum {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row; }
+
+main .projectContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 3rem; }
+  main .projectContainer .projectImgAndDesc {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    main .projectContainer .projectImgAndDesc .projectImage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 2rem; }
+      main .projectContainer .projectImgAndDesc .projectImage img {
+        width: 40vh;
+        height: 30vh; }
+
+@media screen and (min-width: 1024px) {
+  main .projectContainer .projectImgAndDesc {
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; }
+    main .projectContainer .projectImgAndDesc .projectImage img {
+      width: 40vh;
+      height: 30vh; }
+    main .projectContainer .projectImgAndDesc .projectDesc {
+      margin-left: 2rem; } }
+
 main .profileTopContainer {
   text-align: center; }
 
-main .noWishlist {
-  margin: 3rem;
-  text-align: center; }
-  main .noWishlist .wishIcon {
-    width: 4rem;
-    height: 4rem;
-    margin: 1rem;
-    margin: auto;
-    background-image: url("/Assets/Icons/icon_binoculars.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center; }
+main .projectContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 3rem; }
+  main .projectContainer .projectImgAndDesc {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    main .projectContainer .projectImgAndDesc .projectImage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 2rem; }
+      main .projectContainer .projectImgAndDesc .projectImage img {
+        width: 40vh;
+        height: 30vh; }
+
+@media screen and (min-width: 1024px) {
+  main .projectContainer .projectImgAndDesc {
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; }
+    main .projectContainer .projectImgAndDesc .projectImage img {
+      width: 40vh;
+      height: 30vh; }
+    main .projectContainer .projectImgAndDesc .projectDesc {
+      margin-left: 2rem; } }
+
+main .projectContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 3rem; }
+  main .projectContainer .projectImgAndDesc {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    main .projectContainer .projectImgAndDesc .projectImage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 2rem; }
+      main .projectContainer .projectImgAndDesc .projectImage img {
+        width: 40vh;
+        height: 30vh; }
+
+@media screen and (min-width: 1024px) {
+  main .projectContainer .projectImgAndDesc {
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; }
+    main .projectContainer .projectImgAndDesc .projectImage img {
+      width: 40vh;
+      height: 30vh; }
+    main .projectContainer .projectImgAndDesc .projectDesc {
+      margin-left: 2rem; } }
+
+main .projectExtraInfo {
+  margin-top: 3rem; }
