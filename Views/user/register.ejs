@@ -1,7 +1,10 @@
 <div>
+    <% for(let i=0; i<error.length; i++) { %>
+        <p><%=error[i].message %></p>
+    <% } %> 
 
     <form action="/register" method="POST">
-
+        
         <!-- Error handling in case user don't type in anything -->
         <% for(let i=0; i<errors.length; i++) { %>
             <% if(errors[i].includes(' Username is required!')) { %>

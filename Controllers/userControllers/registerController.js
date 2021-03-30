@@ -5,20 +5,12 @@ const bcrypt = require("bcrypt");
 let errors = [];
 
 const renderRegisterPage = async (req, res) => {
-  res.render("register.ejs", {errors: ""});
+  res.render("register.ejs", {errors: "", error: ""});
 };
 
 const submitNewAccount = async (req, res) => {
   //reset error-array
   errors = [];
-
-  //validate received data from user by calling on function from userSchema
-  const {error} = validateUser(req.body);
-
-  if (error) {
-    errors.push(error.details[0].message);
-    //return res.send(error.details[0].message);
-  }
 
   //get data from req.body
   const {username, email, password} = req.body;
@@ -43,6 +35,16 @@ const submitNewAccount = async (req, res) => {
     if (email === checkEmail.email) {
       errors.push(" Email is taken! Please choose another one!");
     }
+  }
+
+  //if user does not fulfill validation requirements, place the errors in a variable
+  const {error} = validateUser(req.body);
+
+  //then present the error message to the user
+  if (error) {
+    console.log(error.details);
+    console.log(error);
+    return res.render("register.ejs", {error: error.details, errors: ""});
   }
 
   try {
