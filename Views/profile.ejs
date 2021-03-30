@@ -14,52 +14,64 @@
         <h3>Perhaps it's time to make a donation?</h3>
       </div>
 
-        <% if(messages.confirmation){ %>
-          <p><%= messages.confirmation %></p>
-          <% }%> 
+      <% if(messages.confirmation){ %>
+        <p><%= messages.confirmation %></p>
+      <% }%> 
 
-        <% if(messages.error){ %>
+      <% if(messages.error){ %>
         <p><%= messages.error %></p>
-        <% }%>
-    
-        <% if(messages.duplicate){ %>
+      <% }%>
+
+      <% if(messages.duplicate){ %>
         <p><%= messages.duplicate %></p>
-        <% }%>
+      <% }%>
 
-        <% if(messages.donationTooBig){ %>
-          <p><%= messages.donationTooBig %></p>
-        <% }%>
+      <% if(messages.donationTooBig){ %>
+        <p><%= messages.donationTooBig %></p>
+      <% }%>
 
-        <% user.wishlist.forEach(project => { %>
-        
-          <div>
-            <h2><%=project.title%></h2>
-            <!-- Remove from Wishlist button post method-->
-        <form action="/profile/delete" method="post">
-          <input type="text" name="removeId" value="<%=project._id%>" hidden />
-          <button type="submit"> REMOVE </button>
-        </form>
-            <p><%=project.summary%></p>
-        <p><%=project.description%></p>
+      <% user.wishlist.forEach(project => { %>
+        <div class="projectContainer">
+          <h2><%=project.title%></h2>
+          
+          <div class="projectImgAndDesc">
+            <div class="projectImage">
+              <% project.img.forEach(img => { %>
+                <!--Move img styling to suitable scss file-->
+                <img
+                  src="/Uploads/<%=img.path%>"
+                  alt="Project Image could not be displayed"
+                />
+              <% }) %>
+            </div>
+
+            <div class="projectDesc">
+              <!--<p><%=project.summary%></p>-->
+              <p><%=project.description%></p>
+            </div>
+
           </div>
 
-          <% project.img.forEach(img => { %>
-            <!--Move img styling to suitable scss file-->
-            <img
-              src="/Uploads/<%=img.path%>"
-              alt="Project Image could not be displayed"
-              height="200px"
-              width="200px"
-            />
-            <% }) %>
+          <form action="/profile" method="post">
+            <input type="text" name="id" value="<%=project._id%>" hidden />
+            <label for="donation">Donation amount:</label>
+            <input class="form-control" type="number" name="donation" placeholder="Enter your donation here!"/>
+            <button type="submit" class="bigButton">Donate!</button>
+          </form>
 
-            <form action="/profile" method="post">
-              <input type="text" name="id" value="<%=project._id%>" hidden />
-              
-              <input type="number" name="donation" />
-              <button type="submit">Donate!</button>
+          <div>
+            
+            <!-- Remove from Wishlist button post method-->
+            <form action="/profile/delete" method="post">
+              <input type="text" name="removeId" value="<%=project._id%>" hidden />
+              <button type="submit" class="bigButton"> REMOVE </button>
             </form>
-        <% }) %>
+            
+          </div>
+
+
+        </div>
+      <% }) %>
     </main>
 
     <footer><%- include("./layout/footer.ejs") %></footer>

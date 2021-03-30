@@ -39,7 +39,7 @@
           <% } %>
         <% }) %>
         <label for="description">Description: </label>
-        <input type="text" name="description" placeholder="Description" />
+        <textarea name="description" placeholder="Description" ></textarea>
         
         <% errors.forEach(errorMessage => { %>
           <% if(errorMessage.includes(' You forgot to choose a summary! Please try again!')) { %>
@@ -68,29 +68,41 @@
         <button type="submit">Add Project</button>
       </form>
 
-      <% projects.forEach(project => { %>
-      <div>
-        <p><%=project.title%></p>
-        <p><%=project.category%></p>
-        <p><%=project.summary%></p>
-        <p><%=project.description%></p>
+        <% projects.forEach(project => { %>
+          <div class="projectContainer">
+          
+            <h1><%=project.title%></h1>
 
-        <% project.img.forEach(img => { %>
+            <p>Category: <%=project.category%></p>
 
-        <!--Move img styling to suitable scss file-->
-        <img
-          src="/Uploads/<%=img.path%>"
-          alt="asdf"
-          height="200px"
-          width="200px"
-        />
+            <div class="projectImgAndDesc">
+              <div class="projectImage">
+                <% project.img.forEach(img => { %>
+
+                  <!--Move img styling to suitable scss file-->
+                  <img
+                    src="/Uploads/<%=img.path%>"
+                    alt="Can't show the project photo"
+                  />
+                <% }) %>
+              </div>
+              <div class="projectDesc">
+                <p><%=project.description%></p>
+              </div>
+            </div>
+
+            <p>Summary: <%=project.summary%></p>
+
+           
+
+            <p>Created by: <b><%=project.owner%></b></p>
+
+            <a href="/edit/<%=project._id %>"> Edit</a>
+            <a href="/delete/<%=project._id%>"> Delete</a>
+          </div>
+          
         <% }) %>
-
-        <p>Created by: <%=project.owner%></p>
-        <a href="/edit/<%=project._id %>"> Edit</a>
-        <a href="/delete/<%=project._id%>"> Delete</a>
-      </div>
-      <% }) %>
+      
     </main>
     <footer><%- include("./layout/footer.ejs") %></footer>
   </body>

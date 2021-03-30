@@ -2,4 +2,7 @@ main {
     .profileTopContainer {
         text-align: center;
     }
+    
+    @include styleProject;
+
 }
