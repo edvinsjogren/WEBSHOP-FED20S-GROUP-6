@@ -1,5 +1,5 @@
 const Project = require("../Models/project");
-const User = require("../Models/user");
+const {User} = require("../Models/user");
 
 const profileRender = async (req, res) => {
   const user = await User.findOne({ _id: req.user.user._id })

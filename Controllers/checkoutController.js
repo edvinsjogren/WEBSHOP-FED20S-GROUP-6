@@ -1,7 +1,7 @@
 /*jshint esversion: 8 */
 
 const Project = require("../Models/project");
-const User = require("../Models/user");
+const {User} = require("../Models/user");
 const nodemailer = require("nodemailer");
 const {
   stripeSecretKey,

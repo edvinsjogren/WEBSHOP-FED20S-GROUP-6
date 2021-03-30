@@ -1,11 +1,11 @@
-const User = require("../../Models/user");
+const {User, validateUser} = require("../../Models/user");
 const bcrypt = require("bcrypt");
 
 // Array to send custom error messages
 let errors = [];
 
 const renderRegisterPage = async (req, res) => {
-  res.render("register.ejs", {errors: ""});
+  res.render("register.ejs", {errors: "", error: ""});
 };
 
 const submitNewAccount = async (req, res) => {
@@ -35,6 +35,16 @@ const submitNewAccount = async (req, res) => {
     if (email === checkEmail.email) {
       errors.push(" Email is taken! Please choose another one!");
     }
+  }
+
+  //if user does not fulfill validation requirements, place the errors in a variable
+  const {error} = validateUser(req.body);
+
+  //then present the error message to the user
+  if (error) {
+    console.log(error.details);
+    console.log(error);
+    return res.render("register.ejs", {error: error.details, errors: ""});
   }
 
   try {

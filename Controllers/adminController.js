@@ -1,7 +1,7 @@
 /*jshint esversion: 8 */
 const Project = require("../Models/project");
 const Image = require("../Models/image");
-const User = require("../Models/user");
+const {User} = require("../Models/user");
 
 //Array for custom-made error messages
 let errors = [];
