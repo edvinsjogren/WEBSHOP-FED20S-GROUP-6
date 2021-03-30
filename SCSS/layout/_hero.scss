@@ -1,3 +1,9 @@
-#carousel {
-
+#hero-carousel {
+  .carousel-inner {
+    .carousel-caption {
+      a {
+        opacity: 0.6;
+      }
+    }
+  }
 }

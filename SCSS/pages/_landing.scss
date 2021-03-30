@@ -1,0 +1,29 @@
+main {
+    span {
+        width: 80%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .landingModule {
+        @include flexCenter(column);
+        width: 80vw;
+        margin: 3rem;
+
+        #climateIcon {
+            @include landingIcon(url("/Assets/Icons/icon_climate.png"));
+        }
+
+        #shelterIcon {
+            @include landingIcon(url("/Assets/Icons/icon_shelter.png"));
+        }
+
+        #scienceIcon {
+            @include landingIcon(url("/Assets/Icons/icon_science.png"));
+        }
+
+        .landingDesc {
+            text-align: center;
+        }
+    }
+}

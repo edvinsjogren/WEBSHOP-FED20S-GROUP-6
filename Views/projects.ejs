@@ -1,21 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ninetynine</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/CSS/main.css" />
+    <%- include("./partials/head.ejs") %>
   </head>
   <body>
     <header><%- include("./layout/navbar.ejs") %></header>
-    <header><%- include("./layout/hero.ejs") %></header>
+    <div class="hero"><%- include("./layout/hero.ejs") %></div>
     <main>
       <% if(user==null){ %>
       <h2>Please sign in or register a new account to complete a donation</h2>
@@ -33,12 +23,9 @@
       <p><%= messages.duplicate %></p>
       <% }%> <% if(messages.duplicateWishDonation){ %>
       <p><%= messages.duplicateWishDonation %></p>
-      <% }%>
-      <% if(messages.donationTooBig){ %>
-        <p><%= messages.donationTooBig %></p>
-      <% }%>
-
-      <% projects.forEach(project => { %>
+      <% }%> <% if(messages.donationTooBig){ %>
+      <p><%= messages.donationTooBig %></p>
+      <% }%> <% projects.forEach(project => { %>
 
       <div class="projectContainer">
         <h2><%=project.title%></h2>
@@ -111,5 +98,6 @@
       <% } %>
     </main>
     <footer><%- include("./layout/footer.ejs") %></footer>
+    <%- include("./partials/scripts.ejs") %>
   </body>
 </html>

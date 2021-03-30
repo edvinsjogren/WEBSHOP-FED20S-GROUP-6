@@ -1,44 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ninetynine</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/CSS/main.css" />
+    <%- include("./partials/head.ejs") %>
   </head>
   <body>
     <header><%- include("./layout/navbar.ejs") %></header>
-
-    <div><%- include("./layout/hero.ejs") %></div>
-
+    <div class="hero"><%- include("./layout/hero.ejs") %></div>
     <main>
-      <h1>DONATION IS OUR FOUNDATION</h1>
-
-      <% errors.forEach(errorMessage => { %>
-        <% if(errorMessage.includes("You are not logged in! To donate you have to have an account! Please log in and try again!")) { %>
-          <p><%=errorMessage%></p>
-        <% } %>
-      <% }) %>
-
-      <p>
+      <% errors.forEach(errorMessage => { %> <% if(errorMessage.includes("You are not logged in! To donate you have to have an account! Please log in and try again!")) { %>
+      <p><%=errorMessage%></p>
+      <% } %> <% }) %>
+      <h2>DONATION IS OUR FOUNDATION</h2>
+      <span>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nam
         deleniti sapiente obcaecati dolorem, commodi nulla magni, neque
         doloremque cum consectetur, ducimus iste? Labore velit natus eaque
         dolorum recusandae quam est, eius libero! Doloribus praesentium sed
         placeat accusantium omnis, recusandae odit corrupti voluptatibus aut.
         Asperiores odit deleniti ex temporibus voluptate!
-      </p>
+      </span>
 
-      <a href="/projects" class="button">DONATE!</a>
+      <div class="landingModule">
+        <span id="climateIcon"></span>
+        <span class="landingDesc">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nam
+          deleniti sapiente obcaecati dolorem, commodi nulla magni, neque
+          doloremque cum consectetur, ducimus iste? Labore velit natus eaque
+          dolorum recusandae quam est, eius libero! Doloribus praesentium sed
+          placeat accusantium omnis, recusandae odit corrupti voluptatibus aut.
+          Asperiores odit deleniti ex temporibus voluptate!
+        </span>
+
+        <a class="bigButton" href="/projects">Go to projects!</a>
+      </div>
+      <div class="landingModule">
+        <span id="shelterIcon"></span>
+        <span class="landingDesc">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nam
+          deleniti sapiente obcaecati dolorem, commodi nulla magni, neque
+          doloremque cum consectetur, ducimus iste? Labore velit natus eaque
+          dolorum recusandae quam est, eius libero! Doloribus praesentium sed
+          placeat accusantium omnis, recusandae odit corrupti voluptatibus aut.
+          Asperiores odit deleniti ex temporibus voluptate!
+        </span>
+
+        <a class="bigButton" href="/projects">Go to projects!</a>
+      </div>
+      <div class="landingModule">
+        <span id="scienceIcon"></span>
+        <span class="landingDesc">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nam
+          deleniti sapiente obcaecati dolorem, commodi nulla magni, neque
+          doloremque cum consectetur, ducimus iste? Labore velit natus eaque
+          dolorum recusandae quam est, eius libero! Doloribus praesentium sed
+          placeat accusantium omnis, recusandae odit corrupti voluptatibus aut.
+          Asperiores odit deleniti ex temporibus voluptate!
+        </span>
+
+        <a class="bigButton" href="/projects">Go to projects!</a>
+      </div>
     </main>
-
     <footer><%- include("./layout/footer.ejs") %></footer>
+    <%- include("./partials/scripts.ejs") %>
   </body>
 </html>

@@ -82,11 +82,17 @@
     }
 
     .profileIcon {
-      @include profileIcon(url("/Assets/icon_profile.png"))
+      @include profileIcon(url("/Assets/Icons/icon_profile.png"))
     }
 
     .shoppingCart {
-      @include profileIcon(url("/Assets/icon_shoppingcart.png"))
+      @include profileIcon(url("/Assets/Icons/icon_shoppingcart.png"))
+    }
+
+    .logo {
+    
+        @include logoIcon(url("/Assets/Icons/icon_logo.png"))
+      
     }
     
     

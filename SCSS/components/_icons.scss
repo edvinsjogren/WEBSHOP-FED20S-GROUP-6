@@ -30,3 +30,23 @@
   background-position: center;
   cursor: pointer;
 }
+
+@mixin logoIcon($url) {
+  width: 100%;
+  height: 5rem;
+  background-image: $url;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+@mixin landingIcon($url) {
+  width: 15rem;
+  height: 15rem;
+  background-image: $url;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 2rem;
+}
