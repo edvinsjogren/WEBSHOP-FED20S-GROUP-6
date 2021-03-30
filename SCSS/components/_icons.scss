@@ -50,3 +50,12 @@
   background-position: center;
   margin: 2rem;
 }
+
+@mixin backArrowIcon($url) {
+  background-image: $url;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 5rem;
+  width: 5rem;
+}

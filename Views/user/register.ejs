@@ -1,9 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+<header>
+
+</header>
+<div class="navigationBar"><a href="javascript:history.back()"> <div class="backLink"></div></a></div>
+<main>
+    <h1>Register an account now!</h1>
 <div>
     <% for(let i=0; i<error.length; i++) { %>
         <p><%=error[i].message %></p>
     <% } %> 
-
-    <form action="/register" method="POST">
+  
+    <form action="/register" method="POST" class="submitUserInformation">
         
         <!-- Error handling in case user don't type in anything -->
         <% for(let i=0; i<errors.length; i++) { %>
@@ -11,8 +23,8 @@
                 <p><%=errors[i] %></p>
             <% } %> 
         <% } %>        
-        <label for="username">Username:</label>
-        <input type="text" name="username" placeholder="Username"/>
+        <label for="username" class="label">Username:</label>
+        <input type="text" name="username" class="inputBox"/>
         
         <!-- Error handling in case user don't type in anything or the email is taken -->
         <% for(let i=0; i<errors.length; i++) { %>
@@ -23,8 +35,8 @@
                 <p><%=errors[i] %></p>
             <% } %> 
         <% } %>    
-        <label for="email">Email:</label>
-        <input type="text" name="email" placeholder="Email"/>
+        <label for="email" class="label">Email:</label>
+        <input type="text" name="email" class="inputBox"/>
         
         <!-- Error handling in case user don't type in anything -->
         <% for(let i=0; i<errors.length; i++) { %>
@@ -32,10 +44,14 @@
                 <p><%=errors[i] %></p>
             <% } %> 
         <% } %>    
-        <label for="password">Password:</label>
-        <input type="password" name="password" placeholder="Password"/>
-
-        <button type="submit">Create new account!</button>
+        <label for="password" class="label">Password:</label>
+        <input type="password" name="password" class="inputBox"/>
+        <button type="submit" class="smallButton buttonMargin">Create new account!</button>
     </form>
-
 </div>
+</main>
+<footer><%- include("./layout/footer.ejs") %></footer>
+
+<%- include("./partials/scripts.ejs") %>
+</body>
+</html>

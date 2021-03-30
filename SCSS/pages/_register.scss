@@ -1,0 +1,27 @@
+body {
+  .navigationBar {
+    padding: 2rem;
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(235, 235, 235);
+
+    .backLink {
+      @include backArrowIcon(url("/Assets/Icons/icon_backArrow.png"));
+    }
+
+    @media screen and(min-width: 600px) {
+      height: 20vh;
+    }
+  }
+}
+
+main {
+  h1 {
+    font-size: $fs-title;
+    margin-bottom: 5rem;
+  }
+
+  .buttonMargin {
+    margin-top: 5rem;
+  }
+}
