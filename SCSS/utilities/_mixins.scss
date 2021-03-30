@@ -4,3 +4,11 @@
     align-items: center;
     flex-direction: $direction;
 }
+
+//For use with responsive desktop displays
+@mixin desktopsOnly {
+    @media screen and (min-width: 1024px) {
+        @content;
+    }
+}
+
