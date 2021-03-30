@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <header><%- include("./layout/navbar.ejs") %></header>
+    <main>
+      <h1>Welcome Admin!</h1>
+      <h2>Want to add a project? Fill in form below!</h2>
+
+      <%- include("./admin/addProjectForm.ejs") %>
+
+      <% projects.forEach(project => { %>
+        <div>
+          <p><%=project.title%></p>
+          <p><%=project.category%></p>
+          <p><%=project.summary%></p>
+          <p><%=project.description%></p>
+
+          <% project.img.forEach(img => { %>
+
+          <!--Move img styling to suitable scss file-->
+          <img
+            src="/Uploads/<%=img.path%>"
+            alt="asdf"
+            height="200px"
+            width="200px"
+          />
+          <% }) %>
+
+          <p>Created by: <%=project.owner%></p>
+          <a href="/edit/<%=project._id %>"> Edit</a>
+          <a href="/delete/<%=project._id%>"> Delete</a>
+        </div>
+      <% }) %>
+    </main>
+    <footer><%- include("./layout/footer.ejs") %></footer>
+  </body>
+</html>

@@ -232,7 +232,17 @@ main {
   align-items: center;
   flex-direction: column;
   position: relative;
-  top: 5rem; }
+  top: 5rem;
+  height: 100%; }
+
+main .errorMessage {
+  text-align: center;
+  width: 75%;
+  margin: 2rem;
+  padding: 1rem;
+  border: .1rem solid black;
+  border-radius: 1rem;
+  background-color: red; }
 
 main span {
   width: 80%;
@@ -285,3 +295,16 @@ main .landingModule {
 
 main .profileTopContainer {
   text-align: center; }
+
+main .noWishlist {
+  margin: 3rem;
+  text-align: center; }
+  main .noWishlist .wishIcon {
+    width: 4rem;
+    height: 4rem;
+    margin: 1rem;
+    margin: auto;
+    background-image: url("/Assets/Icons/icon_binoculars.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; }

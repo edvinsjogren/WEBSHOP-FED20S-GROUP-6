@@ -8,7 +8,6 @@ const verifyToken = async (req, res, next) => {
   //reset the error message
   errors = [];
   const url = req.originalUrl;
-  console.log(url);
 
   //pagination variables (see projectsRender)
   const page = req.query.page || 1;
@@ -21,7 +20,7 @@ const verifyToken = async (req, res, next) => {
   const token = req.cookies.jsonWebToken;
   if (!token) {
     errors.push(
-      "You are not logged in! To donate you have to have an account! Please log in and try again!"
+      "You are not logged in! To donate you have to register and/or log in to an account!"
     );
 
     // unverified user visiting /projects (including pagination variables) 

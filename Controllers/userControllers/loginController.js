@@ -33,7 +33,7 @@ const submitLogin = async (req, res) => {
 
     // If the user don't exists
     if (!user && email !== "") {
-      req.flash("error", "Account does not exists! Please create an account!");
+      req.flash("nonExistentAccount", "Account does not exists! Please create an account!");
       return res.redirect("/login");
     }
 
@@ -42,7 +42,7 @@ const submitLogin = async (req, res) => {
 
     //If the passwords don't match, give error message and redirect to login page
     if (!validUser) {
-      req.flash("error", "Incorrect password! Please try again!");
+      req.flash("incorrectPassword", "Incorrect password! Please try again!");
       return res.redirect("/login");
     }
 

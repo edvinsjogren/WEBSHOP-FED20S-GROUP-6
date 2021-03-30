@@ -7,45 +7,22 @@
     <header><%- include("./layout/navbar.ejs") %></header>
     <div class="hero"><%- include("./layout/hero.ejs") %></div>
     <main>
-      <% if(user==null){ %>
-      <h2>Please sign in or register a new account to complete a donation</h2>
-      <%}%> <% if(messages.notify) { %>
-      <p><%= messages.notify %></p>
-      <% } %> <% if(messages.confirmation){ %>
-      <p><%= messages.confirmation %></p>
-      <% }%> <% if(messages.duplicateWish){ %>
-      <p><%= messages.duplicateWish %></p>
-      <% }%> <% if(messages.addedWish){ %>
-      <p><%= messages.addedWish %></p>
-      <% }%> <% if(messages.error){ %>
-      <p><%= messages.error %></p>
-      <% }%> <% if(messages.duplicate){ %>
-      <p><%= messages.duplicate %></p>
-      <% }%> <% if(messages.duplicateWishDonation){ %>
-      <p><%= messages.duplicateWishDonation %></p>
-      <% }%> <% if(messages.donationTooBig){ %>
-      <p><%= messages.donationTooBig %></p>
-      <% }%> <% projects.forEach(project => { %>
+
+    <%- include("./helpers/flash_messages.ejs") %>
+      
+     <% projects.forEach(project => { %>
 
       <div class="projectContainer">
         <h2><%=project.title%></h2>
-        <% if(user==null){ %>
-        <!-- Wishlist button post method-->
-        <fieldset disabled="disabled">
-          <form action="/projects/wishlist" method="post">
-            <input type="text" name="wishId" value="<%=project._id%>" hidden />
-            <input type="text" name="page" value="<%=page%>" hidden />
-            <button type="submit"><div class="wishIcon"></div></button>
-          </form>
-        </fieldset>
-        <% } else { %>
+
+        <% if(user){ %>
         <!-- Wishlist button post method-->
         <form action="/projects/wishlist" method="post">
           <input type="text" name="wishId" value="<%=project._id%>" hidden />
           <input type="text" name="page" value="<%=page%>" hidden />
           <button type="submit"><div class="wishIcon"></div></button>
         </form>
-        <%}%>
+        <% } %>
 
         <p><%=project.summary%></p>
         <p><%=project.description%></p>
@@ -58,42 +35,34 @@
           height="200px"
           width="200px"
         />
-        <% }) %> <% if(user==null){ %>
+        <% }) %> 
+        
+        <% if(user==null){ %>
         <fieldset disabled="disabled">
-          <form action="/projects" method="post">
-            <input type="text" name="id" value="<%=project._id%>" hidden />
-
-            <input type="text" name="page" value="<%=page%>" hidden />
-            <input type="number" name="donation" />
-            <button type="submit">Donate!</button>
-          </form>
-        </fieldset>
-        <% } else { %>
+        <% } %>
         <form action="/projects" method="post">
           <input type="text" name="id" value="<%=project._id%>" hidden />
           <input type="text" name="page" value="<%=page%>" hidden />
           <input type="number" name="donation" />
           <button type="submit">Donate!</button>
         </form>
-        <%}%>
+        <% if(user==null){ %>
+        </fieldset>
+        <% } %>
       </div>
       <% }) %>
 
       <!-- Pagination part -->
-
       <% if(amountOfProjects == 0) { %>
       <h1>No projects exists!</h1>
       <% } else if( totalPages !== projectsToShow/showedProjectsPerPage) { %>
 
       <a href="/projects/?page=<%=(projectsToShow/showedProjectsPerPage)+1 %>"
-        >Show more</a
-      >
+        >Show more</a>
 
       <% } else { %>
-
       <a href="/projects/?page=<%=(projectsToShow/showedProjectsPerPage)-1 %>"
-        >Show less</a
-      >
+        >Show less</a>
 
       <% } %>
     </main>

@@ -40,7 +40,7 @@ const projectsSubmit = async (req, res) => {
   //Check if the user didn't type in an amount
   if (!donation) {
     req.flash(
-      "error",
+      "selectAmount",
       "You haven't chosen an amount to donate! Please try again!"
     );
     return res.redirect("/projects/?page=" + page);
@@ -50,7 +50,7 @@ const projectsSubmit = async (req, res) => {
     //Check if the user already have the donation
     if (user.donations.projects[i].projectID == id) {
       req.flash(
-        "duplicate",
+        "duplicateDonation",
         "You've already donated to this project! Visit the checkout page to alter your donations!"
       );
       return res.redirect("/projects/?page=" + page);
@@ -69,7 +69,7 @@ const projectsSubmit = async (req, res) => {
   // use schema method to add project and donation data to user DB
   user.addDonation(project._id, donation);
   req.flash(
-    "confirmation",
+    "donationSuccess",
     "Donation successfully added to your list of donations, proceed to checkout to complete your donation!"
   );
 
@@ -100,7 +100,7 @@ const wishlistSubmit = async (req, res) => {
     // Check if specific objectID already exists in user.donations (array)
   } else if (isInDonations === true) {
     req.flash(
-      "duplicateWishDonation",
+      "ifDonationNoWish",
       "You've already registered a donation to this project!"
     );
     return res.redirect("/projects/?page=" + page);
