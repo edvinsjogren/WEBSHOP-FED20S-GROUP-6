@@ -1,15 +1,7 @@
 <form action="/resetPassword" method="POST">
   <h1>Forgot your password?</h1>
 
-  <!-- Below message will pop up if the user either forgot to type in an email or if they typed in an email that is not connected to an account -->
-  <% if(messages.error){ %>
-  <p><%= messages.error%></p>
-  <%}%>
-
-  <!-- Below message will pop up when the user has sumbitted their email as a confirmation and reminder that they now have a link in their inbox -->
-  <% if(messages.notify) {%>
-  <p><%=messages.notify %></p>
-  <%}%>
+  <%- include("./helpers/flash_messages.ejs") %>
 
   <input type="email" name="email" placeholder="Type your email here" />
   <button type="submit">Send link to reset password</button>

@@ -1,0 +1,55 @@
+<!--projects.ejs-->
+
+<% if(messages.selectAmount){ %>
+    <p><%= messages.selectAmount %></p>
+<% } %> 
+
+<% if(messages.duplicateDonation){ %>
+    <p><%= messages.duplicateDonation %></p>
+<% } %> 
+
+<% if(messages.donationTooBig){ %>
+    <p><%= messages.donationTooBig %></p>
+<% } %>
+
+<% if(messages.donationSuccess){ %>
+    <p><%= messages.donationSuccess %></p>
+<% } %> 
+
+<% if(messages.duplicateWish){ %>
+    <p><%= messages.duplicateWish %></p>
+<% } %> 
+
+<% if(messages.ifDonationNoWish){ %>
+    <p><%= messages.ifDonationNoWish %></p>
+<% } %> 
+
+<% if(messages.addedWish){ %>
+    <p><%= messages.addedWish %></p>
+<% } %> 
+
+<!--checkout.ejs-->
+<% if(messages.error) { %>
+    <p><%= messages.error %></p>
+<% } %> 
+
+<% if(messages.success) { %>
+    <p><%= messages.success %></p>
+<% } %>
+
+<!--resetForm.ejs-->
+<!-- Below message will pop up if the user either forgot to type in an email or if they typed in an email that is not connected to an account -->
+<% if(messages.noEmail){ %>
+    <p><%= messages.noEmail%></p>
+<%}%>
+  
+<!-- Below message will pop up when the user has sumbitted their email as a confirmation and reminder that they now have a link in their inbox -->
+<% if(messages.emailNotification) {%>
+    <p><%=messages.emailNotification %></p>
+<%}%>
+
+<!--login.ejs-->
+<% if(messages.nonExistentAccount || messages.incorrectPassword) { %>
+    <p><%=messages.nonExistentAccount %></p>
+    <p><%=messages.incorrectPassword %></p>
+<% } %>

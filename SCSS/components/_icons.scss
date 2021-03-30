@@ -20,6 +20,17 @@
   cursor: pointer;
 }
 
+@mixin bigIcon($url) {
+  width: 4rem;
+  height: 4rem;
+  margin: 1rem;
+  margin: auto;
+  background-image: $url;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 @mixin profileIcon($url) {
   width: 2rem;
   height: 2rem;

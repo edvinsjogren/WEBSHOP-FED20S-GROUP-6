@@ -1,36 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ninetynine</title>
-    <link rel="stylesheet" href="/CSS/main.css" />
+    <%- include("./partials/head.ejs") %>
   </head>
   <body>
     <header><%- include("./layout/navbar.ejs") %></header>
     <main>
+      <%- include("./helpers/flash_messages.ejs") %>
       <div>
-
-        <% if(messages.error) { %>
-          <p><%= messages.error %></p>
-          <% } %> 
-
-          <% if(messages.success) { %>
-          <p><%= messages.success %></p>
-          <% } %>
-
         <h2><%=project.projectID.title%></h2>
         <p><%=project.projectID.summary%></p>
 
         <% project.projectID.img.forEach(img => { %>
         <!--Move img styling to suitable scss file-->
-        <img
-          src="/Uploads/<%=img.path%>"
-          alt="Project Image could not be displayed"
-          height="200px"
-          width="200px"
-        />
+          <img
+            src="/Uploads/<%=img.path%>"
+            alt="Project Image could not be displayed"
+            height="200px"
+            width="200px"
+          />
         <% }) %>
 
         <p> You've previously selected to donate: <%=project.donationAmount%> $ to this project </p>

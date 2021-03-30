@@ -1,41 +1,19 @@
 <div>
+    <!--Joi validation error messages-->
     <% for(let i=0; i<error.length; i++) { %>
         <p><%=error[i].message %></p>
-    <% } %> 
+    <% } %>
 
-    <form action="/register" method="POST">
-        
-        <!-- Error handling in case user don't type in anything -->
-        <% for(let i=0; i<errors.length; i++) { %>
-            <% if(errors[i].includes(' Username is required!')) { %>
-                <p><%=errors[i] %></p>
-            <% } %> 
-        <% } %>        
+    <!--duplicate email prohibitor-->
+    <%- include("./helpers/errors.ejs") %>
+
+    <form action="/register" method="POST">     
         <label for="username">Username:</label>
-        <input type="text" name="username" placeholder="Username"/>
-        
-        <!-- Error handling in case user don't type in anything or the email is taken -->
-        <% for(let i=0; i<errors.length; i++) { %>
-            <% if(errors[i].includes(' Email is required!')) { %> 
-                <p><%=errors[i] %></p>
-            <% } %>
-            <% if(errors[i].includes(' Email is taken! Please choose another one!')) { %>
-                <p><%=errors[i] %></p>
-            <% } %> 
-        <% } %>    
+        <input type="text" name="username" placeholder="Username"/>   
         <label for="email">Email:</label>
-        <input type="text" name="email" placeholder="Email"/>
-        
-        <!-- Error handling in case user don't type in anything -->
-        <% for(let i=0; i<errors.length; i++) { %>
-            <% if(errors[i].includes(' Password is required!')) { %> 
-                <p><%=errors[i] %></p>
-            <% } %> 
-        <% } %>    
+        <input type="text" name="email" placeholder="Email"/>  
         <label for="password">Password:</label>
         <input type="password" name="password" placeholder="Password"/>
-
         <button type="submit">Create new account!</button>
     </form>
-
 </div>

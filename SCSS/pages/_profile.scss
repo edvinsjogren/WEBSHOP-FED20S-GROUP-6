@@ -1,8 +1,21 @@
 main {
-    .profileTopContainer {
-        text-align: center;
+  .profileTopContainer {
+    text-align: center;
+  }
+
+  .noWishlist {
+      margin: 3rem;
+    text-align: center;
+
+    .wishIcon {
+      @include bigIcon(url("/Assets/Icons/icon_binoculars.png"));
     }
+<<<<<<< HEAD
+  }
+}
+=======
     
     @include styleProject;
 
 }
+>>>>>>> develop

@@ -14,7 +14,7 @@ const renderAdminPage = async (req, res) => {
   const projects = await Project.find().populate("img");
   const user = await User.findOne({_id: req.user.user._id});
 
-  res.render("admin.ejs", {
+  res.render("./admin/admin.ejs", {
     projects: projects,
     img: projects.img,
     errors: errors,
@@ -70,11 +70,11 @@ const adminSubmit = async (req, res) => {
     // use schema method to add image to the new project
     project.addImage(newImage._id);
 
-    return res.redirect("/admin");
+    return res.redirect("./admin/admin.ejs");
   } catch (err) {
     if (errors) {
       const projects = await Project.find().populate("img");
-      return res.render("admin.ejs", {
+      return res.render("./admin/admin.ejs", {
         projects: projects,
         img: projects.img,
         errors: errors,
@@ -96,7 +96,7 @@ const renderProjectForm = async (req, res) => {
 
   const projects = await Project.findOne({ _id: req.params.id }).populate("img");
 
-  res.render("adminEdit.ejs", { projects: projects, errors: errors });
+  res.render("./admin/adminEdit.ejs", { projects: projects, errors: errors });
 
 };
 

@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ninetynine</title>
-    <link rel="stylesheet" href="/CSS/main.css" />
+    <%- include("./partials/head.ejs") %>
   </head>
   <body>
     <header><%- include("./layout/navbar.ejs") %></header>
     <main>
 
-      <% if(messages.error) { %>
-        <p><%= messages.error %></p>
-      <% } %> 
+      <%- include("./helpers/flash_messages.ejs") %>
 
       <%donationsInCart.forEach(project => { %>
         <div class="projectContainer">
@@ -61,17 +55,11 @@
     </main>
     <footer><%- include("./layout/footer.ejs") %></footer>
   </body>
-
 </html>
-
 <script src="https://js.stripe.com/v3/"></script>
-
 <script>
-
   var stripe = Stripe('<%=stripePublicKey%>');
-
   document.querySelector(".activateStripe").addEventListener( "click", ()=>{
       stripe.redirectToCheckout({ sessionId: "<%=sessionId %>" });
   })
-
 </script>
