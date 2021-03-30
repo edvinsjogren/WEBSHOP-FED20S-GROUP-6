@@ -1,4 +1,5 @@
 main {
+    @include flexCenter(column);
     position: relative;
     top: 5rem;
 }

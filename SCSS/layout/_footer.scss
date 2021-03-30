@@ -12,35 +12,44 @@ footer {
     height: 100%;
     flex-wrap: wrap;
 
-    .socialMediaLinks {
-      @include flexCenter(row);
-      list-style: none;
-      width: 45%;
-      margin: auto;
+    .leftSide {
+      @include flexCenter(column);
+      width: 50%;
 
-      .facebook {
-        @include socialMediaIcon(url("/Assets/FBLogo.png"));
-      }
-      .instagram {
-        @include socialMediaIcon(url("/Assets/InstaLogo.png"));
-      }
-      .twitter {
-        @include socialMediaIcon(url("/Assets/twitterLogo.png"));
+      .socialMediaLinks {
+        @include flexCenter(row);
+        list-style: none;
+        width: 45%;
+        margin: auto;
+
+        .facebook {
+          @include socialMediaIcon(url("/Assets/Icons/icon_facebook.png"));
+        }
+        .instagram {
+          @include socialMediaIcon(url("/Assets/Icons/icon_instagram.png"));
+        }
+        .twitter {
+          @include socialMediaIcon(url("/Assets/Icons/icon_twitter.png"));
+        }
       }
     }
 
-    .contacts {
-      width: 45%;
-      list-style: none;
-      margin: auto;
+    .rightSide {
+      width: 50%;
 
-      li {
-        margin: 1rem;
+      .contacts {
+        width: 45%;
+        list-style: none;
+        margin: auto;
+
+        li {
+          margin: 1rem;
+        }
       }
-    }
-    p {
-      width: 100vw;
-      text-align: center;
+      p {
+        width: 100vw;
+        text-align: center;
+      }
     }
   }
   @media screen and(min-width: 600px) {
