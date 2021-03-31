@@ -35,11 +35,11 @@
 
           <p> You are about to donate: <%=project.donationAmount%> $ to this project </p>
           <p>Do you want to edit this amount? Click the button below!</p>
-          <a href="/donation/<%=project._id%>"> Edit</a>
+          <a href="/donation/<%=project._id%>" class="smallButton"> Edit</a>
 
           <form action="/checkout/delete" method="post">
             <input type="text" name="id" value="<%=project._id%>" hidden />
-            <button type="submit" class="bigButton">Delete</button>
+            <button type="submit" class="smallButton">Delete</button>
           </form>
         </div>
       <% }) %>
