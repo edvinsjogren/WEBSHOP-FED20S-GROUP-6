@@ -7,7 +7,7 @@
       <% } %>
     <% }) %>
     <label for="title">Title: </label>
-    <input type="text" name="title" placeholder="Title" />
+    <input class="form-control" type="text" name="title" placeholder="Title" />
 
     <% errors.forEach(errorMessage => { %>
       <% if(errorMessage.includes(' You forgot to choose a category! Please try again!')) { %>
@@ -15,7 +15,7 @@
       <% } %>
     <% }) %>
     <label for="category">Category: </label>
-    <input type="text" name="category" placeholder="Category" />
+    <input class="form-control" type="text" name="category" placeholder="Category" />
 
     <% errors.forEach(errorMessage => { %>
       <% if(errorMessage.includes(' You forgot to choose a description! Please try again!')) { %>
@@ -23,7 +23,7 @@
       <% } %>
     <% }) %>
     <label for="description">Description: </label>
-    <input type="text" name="description" placeholder="Description" />
+    <textarea name="description" placeholder="Description" ></textarea>
 
     <% errors.forEach(errorMessage => { %>
       <% if(errorMessage.includes(' You forgot to choose a summary! Please try again!')) { %>
@@ -31,9 +31,9 @@
       <% } %>
     <% }) %>
     <label for="summary">Summary: </label>
-    <input type="text" name="summary" placeholder="Summary" />
+    <input class="form-control" type="text" name="summary" placeholder="Summary" />
 
-    <input type="text" name="imageID" value="<%=projects.img[0]._id%>" hidden/>
+    <input class="form-control" type="text" name="imageID" value="<%=projects.img[0]._id%>" hidden/>
     
     <% errors.forEach(errorMessage => { %>
       <% if(errorMessage.includes(' You forgot to choose a picture in PNG-format! Please try again!')) { %>
@@ -49,7 +49,7 @@
       <% } %>
     <% }) %>
     <label for="picName">Picture name: </label>
-    <input type="text" name="picName" placeholder="Name your picture" />
+    <input class="form-control" type="text" name="picName" placeholder="Name your picture" />
   
     <button type="submit">Update</button>
   </form>

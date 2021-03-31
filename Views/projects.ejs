@@ -7,45 +7,52 @@
     <header><%- include("./layout/navbar.ejs") %></header>
     <div class="hero"><%- include("./layout/hero.ejs") %></div>
     <main>
-
-    <%- include("./helpers/flash_messages.ejs") %>
+      <%- include("./helpers/flash_messages.ejs") %> 
       
-     <% projects.forEach(project => { %>
+      <% projects.forEach(project => { %>
 
       <div class="projectContainer">
         <h2><%=project.title%></h2>
+        <div class="projectImgAndDesc">
+          <div class="projectImage">
+            <% project.img.forEach(img => { %>
+            <!--Move img styling to suitable scss file-->
+            <img
+              src="/Uploads/<%=img.path%>"
+              alt="Project Image could not be displayed"
+            />
+            <% }) %>
+          </div>
+          <div class="projectDesc">
+            <!--<p><%=project.summary%></p>-->
+            <p><%=project.description%></p>
+          </div>
+        </div>
 
-        <% if(user){ %>
-        <!-- Wishlist button post method-->
-        <form action="/projects/wishlist" method="post">
-          <input type="text" name="wishId" value="<%=project._id%>" hidden />
-          <input type="text" name="page" value="<%=page%>" hidden />
-          <button type="submit"><div class="wishIcon"></div></button>
-        </form>
-        <% } %>
-
-        <% project.img.forEach(img => { %>
-        <!--Move img styling to suitable scss file-->
-        <img
-          src="/Uploads/<%=img.path%>"
-          alt="Project Image could not be displayed"
-          height="200px"
-          width="200px"
-        />
-        <% }) %> 
-        
-        <% if(user==null){ %>
-        <fieldset disabled="disabled">
-        <% } %>
-        <form action="/projects" method="post">
-          <input type="text" name="id" value="<%=project._id%>" hidden />
-          <input type="text" name="page" value="<%=page%>" hidden />
-          <input type="number" name="donation" />
-          <button type="submit">Donate!</button>
-        </form>
-        <% if(user==null){ %>
-        </fieldset>
-        <% } %>
+        <div class="projectForms">
+          <% if(user==null){ %>
+          <fieldset disabled="disabled">
+            <% } %>
+            <form action="/projects" method="post">
+              <input type="text" name="id" value="<%=project._id%>" hidden />
+              <input type="text" name="page" value="<%=page%>" hidden />
+              <label for="donation">Donation amount:</label>
+              <input class="form-control" type="number" name="donation" placeholder="Enter your donation here!"/>
+              <button class="bigButton" type="submit">Donate!</button>
+            </form>
+            <% if(user==null){ %>
+          </fieldset>
+          <% } %> 
+          
+          <% if(user){ %>
+          <!-- Wishlist button post method-->
+          <form action="/projects/wishlist" method="post">
+            <input type="text" name="wishId" value="<%=project._id%>" hidden />
+            <input type="text" name="page" value="<%=page%>" hidden />
+            <button type="submit"><div class="wishIcon"></div></button>
+          </form>
+          <% } %>
+        </div>
       </div>
       <% }) %>
 
@@ -55,11 +62,13 @@
       <% } else if( totalPages !== projectsToShow/showedProjectsPerPage) { %>
 
       <a href="/projects/?page=<%=(projectsToShow/showedProjectsPerPage)+1 %>"
-        >Show more</a>
+        >Show more</a
+      >
 
       <% } else { %>
       <a href="/projects/?page=<%=(projectsToShow/showedProjectsPerPage)-1 %>"
-        >Show less</a>
+        >Show less</a
+      >
 
       <% } %>
     </main>
