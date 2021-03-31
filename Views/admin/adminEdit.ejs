@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <main>
+    <div class="projectContainer">
+      <h1><%=projects.title%></h2>
+
+      <div class="projectImgAndDesc">
+
+        <div class="projectImage">
+          <% projects.img.forEach(img => { %>
+            <img
+                src="/Uploads/<%=img.path%>"
+                alt="Project Image could not be displayed"
+                height="200px"
+                width="200px"
+              />
+          <% }) %>
+        </div>
+
+        <div class="projectDesc">
+          <p><%=projects.description%></p>
+          
+          <div class="projectExtraInfo">
+            <p>Category: <%=projects.category%></p>
+            <p>Summary: <%=projects.summary%></p>
+  
+            <p>Created by: <b><%=projects.owner%></b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include("./admin/editProjectForm.ejs") %>
+
+    <p><a href="/admin">Go back!</a></p>
+  </main>
+  </body>
+</html>

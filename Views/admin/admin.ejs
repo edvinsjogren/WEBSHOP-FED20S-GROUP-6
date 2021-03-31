@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <header><%- include("./layout/navbar.ejs") %></header>
+    <main>
+      <h1>Welcome Admin!</h1>
+      <h2>Want to add a project? Fill in form below!</h2>
+
+      <%- include("./admin/addProjectForm.ejs") %>
+
+      <% projects.forEach(project => { %>
+        <div class="projectContainer">
+        
+          <h1><%=project.title%></h1>
+
+          <p>Category: <%=project.category%></p>
+
+          <div class="projectImgAndDesc">
+            <div class="projectImage">
+              <% project.img.forEach(img => { %>
+
+                <!--Move img styling to suitable scss file-->
+                <img
+                  src="/Uploads/<%=img.path%>"
+                  alt="Can't show the project photo"
+                />
+              <% }) %>
+            </div>
+            <div class="projectDesc">
+              <p><%=project.description%></p>
+            </div>
+          </div>
+
+          <p>Summary: <%=project.summary%></p>
+          <p>Created by: <b><%=project.owner%></b></p>
+          <a href="/edit/<%=project._id %>"> Edit</a>
+          <a href="/delete/<%=project._id%>"> Delete</a>
+        </div>
+      <% }) %>
+    </main>
+    <footer><%- include("./layout/footer.ejs") %></footer>
+  </body>
+</html>
