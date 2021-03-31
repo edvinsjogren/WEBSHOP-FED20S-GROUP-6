@@ -10,11 +10,22 @@ main {
         background-color: red;
     }
 
+    h1{
+        font-size: $fs-heading;
+        font-weight: $fw-regular;
+    }
+
+    h2{
+        font-size: $fs-title;
+        text-decoration: underline;
+    }
+
     span {
         width: 80%;
         margin: auto;
         text-align: center;
     }
+
 
     .landingModule {
         @include flexCenter(column);

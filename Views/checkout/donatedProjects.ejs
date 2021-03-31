@@ -1,44 +1,60 @@
-<!-- This is like a receipt so the user can see what donations he/she made when they have donated -->
 
-<!--Needs styling!!!-->
-<div>
-  <% if(donatedProjects.length === 0) { %>
-  <h1>This link doesn't work anymore!</h1>
-  <% } else { %>
-  <h3>Your donations:</h3>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
 
-  <hr />
+    <!-- This is like a receipt so the user can see what donations he/she made when they have donated -->
+    <!--Needs styling!!!-->
 
-  <div>
-    <% donatedProjects.forEach(yourDonation => { %>
-        <p>Project: <%=yourDonation.projectID.title%></p>
-        <p>Summary: <%=yourDonation.projectID.summary%></p>
+    <div class="receiptContainer">
+      <% if(donatedProjects.length === 0) { %>
+      <h1>This link doesn't work anymore!</h1>
+      <% } else { %>
+        <div class="receiptOfProjects">
 
-        <p>Amount you donated: <%=yourDonation.donationAmount%> USD</p>
+          <hr /> 
 
-        <% yourDonation.projectID.img.forEach(img => { %>
-        <!--Move img styling to suitable scss file-->
-            <img
-            src="/Uploads/<%=img.path%>"
-            alt="Project Image could not be displayed"
-            height="200px"
-            width="200px"
-            />
-        <% }) %>
+          <h1>Your donations:</h1>
 
-    <hr />
+          <hr />
 
-    <% }) %>
-  </div>
+          <div>
+            <a href="/"><div class="logo"></div></a>
+            <p><a href="/">Link to our website!</a><p>
+          </div>
 
-  <p>Total amount: <%=totalSumInCart%> USD</p>
+          <hr />
 
-  <div>
-    <p>The other 99</p>
-    <!--Implement the logo here? An IMG-->
-    <p>Donation is our foundation</p>
-    <p><a href="/">Link to our website!</a></p>
-  </div>
+          <div class="donation">
+            <% donatedProjects.forEach(yourDonation => { %>
+                <h4>Project: <%=yourDonation.projectID.title%></h4>
+                <p>Summary: <%=yourDonation.projectID.summary%></p>
 
-  <% } %>
-</div>
+                <% yourDonation.projectID.img.forEach(img => { %>
+                <!--Move img styling to suitable scss file-->
+                    <img
+                    src="/Uploads/<%=img.path%>"
+                    alt="Project Image could not be displayed"
+                    />
+                <% }) %>
+
+                <div class="donationAmount">
+                  <p>Amount you donated: <%=yourDonation.donationAmount%>.00 USD</p>
+                </div>
+
+            <hr />
+
+            <% }) %>
+          </div>
+
+          <div class="totalAmount">
+            <h4>Total amount: <%=totalSumInCart%>.00 USD</h4>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </body>
+</html>

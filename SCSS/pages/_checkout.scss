@@ -1,7 +1,36 @@
 main {
     @include styleProject;
+    margin: 0;
+
+    .errormessage {
+        color: $errorColor;
+    }
+    .infoMessage{
+        color: $infoMessageColor;
+    }
+
+    .editAndDelete {
+        @include flexCenter(column);
+    }
+
+    @include desktopsOnly {
+        .editAndDelete {
+            @include flexCenter(row);
+        }
+    }
 
     .totalSum {
         @include flexCenter(row);
+        margin-top: 1rem;
+    }
+    .projectForms {
+        .donationInputAndSubmit {
+            @include flexCenter(column)
+        }
+        @include desktopsOnly {
+            .donationInputAndSubmit {
+                @include flexCenter(row);
+            }
+        }
     }
 }

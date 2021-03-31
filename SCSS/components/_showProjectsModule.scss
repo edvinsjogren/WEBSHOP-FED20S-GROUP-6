@@ -15,7 +15,7 @@
                 @include flexCenter(column);
                 margin-bottom: 2rem; 
 
-                //border: 1px solid black;
+                border: 1px solid black;
                 img {
                     width: 40vh;
                     height: 30vh;
@@ -28,6 +28,8 @@
     @include desktopsOnly {
         .projectContainer {
     
+            width: 150vh;
+
             .projectImgAndDesc {
                 
                 width: 100vh;

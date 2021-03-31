@@ -12,22 +12,33 @@
         
         <% projects.forEach(project => { %>
 
-        <div class="projectContainer">
-          <h2><%=project.title%></h2>
-          <div class="projectImgAndDesc">
-            <div class="projectImage">
-              <% project.img.forEach(img => { %>
-              <!--Move img styling to suitable scss file-->
-              <img
-                src="/Uploads/<%=img.path%>"
-                alt="Project Image could not be displayed"
-              />
-              <% }) %>
+      <div class="projectContainer">
+        <h2><%=project.title%></h2>
+
+        <% if(user){ %>
+          <!-- Wishlist button post method-->
+          <form action="/projects/wishlist" method="post">
+            <input type="text" name="wishId" value="<%=project._id%>" hidden />
+            <input type="text" name="page" value="<%=page%>" hidden />
+            <div class="wishListSection">
+              <h4>Add to wishlist: </h4>
+              <button type="submit">
+                <div class="wishIcon"></div>
+              </button>
             </div>
-            <div class="projectDesc">
-              <!--<p><%=project.summary%></p>-->
-              <p><%=project.description%></p>
-            </div>
+          </form>
+        <% } %>
+
+        <div class="projectImgAndDesc">
+          <div class="projectImage">
+            <% project.img.forEach(img => { %>
+            <!--Move img styling to suitable scss file-->
+            <img
+              src="/Uploads/<%=img.path%>"
+              alt="Project Image could not be displayed"
+            />
+            <% }) %>
+
           </div>
 
           <div class="projectForms">
@@ -44,16 +55,19 @@
               <% if(user==null){ %>
             </fieldset>
             <% } %> 
-            
-            <% if(user){ %>
-            <!-- Wishlist button post method-->
-            <form action="/projects/wishlist" method="post">
-              <input type="text" name="wishId" value="<%=project._id%>" hidden />
-              <input type="text" name="page" value="<%=page%>" hidden />
-              <button type="submit"><div class="wishIcon"></div></button>
+
+              <div class="donationInputAndSubmit">
+                <div class="donationInput">
+                  <label for="donation">Donation amount:</label>
+                  <input class="form-control" type="number" name="donation" placeholder="Enter your donation here!"/>
+                </div>
+                <button class="bigButton" type="submit">Donate!</button>
+              </div>
             </form>
-            <% } %>
-          </div>
+            <% if(user==null){ %>
+          </fieldset>
+          <% } %>          
+          
         </div>
         <% }) %>
 

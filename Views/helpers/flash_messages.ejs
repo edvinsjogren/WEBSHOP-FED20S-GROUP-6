@@ -14,13 +14,16 @@
 <p><%= messages.ifDonationNoWish %></p>
 <% } %> <% if(messages.addedWish){ %>
 <p><%= messages.addedWish %></p>
+<% } %> <% if(messages.notify){ %>
+<p><%= messages.notify %></p>
 <% } %>
+
 
 <!--checkout.ejs-->
 <% if(messages.error) { %>
-<p><%= messages.error %></p>
+<p class="errorMessage"><%= messages.error %></p>
 <% } %> <% if(messages.success) { %>
-<p><%= messages.success %></p>
+<p class="infoMessage"><%= messages.success %></p>
 <% } %>
 
 <!--resetForm.ejs-->

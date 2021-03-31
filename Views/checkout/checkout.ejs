@@ -33,20 +33,24 @@
 
           </div>
 
-          <p> You are about to donate: <%=project.donationAmount%> $ to this project </p>
-          <p>Do you want to edit this amount? Click the button below!</p>
-          <a href="/donation/<%=project._id%>"> Edit</a>
+          <div class="editAndDelete">
+            <a href="/donation/<%=project._id%>"> <button class="bigButton"> Change donation amount</button></a>
 
-          <form action="/checkout/delete" method="post">
-            <input type="text" name="id" value="<%=project._id%>" hidden />
-            <button type="submit" class="bigButton">Delete</button>
-          </form>
+            <form action="/checkout/delete" method="post">
+              <input type="text" name="id" value="<%=project._id%>" hidden />
+              <button type="submit" class="bigButton">Remove donation</button>
+            </form>
+          </div>
+          <h2>Chosen donation amount: <%=project.donationAmount%>.00 $</h2>
         </div>
+
+
+        
       <% }) %>
 
+      
       <div class="totalSum">
-        <h2>Total sum of donations: </h2>
-        <h2><%= totalSumInCart %> $</h2>
+        <h2>Total amount: <%= totalSumInCart %>.00 $</h2>
       </div>
 
       <!--Activate Stripe-->
