@@ -1,27 +1,36 @@
 .wishIcon {
-    @include wishIcon(url("/Assets/Icons/icon_binoculars.png"));
+  @include wishIcon(url("/Assets/Icons/icon_binoculars.png"));
+}
+
+.wishSubmit {
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  outline: inherit;
+  background: none;
+  border: 1px solid black;
+  border-radius: 50%;
 }
 
 main {
-    @include styleProject;
+  @include styleProject;
 
-    .wishListSection {
-        @include flexCenter(column);
-        margin-top: 1rem;
+  .wishListSection {
+    @include flexCenter(column);
+    margin-top: 1rem;
+  }
+
+  .projectForms {
+    @include flexCenter(row);
+
+    .donateForm {
+      @include flexCenter(column);
+      margin: 2rem;
     }
-
-    .projectForms {
-        
-        @include flexCenter(row);
-        
-        .donateForm {
-            @include flexCenter(column);
-            margin: 2rem;
-        }
-        .wishlistForm {
-            @include flexCenter(column);
-            margin: 2rem;
-        }
+    .wishlistForm {
+      @include flexCenter(column);
+      margin: 2rem;
     }
-
+  }
 }

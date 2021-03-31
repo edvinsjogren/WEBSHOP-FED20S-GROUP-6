@@ -1,6 +1,5 @@
 main {
     @include styleProject;
-    margin: 0;
 
     .errormessage {
         color: $errorColor;
