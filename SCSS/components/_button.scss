@@ -1,12 +1,11 @@
 .simpleSmallButton{
   @include buttonBase;
   padding: 5px 8px;
-  font-size: 8px;
-  font-weight: $fw-bold;
+  font-size: $fs-bread;
+  background-color: lightgray;
  
   &:hover{
-    background-color: #F79E34;
-    color: white;
+    color: #f7931d;
   }
 }
 
@@ -45,10 +44,11 @@
 .link{
   border-bottom: 3px solid #f7931d;
   background-color: rgba(0,0,0,.6);
-  padding: 10px;
+  padding: 1rem 2rem 1rem 2rem;
   color: #fff;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: $fw-regular;
+  font-size: $fs-bread;
   margin: 30px 0;
  &:hover{
   text-decoration: none;

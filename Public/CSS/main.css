@@ -48,11 +48,10 @@ body {
   margin: 1rem;
   transition-duration: 0.1s;
   padding: 5px 8px;
-  font-size: 8px;
-  font-weight: 700; }
+  font-size: 1.2rem;
+  background-color: lightgray; }
   .simpleSmallButton:hover {
-    background-color: #F79E34;
-    color: white; }
+    color: #f7931d; }
 
 .smallButton {
   background-color: #F79E34;
@@ -103,10 +102,11 @@ body {
 .link {
   border-bottom: 3px solid #f7931d;
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 10px;
+  padding: 1rem 2rem 1rem 2rem;
   color: #fff;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 1.2rem;
   margin: 30px 0; }
   .link:hover {
     text-decoration: none;
