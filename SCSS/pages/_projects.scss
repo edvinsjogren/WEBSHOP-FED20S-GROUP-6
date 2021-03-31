@@ -5,6 +5,11 @@
 main {
     @include styleProject;
 
+    .wishListSection {
+        @include flexCenter(column);
+        margin-top: 1rem;
+    }
+
     .projectForms {
         
         @include flexCenter(row);

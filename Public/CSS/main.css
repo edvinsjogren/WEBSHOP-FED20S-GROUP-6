@@ -434,6 +434,13 @@ main .projectContainer {
       main .projectContainer .projectImgAndDesc .projectDesc {
         margin-left: 2rem; } }
 
+main .wishListSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem; }
+
 main .projectForms {
   display: flex;
   justify-content: center;
@@ -513,6 +520,17 @@ main {
     align-items: center;
     flex-direction: row;
     margin-top: 1rem; }
+  main .projectForms .donationInputAndSubmit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+  @media screen and (min-width: 1024px) {
+    main .projectForms .donationInputAndSubmit {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row; } }
 
 main .projectContainer {
   display: flex;
