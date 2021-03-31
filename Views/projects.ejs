@@ -13,6 +13,21 @@
 
       <div class="projectContainer">
         <h2><%=project.title%></h2>
+
+        <% if(user){ %>
+          <!-- Wishlist button post method-->
+          <form action="/projects/wishlist" method="post">
+            <input type="text" name="wishId" value="<%=project._id%>" hidden />
+            <input type="text" name="page" value="<%=page%>" hidden />
+            <div class="wishListSection">
+              <h4>Add to wishlist: </h4>
+              <button type="submit">
+                <div class="wishIcon"></div>
+              </button>
+            </div>
+          </form>
+        <% } %>
+
         <div class="projectImgAndDesc">
           <div class="projectImage">
             <% project.img.forEach(img => { %>
@@ -36,22 +51,18 @@
             <form action="/projects" method="post">
               <input type="text" name="id" value="<%=project._id%>" hidden />
               <input type="text" name="page" value="<%=page%>" hidden />
-              <label for="donation">Donation amount:</label>
-              <input class="form-control" type="number" name="donation" placeholder="Enter your donation here!"/>
-              <button class="bigButton" type="submit">Donate!</button>
+              <div class="donationInputAndSubmit">
+                <div class="donationInput">
+                  <label for="donation">Donation amount:</label>
+                  <input class="form-control" type="number" name="donation" placeholder="Enter your donation here!"/>
+                </div>
+                <button class="bigButton" type="submit">Donate!</button>
+              </div>
             </form>
             <% if(user==null){ %>
           </fieldset>
-          <% } %> 
+          <% } %>          
           
-          <% if(user){ %>
-          <!-- Wishlist button post method-->
-          <form action="/projects/wishlist" method="post">
-            <input type="text" name="wishId" value="<%=project._id%>" hidden />
-            <input type="text" name="page" value="<%=page%>" hidden />
-            <button type="submit"><div class="wishIcon"></div></button>
-          </form>
-          <% } %>
         </div>
       </div>
       <% }) %>

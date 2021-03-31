@@ -23,4 +23,14 @@ main {
         @include flexCenter(row);
         margin-top: 1rem;
     }
+    .projectForms {
+        .donationInputAndSubmit {
+            @include flexCenter(column)
+        }
+        @include desktopsOnly {
+            .donationInputAndSubmit {
+                @include flexCenter(row);
+            }
+        }
+    }
 }
