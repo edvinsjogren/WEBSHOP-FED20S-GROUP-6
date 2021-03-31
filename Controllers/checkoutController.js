@@ -81,7 +81,7 @@ const checkoutRender = async (req, res) => {
   console.log(session);
 
   //render the projects specific for the user, on checkout page
-  res.render("checkout.ejs", {
+  res.render("./checkout/checkout.ejs", {
     projects: projects,
     totalSumInCart: totalSumInCart,
     user: user,
@@ -124,7 +124,7 @@ const sucessfulDonation = async (req, res) => {
       `,
   });
 
-  res.render("payment.ejs", { user: user });
+  res.render("./checkout/payment.ejs", { user: user });
 };
 
 //A "receipt" on the donations the user made.
@@ -154,7 +154,7 @@ const renderDonationsMade = async (req, res) => {
   //Total sum of the all the money that has been donated to the project
   const totalSumInCart = userCartItemPricessMap.reduce(reducer, 0);
 
-  res.render("donatedProjects.ejs", {
+  res.render("./checkout/donatedProjects.ejs", {
     user: user,
     donatedProjects: donationsInCart,
     totalSumInCart: totalSumInCart,
@@ -195,7 +195,7 @@ const editRender = async (req, res) => {
     (project) => project._id == req.params.id
   );
 
-  res.render("checkoutEdit.ejs", { project: selectedDonation, user: user });
+  res.render("./checkout/checkoutEdit.ejs", { project: selectedDonation, user: user });
 };
 
 //post the edited amount on the checkout page

@@ -7,9 +7,9 @@
     <header><%- include("./layout/navbar.ejs") %></header>
     <div class="hero"><%- include("./layout/hero.ejs") %></div>
     <main>
-      <% errors.forEach(errorMessage => { %> <% if(errorMessage.includes("You are not logged in! To donate you have to have an account! Please log in and try again!")) { %>
-      <p><%=errorMessage%></p>
-      <% } %> <% }) %>
+
+      <%- include("./helpers/errors.ejs") %>
+      
       <h2>DONATION IS OUR FOUNDATION</h2>
       <span>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nam

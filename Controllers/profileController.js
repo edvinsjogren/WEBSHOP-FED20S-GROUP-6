@@ -5,9 +5,8 @@ const profileRender = async (req, res) => {
   const user = await User.findOne({ _id: req.user.user._id })
     .populate("wishlist")
     .populate({path: "wishlist", populate: {path: "img"}});
-    
-    console.log(user);
-  res.render("profile.ejs", { user: user });
+
+  res.render("profile.ejs", { user: user});
 };
 
 const profileSubmit = async (req, res) => {
@@ -18,7 +17,7 @@ const profileSubmit = async (req, res) => {
     //Check if the user didn't type in an amount
     if (!donation) {
       req.flash(
-        "error",
+        "selectAmount",
         "You haven't chosen an amount to donate! Please try again!"
       );
       return res.redirect("/profile");
@@ -28,7 +27,7 @@ const profileSubmit = async (req, res) => {
       //Check if the user already have the donation
       if (user.donations.projects[i].projectID == id) {
         req.flash(
-          "duplicate",
+          "duplicateDonation",
           "You've already donated to this project! Visit the checkout page to alter your donations!"
         );
         return res.redirect("/profile");
@@ -48,7 +47,7 @@ const profileSubmit = async (req, res) => {
     user.addDonation(project._id, donation);
     
     req.flash(
-      "confirmation",
+      "donationSuccess",
       "Donation successfully added to your list of donations, proceed to checkout to complete your donation!"
     );
   

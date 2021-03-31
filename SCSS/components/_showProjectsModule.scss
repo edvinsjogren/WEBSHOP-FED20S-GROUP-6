@@ -1,0 +1,50 @@
+@mixin styleProject {
+    .projectContainer {
+        @include flexCenter(column);
+        border: 1px solid black;
+        padding: 3rem;
+
+        .projectImgAndDesc {
+
+            margin-bottom: 2rem; 
+            padding: 1rem;
+
+            @include flexCenter(column);
+            .projectImage {
+
+                @include flexCenter(column);
+                margin-bottom: 2rem; 
+
+                //border: 1px solid black;
+                img {
+                    width: 40vh;
+                    height: 30vh;
+                }
+            }
+        }
+    }   
+
+    //laptops and bigger displays
+    @include desktopsOnly {
+        .projectContainer {
+    
+            .projectImgAndDesc {
+                
+                width: 100vh;
+    
+                @include flexCenter(row);
+
+                .projectImage {
+         
+                    img {
+                        width: 40vh;
+                        height: 30vh;
+                    }
+                }
+                .projectDesc {
+                    margin-left: 2rem; 
+                }
+            }
+        }   
+    }
+}

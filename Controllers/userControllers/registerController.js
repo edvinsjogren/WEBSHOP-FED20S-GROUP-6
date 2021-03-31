@@ -15,17 +15,6 @@ const submitNewAccount = async (req, res) => {
   //get data from req.body
   const {username, email, password} = req.body;
 
-  //handling error in case user don't type in anything
-  if (!username) {
-    errors.push(" Username is required!");
-  }
-  if (!email) {
-    errors.push(" Email is required!");
-  }
-  if (!password) {
-    errors.push(" Password is required!");
-  }
-
   // Collect email in case the username or email is taken
   const checkEmail = await User.findOne({email: email});
 
@@ -37,8 +26,8 @@ const submitNewAccount = async (req, res) => {
     }
   }
 
-  //if user does not fulfill validation requirements, place the errors in a variable
-  const {error} = validateUser(req.body);
+  //JOI: if user does not fulfill validation requirements, place the errors in a variable
+  const { error } = validateUser(req.body);
 
   //then present the error message to the user
   if (error) {
@@ -63,7 +52,7 @@ const submitNewAccount = async (req, res) => {
     return res.redirect("/login");
   } catch (err) {
     if (errors) {
-      return res.render("register.ejs", {errors: errors});
+      return res.render("register.ejs", { errors: errors, error: "" });
     }
   }
 };

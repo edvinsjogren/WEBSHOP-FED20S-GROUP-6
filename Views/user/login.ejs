@@ -1,55 +1,40 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <%- include("./partials/head.ejs") %>
   </head>
 <body>
-<header>
-    <div class="navigationBar">
-        <a href="javascript:history.back()"> <div class="backLink"></div></a>
-    </div>
-</header>
-<main>
-<h1>Sign in to your account</h1>
-<div class="formContainer">
-<form action="/login" method="post" class="submitUserInformation">
-    <!-- Flash message in case the account doesn't exists or incorrect password or successfully-->
-    <% if(messages.error || messages.notify) { %>
-        <p><%=messages.error %></p>
-        <p><%=messages.notify %></p>
-    <% } %>
+  <header>
+      <div class="navigationBar">
+          <a href="javascript:history.back()"> <div class="backLink"></div></a>
+      </div>
+  </header>
+  <main>
+    <h1>Sign in to your account</h1>
+    
+    <div class="formContainer">
+      <!-- Flash message in case the account doesn't exists or incorrect password or successfully-->
+      <%- include("./helpers/flash_messages.ejs") %>
 
-     <!-- Error handling in case user don't type in anything -->
-     <% for(let i=0; i<errors.length; i++) { %>
-        <% if(errors[i].includes(' Please type in an email!')) { %>
-            <p><%=errors[i] %></p>
-        <% } %> 
-    <% } %> 
-    <label for="email" class="label">Email:</label>
-    <input type="text" name="email" class="inputBox">
+      <!-- Error handling in case user don't type in anything -->
+      <%- include("./helpers/errors.ejs") %>
     
-    <!-- Error handling in case user don't type in anything -->
-    <% for(let i=0; i<errors.length; i++) { %>
-        <% if(errors[i].includes(' Please type in a password!')) { %>
-            <p><%=errors[i] %></p>
-        <% } %> 
-    <% } %> 
-    <label for="password" class="label">Password:</label>
-    <input type="password" name="password" class="inputBox">
-    
-    <button type="submit" class="smallButton buttonMargin">Login</button>
-    
-    <span>Don't have account? </span>
-    
-    <a href="/register"> Register</a>
-    
-  <a href="/resetPassword">Forgot password?</a>   
-</form>
-</div>
-</main>
-<footer>
-    <%- include("./layout/footer.ejs") %>
-</footer>
-    <%- include("./partials/scripts.ejs") %>
+      <form action="/login" method="post" class="submitUserInformation">
+          <label for="email" class="label">Email:</label>
+          <input type="text" name="email" class="inputBox">
+          <label for="password" class="label">Password:</label>
+          <input type="password" name="password" class="inputBox">
+          <button type="submit" class="smallButton buttonMargin">Login</button>
+          <span>Don't have account? </span>
+          <a href="/register"> Register</a>
+          <a href="/resetPassword">Forgot password?</a>   
+      </form>
+    </div>
+  </main>
+  <footer>
+      <%- include("./layout/footer.ejs") %>
+  </footer>
+  <%- include("./partials/scripts.ejs") %>
 </body>
 </html>

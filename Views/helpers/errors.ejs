@@ -1,0 +1,27 @@
+<!--landing.ejs-->
+<% for (let i=0; i < errors.length; i++) { %> 
+    <% if(errors[i].includes('You are not loggin in!')) { %>
+        <h2 class="errorMessage"><%=errorMessage%></h2>
+    <% } %> 
+<% } %>
+
+<!--reset.ejs-->
+<% for (let i=0; i < errors.length; i++) { %> 
+    <% if(errors[i].includes('Please type in a new password')) { %>
+        <p><%= errors[i] %></p>
+    <% } %> 
+<% } %>
+
+<!--register.ejs-->
+<% for(let i=0; i<errors.length; i++) { %>
+    <% if(errors[i].includes(' Email is taken! Please choose another one!')) { %>
+        <p><%=errors[i] %></p>
+    <% } %> 
+<% } %>
+
+<!--login.ejs-->
+<% for(let i=0; i<errors.length; i++) { %>
+    <% if(errors[i].includes(' Please type in an email!') || errors[i].includes(' Please type in a password')) { %>
+        <p><%=errors[i] %></p>
+    <% } %> 
+<% } %> 

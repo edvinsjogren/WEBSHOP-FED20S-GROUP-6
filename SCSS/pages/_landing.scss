@@ -1,4 +1,15 @@
 main {
+
+    .errorMessage {
+        text-align: center;
+        width: 75%;
+        margin: 2rem;
+        padding: 1rem;
+        border: .1rem solid black;
+        border-radius: 1rem;
+        background-color: red;
+    }
+
     span {
         width: 80%;
         margin: auto;

@@ -3,39 +3,28 @@
   <head>
     <%- include("./partials/head.ejs") %>
   </head>
-  <body>
-    <header>
+<body>
+  <header>
       <div class="navigationBar">
         <a href="javascript:history.back()"> <div class="backLink"></div></a>
       </div>
-    </header>
-    <main>
-      <div class="formContainer">
-        <form
-          action="/resetPassword"
-          method="POST"
-          class="submitUserInformation"
-        >
-          <h1>Forgot your password?</h1>
-
-          <!-- Below message will pop up if the user either forgot to type in an email or if they typed in an email that is not connected to an account -->
-          <% if(messages.error){ %>
-          <p><%= messages.error%></p>
-          <%}%>
-
-          <!-- Below message will pop up when the user has sumbitted their email as a confirmation and reminder that they now have a link in their inbox -->
-          <% if(messages.notify) {%>
-          <p><%=messages.notify %></p>
-          <%}%>
-          <label for="email" class="label">Type your email below:</label>
-          <input type="email" name="email" class="inputBox" />
-          <button type="submit" class="smallButton buttonMargin">
-            Reset password
-          </button>
-        </form>
-      </div>
-    </main>
-    <footer><%- include("./layout/footer.ejs") %></footer>
-    <%- include("./partials/scripts.ejs") %>
-  </body>
+  </header>
+  <main>
+  <h1>Forgot your password?</h1>
+    <div class="formContainer">
+      <form action="/resetPassword" method="POST" class="submitUserInformation" >
+        <%- include("./helpers/flash_messages.ejs") %>
+        <label for="email" class="label">Type your email below:</label>
+        <input type="email" name="email" class="inputBox" />
+        <button type="submit" class="smallButton buttonMargin">
+        Reset password
+        </button>
+      </form>
+    </div>
+  </main>
+<footer>
+  <%- include("./layout/footer.ejs") %>
+</footer>
+  <%- include("./partials/scripts.ejs") %>
+</body>
 </html>
