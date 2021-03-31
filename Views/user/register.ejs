@@ -5,12 +5,14 @@
   </head>
   <body>
 <header>
-
+    <div class="navigationBar">
+        <a href="javascript:history.back()"> <div class="backLink"></div></a>
+        </div>
 </header>
-<div class="navigationBar"><a href="javascript:history.back()"> <div class="backLink"></div></a></div>
+
 <main>
     <h1>Register an account now!</h1>
-<div>
+<div class="formContainer">
     <% for(let i=0; i<error.length; i++) { %>
         <p><%=error[i].message %></p>
     <% } %> 
@@ -50,8 +52,9 @@
     </form>
 </div>
 </main>
-<footer><%- include("./layout/footer.ejs") %></footer>
-
-<%- include("./partials/scripts.ejs") %>
+<footer>
+    <%- include("./layout/footer.ejs") %>
+</footer>
+    <%- include("./partials/scripts.ejs") %>
 </body>
 </html>
