@@ -4,6 +4,11 @@
     <%- include("./partials/head.ejs") %>
   </head>
   <body>
+    <div class="pageContainer">
+      
+      <header><div class="navigationBar">
+        <a href="javascript:history.back()"> <div class="backLink"></div></a>
+      </div></header>
     <main>
     <div class="projectContainer">
       <h1><%=projects.title%></h2>
@@ -37,5 +42,6 @@
 
     <p><a href="/admin" class="link">Go back!</a></p>
   </main>
+</div>
   </body>
 </html>

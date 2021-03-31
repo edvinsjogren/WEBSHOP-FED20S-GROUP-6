@@ -4,6 +4,7 @@
     <%- include("./partials/head.ejs") %>
   </head>
   <body>
+    <div class="pageContainer">
     <header><%- include("./layout/navbar.ejs") %></header>
     <main>
       <%- include("./helpers/flash_messages.ejs") %>
@@ -48,10 +49,9 @@
             </div>
             <button type="submit" class="bigButton">Done!</button>
           </div>
-
-            <p>Changed your mind?</p>
-            <a href="/checkout">Back</a>
         </div>
+        <p>Changed your mind?</p>
+            <a class="link" href="/checkout">Back</a>
       </main>
       <footer><%- include("./layout/footer.ejs") %></footer>
     </div>

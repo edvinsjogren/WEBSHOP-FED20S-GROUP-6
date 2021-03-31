@@ -14,6 +14,13 @@
 }
 
 main {
+
+  .hero {
+    @include desktopsOnly { 
+      max-width: 60vw;
+    }
+  }
+
   @include styleProject;
 
   .wishListSection {

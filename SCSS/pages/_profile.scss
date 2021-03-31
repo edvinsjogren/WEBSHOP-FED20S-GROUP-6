@@ -13,4 +13,18 @@ main {
 
     @include styleProject;
   }
+
+  
+
+  .donationInputAndSubmit {
+    @include flexCenter(column);
+
+    @include desktopsOnly {
+       @include flexCenter(row);
+    }
+
+    .donationInput {
+      @include flexCenter(column);
+    }
+  }
 }

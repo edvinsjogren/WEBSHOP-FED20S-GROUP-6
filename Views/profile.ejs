@@ -46,9 +46,13 @@
 
             <form action="/profile" method="post">
               <input type="text" name="id" value="<%=project._id%>" hidden />
-              <label for="donation">Donation amount:</label>
-              <input class="form-control" type="number" name="donation" placeholder="Enter your donation here!"/>
-              <button type="submit" class="bigButton">Donate!</button>
+              <div class="donationInputAndSubmit">
+                <div class="donationInput">
+                  <label class="label" for="donation">Donation amount:</label>
+                  <input class="inputBox" type="number" name="donation"/>
+                </div>
+                <button class="bigButton" type="submit">Donate!</button>
+              </div>
             </form>
 
             <div>

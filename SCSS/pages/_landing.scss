@@ -1,5 +1,11 @@
 main {
 
+    .hero {
+        @include desktopsOnly {
+          max-width: 60vw;
+        }
+      }
+
     .errorMessage {
         text-align: center;
         width: 75%;
@@ -13,6 +19,7 @@ main {
     h1{
         font-size: $fs-heading;
         font-weight: $fw-regular;
+        margin-top: 2rem;
     }
 
     h2{
@@ -20,10 +27,17 @@ main {
         text-decoration: underline;
     }
 
-    span {
+    hr {
+        border: 1px solid black;
         width: 80%;
+        margin: 5rem;
+    }
+
+    span {
+        width: 60%;
         margin: auto;
         text-align: center;
+        font-size: $fs-subtitle;
     }
 
 
@@ -46,6 +60,7 @@ main {
 
         .landingDesc {
             text-align: center;
+            font-size: $fs-body;
         }
     }
 }

@@ -5,7 +5,7 @@
   background-color: lightgray;
  
   &:hover{
-    color: #f7931d;
+    color: $black;
   }
 }
 
@@ -41,7 +41,7 @@
   }
 }
 
-.link{
+.link { 
   border-bottom: 3px solid #f7931d;
   background-color: rgba(0,0,0,.6);
   padding: 1rem 2rem 1rem 2rem;
@@ -49,9 +49,14 @@
   text-transform: uppercase;
   font-weight: $fw-regular;
   font-size: $fs-bread;
-  margin: 30px 0;
- &:hover{
-  text-decoration: none;
-  color: #fff;
- } 
+  margin: 3rem;
+  
+  &:hover{
+    text-decoration: none;
+    color: #fff;
+  } 
+
+  @include desktopsOnly {
+  margin-bottom: 5rem;
+ }
 }

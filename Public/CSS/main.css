@@ -39,35 +39,37 @@ body {
   color: #000000; }
 
 .simpleSmallButton {
-  background-color: #F79E34;
+  background-color: #333333;
   border: none;
-  color: #333333;
+  color: white;
   text-decoration: none;
   display: inline-block;
   text-align: center;
   margin: 1rem;
   transition-duration: 0.1s;
+  border: 0.1rem solid #FFFFFF;
   padding: 5px 8px;
   font-size: 1.2rem;
   background-color: lightgray; }
   .simpleSmallButton:hover {
-    color: #f7931d; }
+    color: #000000; }
 
 .smallButton {
-  background-color: #F79E34;
+  background-color: #333333;
   border: none;
-  color: #333333;
+  color: white;
   text-decoration: none;
   display: inline-block;
   text-align: center;
   margin: 1rem;
   transition-duration: 0.1s;
+  border: 0.1rem solid #FFFFFF;
   padding: 10px 25px;
   font-size: 10px; }
   .smallButton:hover {
-    background-color: #333333;
-    border: 0.1rem solid #000000;
-    color: white;
+    background-color: #F79E34;
+    border: 0.1rem solid #F79E34;
+    color: #333333;
     text-decoration: none; }
   .smallButton a:visited,
   .smallButton a:link,
@@ -77,20 +79,21 @@ body {
     cursor: pointer; }
 
 .bigButton {
-  background-color: #F79E34;
+  background-color: #333333;
   border: none;
-  color: #333333;
+  color: white;
   text-decoration: none;
   display: inline-block;
   text-align: center;
   margin: 1rem;
   transition-duration: 0.1s;
+  border: 0.1rem solid #FFFFFF;
   padding: 10px 25px;
   font-size: 16px; }
   .bigButton:hover {
-    background-color: #333333;
-    border: 0.1rem solid #000000;
-    color: white;
+    background-color: #F79E34;
+    border: 0.1rem solid #F79E34;
+    color: #333333;
     text-decoration: none; }
   .bigButton a:visited,
   .bigButton a:link,
@@ -98,6 +101,22 @@ body {
     text-decoration: none;
     color: white;
     cursor: pointer; }
+
+.link {
+  border-bottom: 3px solid #f7931d;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1rem 2rem 1rem 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin: 3rem; }
+  .link:hover {
+    text-decoration: none;
+    color: #fff; }
+  @media screen and (min-width: 1024px) {
+    .link {
+      margin-bottom: 5rem; } }
 
 main .thankYouForYourDonationContainer {
   display: flex;
@@ -121,7 +140,7 @@ main .background-image {
     flex-direction: column;
     justify-content: space-evenly;
     z-index: 2;
-    background: linear-gradient(310.92deg, #c4c4c44d 1%, rgba(24, 22, 22, 0.9) 123.22%);
+    background-color: #787878;
     height: 50vh;
     width: 100vw;
     position: absolute;
@@ -227,7 +246,7 @@ footer .footerContainer {
   flex-direction: row;
   width: 100vw;
   height: 40vh;
-  background: linear-gradient(310.92deg, #c4c4c44d 1%, rgba(24, 22, 22, 0.9) 123.22%);
+  background-color: #787878;
   position: absolute;
   bottom: 0;
   flex-wrap: wrap;
@@ -320,6 +339,10 @@ footer .footerContainer {
       .pageContainer main {
         padding-bottom: 0; } }
 
+@media screen and (min-width: 1024px) {
+  main .hero {
+    max-width: 60vw; } }
+
 main .errorMessage {
   text-align: center;
   width: 75%;
@@ -331,16 +354,23 @@ main .errorMessage {
 
 main h1 {
   font-size: 3.2rem;
-  font-weight: 400; }
+  font-weight: 400;
+  margin-top: 2rem; }
 
 main h2 {
   font-size: 2.4rem;
   text-decoration: underline; }
 
-main span {
+main hr {
+  border: 1px solid black;
   width: 80%;
+  margin: 5rem; }
+
+main span {
+  width: 60%;
   margin: auto;
-  text-align: center; }
+  text-align: center;
+  font-size: 1.6rem; }
 
 main .landingModule {
   display: flex;
@@ -374,7 +404,8 @@ main .landingModule {
     background-position: center;
     margin: 2rem; }
   main .landingModule .landingDesc {
-    text-align: center; }
+    text-align: center;
+    font-size: 1.4rem; }
 
 .wishIcon {
   width: 3rem;
@@ -396,14 +427,21 @@ main .landingModule {
   border: 1px solid black;
   border-radius: 50%; }
 
+@media screen and (min-width: 1024px) {
+  main .hero {
+    max-width: 60vw; } }
+
 main .projectContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #3333335b;
+  border: 1px solid black;
   padding: 1rem;
   margin-top: 4rem; }
+  main .projectContainer h2 {
+    text-align: center;
+    margin-top: 2rem; }
   main .projectContainer .projectImgAndDesc {
     margin-bottom: 2rem;
     padding: 1rem;
@@ -469,9 +507,12 @@ main .projectContainer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #3333335b;
+  border: 1px solid black;
   padding: 1rem;
   margin-top: 4rem; }
+  main .projectContainer h2 {
+    text-align: center;
+    margin-top: 2rem; }
   main .projectContainer .projectImgAndDesc {
     margin-bottom: 2rem;
     padding: 1rem;
@@ -538,22 +579,24 @@ main .projectForms .donationInputAndSubmit {
   justify-content: center;
   align-items: center;
   flex-direction: column; }
-
-@media screen and (min-width: 1024px) {
-  main .projectForms .donationInputAndSubmit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row; } }
+  @media screen and (min-width: 1024px) {
+    main .projectForms .donationInputAndSubmit {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row; } }
 
 main .projectContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #3333335b;
+  border: 1px solid black;
   padding: 1rem;
   margin-top: 4rem; }
+  main .projectContainer h2 {
+    text-align: center;
+    margin-top: 2rem; }
   main .projectContainer .projectImgAndDesc {
     margin-bottom: 2rem;
     padding: 1rem;
@@ -609,9 +652,12 @@ main .noWishlist {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #3333335b;
+    border: 1px solid black;
     padding: 1rem;
     margin-top: 4rem; }
+    main .noWishlist .projectContainer h2 {
+      text-align: center;
+      margin-top: 2rem; }
     main .noWishlist .projectContainer .projectImgAndDesc {
       margin-bottom: 2rem;
       padding: 1rem;
@@ -646,11 +692,28 @@ main .noWishlist {
         main .noWishlist .projectContainer .projectImgAndDesc .projectDesc {
           margin-left: 2rem; } }
 
+main .donationInputAndSubmit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  @media screen and (min-width: 1024px) {
+    main .donationInputAndSubmit {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row; } }
+  main .donationInputAndSubmit .donationInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+
 body .navigationBar {
   padding: 2rem;
   width: 100%;
   height: 10vh;
-  background-color: #ebebeb; }
+  background-color: #787878; }
   body .navigationBar .backLink {
     background-image: url("/Assets/Icons/icon_backArrow.png");
     background-size: cover;
@@ -660,7 +723,7 @@ body .navigationBar {
     width: 5rem; }
   @media screen and (min-width: 600px) {
     body .navigationBar {
-      height: 20vh; } }
+      height: 15vh; } }
 
 main h1 {
   font-size: 2.4rem; }
@@ -673,9 +736,12 @@ main .projectContainer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #3333335b;
+  border: 1px solid black;
   padding: 1rem;
   margin-top: 4rem; }
+  main .projectContainer h2 {
+    text-align: center;
+    margin-top: 2rem; }
   main .projectContainer .projectImgAndDesc {
     margin-bottom: 2rem;
     padding: 1rem;
@@ -714,11 +780,14 @@ main .projectContainer {
 main .projectExtraInfo {
   margin-top: 3rem; }
 
+main form {
+  margin: 3rem; }
+
 body .navigationBar {
   padding: 2rem;
   width: 100%;
   height: 10vh;
-  background-color: #ebebeb; }
+  background-color: #787878; }
   body .navigationBar .backLink {
     background-image: url("/Assets/Icons/icon_backArrow.png");
     background-size: cover;
@@ -726,9 +795,9 @@ body .navigationBar {
     background-position: center;
     height: 5rem;
     width: 5rem; }
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 1024px) {
     body .navigationBar {
-      height: 20vh; } }
+      height: 15vh; } }
 
 main h1 {
   font-size: 2.4rem;

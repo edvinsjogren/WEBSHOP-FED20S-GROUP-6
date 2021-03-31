@@ -24,10 +24,9 @@ main {
     }
     .projectForms {
         .donationInputAndSubmit {
-            @include flexCenter(column)
-        }
-        @include desktopsOnly {
-            .donationInputAndSubmit {
+            @include flexCenter(column);
+        
+            @include desktopsOnly {
                 @include flexCenter(row);
             }
         }

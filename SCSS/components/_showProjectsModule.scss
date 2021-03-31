@@ -1,9 +1,14 @@
 @mixin styleProject {
     .projectContainer {
         @include flexCenter(column);
-        background-color: #3333335b;
+        border: 1px solid black;
         padding: 1rem;
         margin-top: 4rem;
+
+        h2 {
+            text-align: center;
+            margin-top: 2rem;
+        }
 
         .projectImgAndDesc {
             margin-bottom: 2rem; 
