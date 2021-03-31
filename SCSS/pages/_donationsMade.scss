@@ -1,0 +1,28 @@
+.receiptContainer {
+    
+    @include flexCenter(column);
+
+    .receiptOfProjects {
+        border: 5px solid black;
+        padding: 8rem;
+        margin: 3rem;
+        background-color: #DEE4E7;
+        @include flexCenter(column);
+
+        img {
+            border: 1px solid black;
+            width: 20vh;
+            height: 15vh;
+        }
+
+        .donationAmount {
+            text-align: right;
+
+            margin-top: 2rem;
+
+            p {
+                font-weight: bold;
+            }
+        }
+    }
+}

@@ -642,3 +642,27 @@ main h1 {
 
 main .buttonMargin {
   margin-top: 5rem; }
+
+.receiptContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  .receiptContainer .receiptOfProjects {
+    border: 5px solid black;
+    padding: 8rem;
+    margin: 3rem;
+    background-color: #DEE4E7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .receiptContainer .receiptOfProjects img {
+      border: 1px solid black;
+      width: 20vh;
+      height: 15vh; }
+    .receiptContainer .receiptOfProjects .donationAmount {
+      text-align: right;
+      margin-top: 2rem; }
+      .receiptContainer .receiptOfProjects .donationAmount p {
+        font-weight: bold; }
