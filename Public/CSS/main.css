@@ -420,17 +420,19 @@ main .projectContainer {
         height: 30vh; }
 
 @media screen and (min-width: 1024px) {
-  main .projectContainer .projectImgAndDesc {
-    width: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row; }
-    main .projectContainer .projectImgAndDesc .projectImage img {
-      width: 40vh;
-      height: 30vh; }
-    main .projectContainer .projectImgAndDesc .projectDesc {
-      margin-left: 2rem; } }
+  main .projectContainer {
+    width: 150vh; }
+    main .projectContainer .projectImgAndDesc {
+      width: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row; }
+      main .projectContainer .projectImgAndDesc .projectImage img {
+        width: 40vh;
+        height: 30vh; }
+      main .projectContainer .projectImgAndDesc .projectDesc {
+        margin-left: 2rem; } }
 
 main .projectForms {
   display: flex;
@@ -477,17 +479,19 @@ main {
           width: 40vh;
           height: 30vh; }
   @media screen and (min-width: 1024px) {
-    main .projectContainer .projectImgAndDesc {
-      width: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: row; }
-      main .projectContainer .projectImgAndDesc .projectImage img {
-        width: 40vh;
-        height: 30vh; }
-      main .projectContainer .projectImgAndDesc .projectDesc {
-        margin-left: 2rem; } }
+    main .projectContainer {
+      width: 150vh; }
+      main .projectContainer .projectImgAndDesc {
+        width: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row; }
+        main .projectContainer .projectImgAndDesc .projectImage img {
+          width: 40vh;
+          height: 30vh; }
+        main .projectContainer .projectImgAndDesc .projectDesc {
+          margin-left: 2rem; } }
   main .errormessage {
     color: red; }
   main .infoMessage {
@@ -536,17 +540,19 @@ main .projectContainer {
         height: 30vh; }
 
 @media screen and (min-width: 1024px) {
-  main .projectContainer .projectImgAndDesc {
-    width: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row; }
-    main .projectContainer .projectImgAndDesc .projectImage img {
-      width: 40vh;
-      height: 30vh; }
-    main .projectContainer .projectImgAndDesc .projectDesc {
-      margin-left: 2rem; } }
+  main .projectContainer {
+    width: 150vh; }
+    main .projectContainer .projectImgAndDesc {
+      width: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row; }
+      main .projectContainer .projectImgAndDesc .projectImage img {
+        width: 40vh;
+        height: 30vh; }
+      main .projectContainer .projectImgAndDesc .projectDesc {
+        margin-left: 2rem; } }
 
 main .profileTopContainer {
   text-align: center; }
@@ -588,17 +594,19 @@ main .noWishlist {
           width: 40vh;
           height: 30vh; }
   @media screen and (min-width: 1024px) {
-    main .noWishlist .projectContainer .projectImgAndDesc {
-      width: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: row; }
-      main .noWishlist .projectContainer .projectImgAndDesc .projectImage img {
-        width: 40vh;
-        height: 30vh; }
-      main .noWishlist .projectContainer .projectImgAndDesc .projectDesc {
-        margin-left: 2rem; } }
+    main .noWishlist .projectContainer {
+      width: 150vh; }
+      main .noWishlist .projectContainer .projectImgAndDesc {
+        width: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row; }
+        main .noWishlist .projectContainer .projectImgAndDesc .projectImage img {
+          width: 40vh;
+          height: 30vh; }
+        main .noWishlist .projectContainer .projectImgAndDesc .projectDesc {
+          margin-left: 2rem; } }
 
 body .navigationBar {
   padding: 2rem;
@@ -649,17 +657,19 @@ main .projectContainer {
         height: 30vh; }
 
 @media screen and (min-width: 1024px) {
-  main .projectContainer .projectImgAndDesc {
-    width: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row; }
-    main .projectContainer .projectImgAndDesc .projectImage img {
-      width: 40vh;
-      height: 30vh; }
-    main .projectContainer .projectImgAndDesc .projectDesc {
-      margin-left: 2rem; } }
+  main .projectContainer {
+    width: 150vh; }
+    main .projectContainer .projectImgAndDesc {
+      width: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row; }
+      main .projectContainer .projectImgAndDesc .projectImage img {
+        width: 40vh;
+        height: 30vh; }
+      main .projectContainer .projectImgAndDesc .projectDesc {
+        margin-left: 2rem; } }
 
 main .projectExtraInfo {
   margin-top: 3rem; }
