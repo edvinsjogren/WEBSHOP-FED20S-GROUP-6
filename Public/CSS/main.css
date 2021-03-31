@@ -405,7 +405,8 @@ main .projectContainer {
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin-bottom: 2rem; }
+      margin-bottom: 2rem;
+      border: 1px solid black; }
       main .projectContainer .projectImgAndDesc .projectImage img {
         width: 40vh;
         height: 30vh; }
@@ -441,48 +442,65 @@ main .projectForms {
     flex-direction: column;
     margin: 2rem; }
 
-main .projectContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border: 1px solid black;
-  padding: 3rem; }
-  main .projectContainer .projectImgAndDesc {
-    margin-bottom: 2rem;
-    padding: 1rem;
+main {
+  margin: 0; }
+  main .projectContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; }
-    main .projectContainer .projectImgAndDesc .projectImage {
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 3rem; }
+    main .projectContainer .projectImgAndDesc {
+      margin-bottom: 2rem;
+      padding: 1rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      margin-bottom: 2rem; }
+      flex-direction: column; }
+      main .projectContainer .projectImgAndDesc .projectImage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 2rem;
+        border: 1px solid black; }
+        main .projectContainer .projectImgAndDesc .projectImage img {
+          width: 40vh;
+          height: 30vh; }
+  @media screen and (min-width: 1024px) {
+    main .projectContainer .projectImgAndDesc {
+      width: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row; }
       main .projectContainer .projectImgAndDesc .projectImage img {
         width: 40vh;
         height: 30vh; }
-
-@media screen and (min-width: 1024px) {
-  main .projectContainer .projectImgAndDesc {
-    width: 100vh;
+      main .projectContainer .projectImgAndDesc .projectDesc {
+        margin-left: 2rem; } }
+  main .errormessage {
+    color: red; }
+  main .infoMessage {
+    color: #0000FF; }
+  main .editAndDelete {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row; }
-    main .projectContainer .projectImgAndDesc .projectImage img {
-      width: 40vh;
-      height: 30vh; }
-    main .projectContainer .projectImgAndDesc .projectDesc {
-      margin-left: 2rem; } }
-
-main .totalSum {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row; }
+    flex-direction: column; }
+  @media screen and (min-width: 1024px) {
+    main .editAndDelete {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row; } }
+  main .totalSum {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 1rem; }
 
 main .projectContainer {
   display: flex;
@@ -503,7 +521,8 @@ main .projectContainer {
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin-bottom: 2rem; }
+      margin-bottom: 2rem;
+      border: 1px solid black; }
       main .projectContainer .projectImgAndDesc .projectImage img {
         width: 40vh;
         height: 30vh; }
@@ -555,7 +574,8 @@ main .noWishlist {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin-bottom: 2rem; }
+        margin-bottom: 2rem;
+        border: 1px solid black; }
         main .noWishlist .projectContainer .projectImgAndDesc .projectImage img {
           width: 40vh;
           height: 30vh; }
@@ -614,7 +634,8 @@ main .projectContainer {
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin-bottom: 2rem; }
+      margin-bottom: 2rem;
+      border: 1px solid black; }
       main .projectContainer .projectImgAndDesc .projectImage img {
         width: 40vh;
         height: 30vh; }
@@ -681,3 +702,14 @@ main .buttonMargin {
       margin-top: 2rem; }
       .receiptContainer .receiptOfProjects .donationAmount p {
         font-weight: bold; }
+
+main .donationDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row; }
+  main .donationDiv .donationLabelAndInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
