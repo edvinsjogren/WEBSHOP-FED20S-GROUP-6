@@ -1,9 +1,9 @@
-const { User } = require("../../Models/user");
+const {User} = require("../../Models/user");
 const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 
-const { nodeMailerPassword, nodeMailerUser } = require("../../Config/config");
+const {nodeMailerPassword, nodeMailerUser} = require("../../Config/config");
 
 let errors = [];
 
@@ -16,12 +16,12 @@ const transport = nodemailer.createTransport({
 });
 
 const renderResetPasswordPage = (req, res) => {
-  res.render("resetForm.ejs", { err: "" });
+  res.render("resetForm.ejs", {err: ""});
 };
 
 const submitResetPasswordPage = async (req, res) => {
   const email = req.body.email;
-  const user = await User.findOne({ email: email });
+  const user = await User.findOne({email: email});
 
   if (!user) {
     req.flash(
@@ -49,30 +49,30 @@ const submitResetPasswordPage = async (req, res) => {
     "emailNotification",
     "Check your email, you should now have received a link to reset your password."
   );
-  res.render("resetForm.ejs", { user: user });
+  res.render("resetForm.ejs", {user: user});
 };
 
 const submitResetPasswordFormPage = async (req, res) => {
   //empty the array with errors
   errors = [];
 
-  const { email, password } = req.body;
+  const {email, password} = req.body;
 
   //error control in case no password is typed before sumbitting
   if (!password) {
     errors.push("Please type in a new password, the field cannot be empty");
-    return res.render("reset.ejs", { errors, email});
+    return res.render("reset.ejs", {errors, email});
   }
 
   const salt = await bcrypt.genSalt(12);
   const hashedPassword = await bcrypt.hash(password, salt);
-  const user = await User.findOne({ email: email });
+  const user = await User.findOne({email: email});
 
   user.password = hashedPassword;
   await user.save();
 
   //Notify the user that the password is successfully changed through flash
-  req.flash("notify", "Great, your password has now been changed!");
+  req.flash("passwordChanged", "Great, your password has now been changed!");
   return res.redirect("/login");
 };
 
@@ -83,12 +83,12 @@ const resetPasswordParams = async (req, res) => {
   try {
     const user = await User.findOne({
       token: token,
-      tokenExpirationDate: { $gt: Date.now() },
+      tokenExpirationDate: {$gt: Date.now()},
     });
 
-    res.render("reset.ejs", { errors, email: user.email });
+    res.render("reset.ejs", {errors, email: user.email});
   } catch (err) {
-    res.render("resetForm.ejs", { err: "" });
+    res.render("resetForm.ejs", {err: ""});
   }
 };
 
