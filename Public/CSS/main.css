@@ -342,7 +342,8 @@ main h1 {
   font-weight: 400; }
 
 main h2 {
-  font-size: 2.4rem; }
+  font-size: 2.4rem;
+  text-decoration: underline; }
 
 main span {
   width: 80%;
