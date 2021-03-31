@@ -1,6 +1,10 @@
-main {
-    @include flexCenter(column);
+.pageContainer {
     position: relative;
-    top: 5rem;
-    height: 100%;
+    min-height: 100vh;
+
+    main {
+        @include flexCenter(column);
+        padding-top: 10vh;
+        padding-bottom: 40vh;
+    }
 }

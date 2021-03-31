@@ -4,41 +4,43 @@
     <%- include("./partials/head.ejs") %>
   </head>
   <body>
-    <header><%- include("./layout/navbar.ejs") %></header>
-    <main>
-      <%- include("./helpers/flash_messages.ejs") %>
-      <div>
-        <h2><%=project.projectID.title%></h2>
-        <p><%=project.projectID.summary%></p>
+    <div class="pageContainer">
+      <header><%- include("./layout/navbar.ejs") %></header>
+      <main>
+        <%- include("./helpers/flash_messages.ejs") %>
+        <div>
+          <h2><%=project.projectID.title%></h2>
+          <p><%=project.projectID.summary%></p>
 
-        <% project.projectID.img.forEach(img => { %>
-        <!--Move img styling to suitable scss file-->
-          <img
-            src="/Uploads/<%=img.path%>"
-            alt="Project Image could not be displayed"
-            height="200px"
-            width="200px"
-          />
-        <% }) %>
+          <% project.projectID.img.forEach(img => { %>
+          <!--Move img styling to suitable scss file-->
+            <img
+              src="/Uploads/<%=img.path%>"
+              alt="Project Image could not be displayed"
+              height="200px"
+              width="200px"
+            />
+          <% }) %>
 
-        <p> You've previously selected to donate: <%=project.donationAmount%> $ to this project </p>
-        <p> If you'd like to update this amount, fill in the field below and click the button!</p>
-       
-        <form action="/editDonation" method="post">
-          <input
-            type="text"
-            name="id"
-            value="<%=project._id%>"
-            hidden
-          />
-          <label for="donationAmount">Edit amount</label>
-          <input type="number" name="donationAmount" placeholder="New amount" />
-          <button type="submit">Done!</button>
+          <p> You've previously selected to donate: <%=project.donationAmount%> $ to this project </p>
+          <p> If you'd like to update this amount, fill in the field below and click the button!</p>
+        
+          <form action="/editDonation" method="post">
+            <input
+              type="text"
+              name="id"
+              value="<%=project._id%>"
+              hidden
+            />
+            <label for="donationAmount">Edit amount</label>
+            <input type="number" name="donationAmount" placeholder="New amount" />
+            <button type="submit">Done!</button>
 
-          <p>Changed your mind?</p>
-          <a href="/checkout">Back</a>
-      </div>
-    </main>
-    <footer><%- include("./layout/footer.ejs") %></footer>
+            <p>Changed your mind?</p>
+            <a href="/checkout">Back</a>
+        </div>
+      </main>
+      <footer><%- include("./layout/footer.ejs") %></footer>
+    </div>
   </body>
 </html>

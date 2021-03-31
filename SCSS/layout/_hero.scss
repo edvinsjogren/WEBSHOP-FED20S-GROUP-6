@@ -1,9 +1,16 @@
 #hero-carousel {
+  
   .carousel-inner {
+    position: absolute;
+  top: 20vh;
     .carousel-caption {
       a {
         opacity: 0.6;
       }
     }
   }
+}
+
+.hero {
+  margin-top: 10vh;
 }

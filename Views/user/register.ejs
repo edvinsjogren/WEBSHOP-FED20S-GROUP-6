@@ -4,36 +4,37 @@
   <%- include("./partials/head.ejs") %>
 </head>
 <body>
-  <header>
-    <div class="navigationBar"><a href="javascript:history.back()"><div class="backLink"></div></a></div>
-  </header>
+  <div class="pageContainer">
+    <header>
+      <div class="navigationBar"><a href="javascript:history.back()"><div class="backLink"></div></a></div>
+    </header>
 
-  <main>
-    <h1>Register an account now!</h1>
+    <main>
+      <h1>Register an account now!</h1>
 
-    <!--Joi validation error messages-->
-      <% for(let i=0; i<error.length; i++) { %>
-       <p><%=error[i].message %></p>
-      <% } %> 
+      <!--Joi validation error messages-->
+        <% for(let i=0; i<error.length; i++) { %>
+        <p><%=error[i].message %></p>
+        <% } %> 
 
-    <div class="formContainer">
+      <div class="formContainer">
 
-      <!--duplicate email prohibitor-->
-      <%- include("./helpers/errors.ejs") %>
+        <!--duplicate email prohibitor-->
+        <%- include("./helpers/errors.ejs") %>
 
-      <form action="/register" method="POST" class="submitUserInformation">   
-        <label for="username" class="label">Username:</label>
-        <input type="text" name="username" class="inputBox"/>
-        <label for="email" class="label">Email:</label>
-        <input type="text" name="email" class="inputBox"/> 
-        <label for="password" class="label">Password:</label>
-        <input type="password" name="password" class="inputBox"/>
-        <button type="submit" class="smallButton buttonMargin">Create new account!</button>
-      </form>
-    </div>
-  </main>
-  <footer><%- include("./layout/footer.ejs") %></footer>
-
+        <form action="/register" method="POST" class="submitUserInformation">   
+          <label for="username" class="label">Username:</label>
+          <input type="text" name="username" class="inputBox"/>
+          <label for="email" class="label">Email:</label>
+          <input type="text" name="email" class="inputBox"/> 
+          <label for="password" class="label">Password:</label>
+          <input type="password" name="password" class="inputBox"/>
+          <button type="submit" class="smallButton buttonMargin">Create new account!</button>
+        </form>
+      </div>
+    </main>
+    <footer><%- include("./layout/footer.ejs") %></footer>
+  </div>
   <%- include("./partials/scripts.ejs") %>
 </body>
 </html>
