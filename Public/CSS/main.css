@@ -41,24 +41,66 @@ body {
 .smallButton {
   background-color: #000000;
   border: none;
+  border-radius: 0.5rem;
   color: white;
   padding: 10px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 1rem; }
+  margin: 1rem;
+  cursor: pointer;
+  transition-duration: 0.1s; }
+  .smallButton a:visited,
+  .smallButton a:link,
+  .smallButton a:active, .smallButton a:hover {
+    text-decoration: none;
+    color: white;
+    cursor: pointer; }
+  .smallButton:hover {
+    background-color: white;
+    border: 0.1rem solid #000000;
+    color: #000000;
+    text-decoration: none; }
 
 .bigButton {
   background-color: #000000;
   border: none;
+  border-radius: 0.5rem;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 1rem; }
+  margin: 1rem;
+  cursor: pointer;
+  transition-duration: 0.1s; }
+  .bigButton a:visited,
+  .bigButton a:link,
+  .bigButton a:active, .bigButton a:hover {
+    text-decoration: none;
+    color: white;
+    cursor: pointer; }
+  .bigButton:hover {
+    color: #000000;
+    background-color: white;
+    border: 0.1rem solid #000000;
+    text-decoration: none; }
+
+main {
+  padding: 4rem; }
+  main .thankYouForYourDonationContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 80vw;
+    font-size: 1.6rem; }
+  main .background-image {
+    width: 45vw;
+    margin: 4rem; }
 
 .menu {
   position: static; }
