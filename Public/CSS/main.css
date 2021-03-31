@@ -41,7 +41,6 @@ body {
 .simpleSmallButton {
   background-color: #F79E34;
   border: none;
-  border-radius: 0.5rem;
   color: #333333;
   text-decoration: none;
   display: inline-block;
@@ -49,16 +48,14 @@ body {
   margin: 1rem;
   transition-duration: 0.1s;
   padding: 5px 8px;
-  font-size: 8px;
-  font-weight: 700; }
+  font-size: 1.2rem;
+  background-color: lightgray; }
   .simpleSmallButton:hover {
-    background-color: #F79E34;
-    color: white; }
+    color: #f7931d; }
 
 .smallButton {
   background-color: #F79E34;
   border: none;
-  border-radius: 0.5rem;
   color: #333333;
   text-decoration: none;
   display: inline-block;
@@ -82,14 +79,13 @@ body {
 .bigButton {
   background-color: #F79E34;
   border: none;
-  border-radius: 0.5rem;
   color: #333333;
   text-decoration: none;
   display: inline-block;
   text-align: center;
   margin: 1rem;
   transition-duration: 0.1s;
-  padding: 15px 32px;
+  padding: 10px 25px;
   font-size: 16px; }
   .bigButton:hover {
     background-color: #333333;
@@ -102,6 +98,19 @@ body {
     text-decoration: none;
     color: white;
     cursor: pointer; }
+
+.link {
+  border-bottom: 3px solid #f7931d;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1rem 2rem 1rem 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin: 30px 0; }
+  .link:hover {
+    text-decoration: none;
+    color: #fff; }
 
 main {
   padding: 4rem; }
