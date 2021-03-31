@@ -127,215 +127,191 @@ main {
     margin: 4rem; }
 
 .menu {
-  position: static; }
-
-.menu .navbar {
-  clear: both;
-  max-height: 0;
-  transition: max-height 0.2s ease-out; }
-
-.menu .hamburger {
-  width: 4rem;
-  height: 4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  padding: .4rem;
-  border-radius: .6rem; }
-
-.menu .hamburger .segment {
-  width: 100%;
-  background: black;
-  height: .5rem;
-  border-radius: .2rem;
-  box-sizing: border-box;
-  transition: transform 400ms ease-in-out, opacity 400ms ease-in-out;
-  border: .1rem solid black; }
-
-.menu .menu-icon {
-  cursor: pointer;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 1.5rem; }
-
-.menu .menu-btn:checked ~ .navbar {
-  max-height: 23rem;
-  padding-bottom: 1rem; }
-
-.menu .menu-btn:checked ~ .menu-icon .hamburger {
-  justify-content: center; }
-
-.menu .menu-btn:checked ~ .menu-icon .hamburger .segment:nth-child(1) {
-  transform: translate(0, 0.5rem) rotate(-45deg);
-  transition: transform 400ms ease-in-out; }
-
-.menu .menu-btn:checked ~ .menu-icon .hamburger .segment:nth-child(2) {
-  opacity: 0;
-  transition: opacity 400ms ease-in-out; }
-
-.menu .menu-btn:checked ~ .menu-icon .hamburger .segment:nth-child(3) {
-  transform: translate(0, -0.5rem) rotate(45deg);
-  transition: transform 400ms ease-in-out; }
-
-.menu .menu-btn {
-  display: none; }
-
-.menu ul {
-  z-index: 1;
-  opacity: .9;
-  list-style-type: none;
-  padding-left: 0;
-  overflow: hidden;
-  margin: 0;
-  position: absolute;
-  width: 100vw;
-  max-width: 100%;
-  background-color: #ebebeb;
-  padding-top: 10px; }
-
-.profileIcon {
-  width: 2rem;
-  height: 2rem;
-  margin: 1rem;
-  background-image: url("/Assets/Icons/icon_profile.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer; }
-
-.shoppingCart {
-  width: 2rem;
-  height: 2rem;
-  margin: 1rem;
-  background-image: url("/Assets/Icons/icon_shoppingcart.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer; }
-
-.logo {
-  width: 100%;
-  height: 5rem;
-  background-image: url("/Assets/Icons/icon_logo.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer; }
-
-@media screen and (min-width: 769px) {
-  .menu ul {
-    padding-top: 0;
-    background-color: none; } }
-
-.menu ul li {
-  text-align: center; }
-
-.menu ul a {
-  display: block;
-  padding: 5px;
-  text-decoration: none;
-  font-size: 1.5em;
-  color: black; }
-
-@media screen and (min-width: 769px) {
-  .menu {
-    height: 60px; }
+  height: 10vh; }
   .menu .navbar {
-    clear: none;
-    max-height: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start; }
-  .menu ul a {
-    font-size: 1.3em; }
-  .menu ul a:hover {
-    text-decoration: underline; }
-  .menu .menu-icon {
-    display: none; }
-  .menu li a {
-    padding: 18px 30px; } }
-
-footer {
-  width: 100vw;
-  height: 20vh;
-  background-color: #FFF5D3;
-  margin-top: 5rem; }
-  footer a {
-    text-decoration: none;
-    color: #000000; }
-  footer .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
-    height: 100%;
-    flex-wrap: wrap; }
-    footer .container .leftSide {
+    flex-direction: column;
+    justify-content: space-evenly;
+    z-index: 2;
+    background: linear-gradient(310.92deg, #c4c4c44d 1%, rgba(24, 22, 22, 0.9) 123.22%);
+    height: 50vh;
+    width: 100vw;
+    position: absolute;
+    transition: .4s ease-in-out;
+    top: -100vh;
+    list-style: none;
+    padding: 2rem 0 2rem 0; }
+    .menu .navbar a {
+      color: #000000;
+      text-decoration: none; }
+    .menu .navbar .profileIcon {
+      width: 2rem;
+      height: 2rem;
+      margin: 1rem;
+      background-image: url("/Assets/Icons/icon_profile.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer; }
+    .menu .navbar .shoppingCart {
+      width: 2rem;
+      height: 2rem;
+      margin: 1rem;
+      background-image: url("/Assets/Icons/icon_shoppingcart.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer; }
+    .menu .navbar .logo {
+      width: 100%;
+      height: 5rem;
+      background-image: url("/Assets/Icons/icon_logo.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer; }
+  .menu .hamburger {
+    z-index: 200;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0.4rem;
+    border-radius: 0.6rem; }
+    .menu .hamburger .segment {
+      width: 100%;
+      background: black;
+      height: 0.5rem;
+      border-radius: 0.2rem;
+      box-sizing: border-box;
+      transition: transform 400ms ease-in-out, opacity 400ms ease-in-out;
+      border: 0.1rem solid black; }
+  .menu .menu-icon {
+    z-index: 100;
+    cursor: pointer;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 0 0 1rem; }
+  .menu .menu-btn:checked ~ .navbar {
+    top: 0;
+    left: 0; }
+  .menu .menu-btn:checked ~ .menu-icon .hamburger {
+    justify-content: center; }
+  .menu .menu-btn:checked ~ .menu-icon .hamburger .segment:nth-child(1) {
+    transform: translate(0, 0.5rem) rotate(-45deg);
+    transition: transform 400ms ease-in-out; }
+  .menu .menu-btn:checked ~ .menu-icon .hamburger .segment:nth-child(2) {
+    opacity: 0;
+    transition: opacity 400ms ease-in-out; }
+  .menu .menu-btn:checked ~ .menu-icon .hamburger .segment:nth-child(3) {
+    transform: translate(0, -0.5rem) rotate(45deg);
+    transition: transform 400ms ease-in-out; }
+  .menu .menu-btn {
+    display: none; }
+  @media screen and (min-width: 1024px) {
+    .menu .navbar {
+      top: 0;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      width: 50%; }
-      footer .container .leftSide .socialMediaLinks {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        list-style: none;
-        width: 45%;
-        margin: auto; }
-        footer .container .leftSide .socialMediaLinks .facebook {
-          width: 4rem;
-          height: 4rem;
-          margin: 1rem;
-          background-image: url("/Assets/Icons/icon_facebook.png");
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: center;
-          cursor: pointer; }
-        footer .container .leftSide .socialMediaLinks .instagram {
-          width: 4rem;
-          height: 4rem;
-          margin: 1rem;
-          background-image: url("/Assets/Icons/icon_instagram.png");
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: center;
-          cursor: pointer; }
-        footer .container .leftSide .socialMediaLinks .twitter {
-          width: 4rem;
-          height: 4rem;
-          margin: 1rem;
-          background-image: url("/Assets/Icons/icon_twitter.png");
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: center;
-          cursor: pointer; }
-    footer .container .rightSide {
-      width: 50%; }
-      footer .container .rightSide .contacts {
-        width: 45%;
-        list-style: none;
-        margin: auto; }
-        footer .container .rightSide .contacts li {
-          margin: 1rem; }
-      footer .container .rightSide p {
-        width: 100vw;
-        text-align: center; }
-  @media screen and (min-width: 600px) {
-    footer {
-      height: 30rem; } }
+      flex-direction: row;
+      justify-content: space-around;
+      background-color: none;
+      max-height: 10rem;
+      padding: 0 10rem 0 10rem;
+      border-radius: 0; }
+      .menu .navbar a {
+        display: block;
+        padding: 0.5rem;
+        font-size: 1.5em;
+        color: black; }
+    .menu .menu-icon {
+      display: none; } }
 
-main {
+footer .footerContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  width: 100vw;
+  height: 40vh;
+  background-color: #f59e1c;
+  position: absolute;
+  bottom: 0;
+  flex-wrap: wrap; }
+  footer .footerContainer a {
+    text-decoration: none;
+    color: #000000; }
+  footer .footerContainer .leftSide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%; }
+    footer .footerContainer .leftSide .socialMediaLinks {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      list-style: none;
+      width: 45%;
+      margin: auto; }
+      footer .footerContainer .leftSide .socialMediaLinks .facebook {
+        width: 4rem;
+        height: 4rem;
+        margin: 1rem;
+        background-image: url("/Assets/Icons/icon_facebook.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer; }
+      footer .footerContainer .leftSide .socialMediaLinks .instagram {
+        width: 4rem;
+        height: 4rem;
+        margin: 1rem;
+        background-image: url("/Assets/Icons/icon_instagram.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer; }
+      footer .footerContainer .leftSide .socialMediaLinks .twitter {
+        width: 4rem;
+        height: 4rem;
+        margin: 1rem;
+        background-image: url("/Assets/Icons/icon_twitter.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer; }
+  footer .footerContainer .rightSide {
+    width: 50%; }
+    footer .footerContainer .rightSide .contacts {
+      width: 45%;
+      list-style: none;
+      margin: auto; }
+      footer .footerContainer .rightSide .contacts li {
+        margin: 1rem; }
+    footer .footerContainer .rightSide p {
+      width: 100vw;
+      text-align: center; }
+
+@media screen and (min-width: 600px) {
+  footer {
+    height: 30rem; } }
+
+.pageContainer {
   position: relative;
-  top: 5rem;
-  height: 100%; }
+  min-height: 100vh; }
+  .pageContainer main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10vh;
+    padding-bottom: 40vh; }
 
 main .errorMessage {
   text-align: center;
@@ -443,6 +419,13 @@ main .projectContainer {
       main .projectContainer .projectImgAndDesc .projectDesc {
         margin-left: 2rem; } }
 
+main .wishListSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem; }
+
 main .projectForms {
   display: flex;
   justify-content: center;
@@ -522,6 +505,17 @@ main {
     align-items: center;
     flex-direction: row;
     margin-top: 1rem; }
+  main .projectForms .donationInputAndSubmit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+  @media screen and (min-width: 1024px) {
+    main .projectForms .donationInputAndSubmit {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row; } }
 
 main .projectContainer {
   display: flex;
@@ -564,10 +558,11 @@ main .projectContainer {
         margin-left: 2rem; } }
 
 main .profileTopContainer {
-  text-align: center; }
+  text-align: center;
+  margin: 3rem;
+  padding: 2rem; }
 
 main .noWishlist {
-  margin: 3rem;
   text-align: center; }
   main .noWishlist .wishIcon {
     width: 4rem;
@@ -577,7 +572,8 @@ main .noWishlist {
     background-image: url("/Assets/Icons/icon_binoculars.png");
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center; }
+    background-position: center;
+    margin-bottom: 3rem; }
   main .noWishlist .projectContainer {
     display: flex;
     justify-content: center;

@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<%- include("./partials/head.ejs") %>
-</head>
-<body>
-  <header>
-    <div class="navigationBar">
-      <a href="javascript:history.back()"> <div class="backLink"></div></a>
-    </div>
-  </header>
-  <main>
-    <div class="formContainer">
-      <form action="/resetPasswordForm" method="post" class="submitUserInformation">
-        <h1>Reset your password here below!</h1>
-        
-        <!-- Below message will pop up if the user forgot to type in a new password -->
-        <%- include("./helpers/errors.ejs") %>
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <div class="pageContainer">
+      <header>
+        <div class="navigationBar">
+          <a href="javascript:history.back()"> <div class="backLink"></div></a>
+        </div>
+      </header>
+      <main>
+        <div class="formContainer">
+          <form
+            action="/resetPasswordForm"
+            method="post"
+            class="submitUserInformation"
+          >
+            <h1>Reset your password here below!</h1>
 
-        <label for="password" class="label">Please type in your new password below</label>
-        <input type="password" name="password" class="inputBox" />
-        <input type="email" name="email" value="<%=email%>" hidden />
-        <button type="submit" class="smallButton buttonMargin"> Reset your password </button>
-      </form>
+            <!-- Below message will pop up if the user forgot to type in a new password -->
+            <%- include("./helpers/errors.ejs") %>
+
+            <label for="password" class="label"
+              >Please type in your new password below</label
+            >
+            <input type="password" name="password" class="inputBox" />
+            <input type="email" name="email" value="<%=email%>" hidden />
+            <button type="submit" class="smallButton buttonMargin">
+              Reset your password
+            </button>
+          </form>
+        </div>
+      </main>
+      <footer><%- include("./layout/footer.ejs") %></footer>
     </div>
-  </main>
-  <footer>
-  <%- include("./layout/footer.ejs") %>
-  </footer>
-  <%- include("./partials/scripts.ejs") %>
-</body>
+    <%- include("./partials/scripts.ejs") %>
+  </body>
 </html>
