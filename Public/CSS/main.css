@@ -314,14 +314,13 @@ footer .footerContainer {
     footer .footerContainer .rightSide p {
       width: 100vw;
       text-align: center; }
-
-@media screen and (min-width: 1024px) {
-  footer {
-    height: 30rem; }
-    footer a {
-      font-size: 1.6rem; }
-    footer li {
-      font-size: 1.6rem; } }
+  @media screen and (min-width: 1024px) {
+    footer .footerContainer {
+      height: 40vh; }
+      footer .footerContainer a {
+        font-size: 1.6rem; }
+      footer .footerContainer li {
+        font-size: 1.6rem; } }
 
 .pageContainer {
   position: relative;
@@ -337,7 +336,7 @@ footer .footerContainer {
         margin-top: 10vh; } }
     @media screen and (min-width: 1024px) {
       .pageContainer main {
-        padding-bottom: 0; } }
+        padding-bottom: 40vh; } }
 
 @media screen and (min-width: 1024px) {
   main .hero {

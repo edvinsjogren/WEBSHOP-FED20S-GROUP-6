@@ -11,7 +11,8 @@
         }
 
         @include desktopsOnly {
-            padding-bottom: 0;
+            padding-bottom: 40vh;
+            
         }
     }
 }

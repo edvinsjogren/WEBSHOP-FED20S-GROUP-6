@@ -65,14 +65,16 @@ footer {
         text-align: center;
       }
     }
-  }
-  @include desktopsOnly {
-    height: 30rem;
-    a {
-      font-size: $fs-subtitle;
+
+    @include desktopsOnly {
+      height: 40vh;
+      a {
+        font-size: $fs-subtitle;
+      }
+      li {
+        font-size: $fs-subtitle;
+      }
     }
-    li {
-      font-size: $fs-subtitle;
-    }
   }
+  
 }

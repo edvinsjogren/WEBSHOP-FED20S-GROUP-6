@@ -43,7 +43,7 @@
 }
 
 @mixin logoIcon($url) {
-  width: 100%;
+  width: 5rem;
   height: 5rem;
   background-image: $url;
   background-size: cover;
