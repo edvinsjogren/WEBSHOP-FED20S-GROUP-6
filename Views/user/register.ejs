@@ -1,19 +1,40 @@
-<div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("./partials/head.ejs") %>
+</head>
+<body>
+  <header>
+    <div class="navigationBar"><a href="javascript:history.back()"><div class="backLink"></div></a></div>
+  </header>
+
+  <main>
+    <h1>Register an account now!</h1>
+
     <!--Joi validation error messages-->
-    <% for(let i=0; i<error.length; i++) { %>
-        <p><%=error[i].message %></p>
-    <% } %>
+      <% for(let i=0; i<error.length; i++) { %>
+       <p><%=error[i].message %></p>
+      <% } %> 
 
-    <!--duplicate email prohibitor-->
-    <%- include("./helpers/errors.ejs") %>
+    <div class="formContainer">
 
-    <form action="/register" method="POST">     
-        <label for="username">Username:</label>
-        <input type="text" name="username" placeholder="Username"/>   
-        <label for="email">Email:</label>
-        <input type="text" name="email" placeholder="Email"/>  
-        <label for="password">Password:</label>
-        <input type="password" name="password" placeholder="Password"/>
-        <button type="submit">Create new account!</button>
-    </form>
-</div>
+      <!--duplicate email prohibitor-->
+      <%- include("./helpers/errors.ejs") %>
+
+      <form action="/register" method="POST" class="submitUserInformation">   
+        <label for="username" class="label">Username:</label>
+        <input type="text" name="username" class="inputBox"/>
+        <label for="email" class="label">Email:</label>
+        <input type="text" name="email" class="inputBox"/> 
+        <label for="password" class="label">Password:</label>
+        <input type="password" name="password" class="inputBox"/>
+        <button type="submit" class="smallButton buttonMargin">Create new account!</button>
+      </form>
+    </div>
+  </main>
+  <footer><%- include("./layout/footer.ejs") %></footer>
+
+  <%- include("./partials/scripts.ejs") %>
+</body>
+</html>
+

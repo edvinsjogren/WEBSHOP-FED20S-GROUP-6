@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const verifyUser = require("../middleware/verifyUser");
 
 // Add controllers
 const {
@@ -38,6 +39,6 @@ router.post("/resetPasswordForm", submitResetPasswordFormPage);
 //Logout
 router.get("/logout", (req, res) => {
   res.clearCookie("jsonWebToken").redirect("/");
-})
+});
 
 module.exports = router;
