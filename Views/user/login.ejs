@@ -1,40 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <%- include("./partials/head.ejs") %>
   </head>
-<body>
-  <header>
-      <div class="navigationBar">
+  <body>
+    <div class="pageContainer">
+      <header>
+        <div class="navigationBar">
           <a href="javascript:history.back()"> <div class="backLink"></div></a>
-      </div>
-  </header>
-  <main>
-    <h1>Sign in to your account</h1>
-    
-    <div class="formContainer">
-      <!-- Flash message in case the account doesn't exists or incorrect password or successfully-->
-      <%- include("./helpers/flash_messages.ejs") %>
+        </div>
+      </header>
+      <main>
+        <h1>Sign in to your account</h1>
 
-      <!-- Error handling in case user don't type in anything -->
-      <%- include("./helpers/errors.ejs") %>
-    
-      <form action="/login" method="post" class="submitUserInformation">
-          <label for="email" class="label">Email:</label>
-          <input type="text" name="email" class="inputBox">
-          <label for="password" class="label">Password:</label>
-          <input type="password" name="password" class="inputBox">
-          <button type="submit" class="smallButton buttonMargin">Login</button>
-          <span>Don't have account? </span>
-          <a href="/register"> Register</a>
-          <a href="/resetPassword">Forgot password?</a>   
-      </form>
+        <div class="formContainer">
+          <!-- Flash message in case the account doesn't exists or incorrect password or successfully-->
+          <%- include("./helpers/flash_messages.ejs") %>
+
+          <!-- Error handling in case user don't type in anything -->
+          <%- include("./helpers/errors.ejs") %>
+
+          <form action="/login" method="post" class="submitUserInformation">
+            <label for="email" class="label">Email:</label>
+            <input type="text" name="email" class="inputBox" />
+            <label for="password" class="label">Password:</label>
+            <input type="password" name="password" class="inputBox" />
+            <button type="submit" class="smallButton buttonMargin">
+              Login
+            </button>
+            <span>Don't have account? </span>
+            <a href="/register"> Register</a>
+            <a href="/resetPassword">Forgot password?</a>
+          </form>
+        </div>
+      </main>
+      <footer><%- include("./layout/footer.ejs") %></footer>
     </div>
-  </main>
-  <footer>
-      <%- include("./layout/footer.ejs") %>
-  </footer>
-  <%- include("./partials/scripts.ejs") %>
-</body>
+    <%- include("./partials/scripts.ejs") %>
+  </body>
 </html>
