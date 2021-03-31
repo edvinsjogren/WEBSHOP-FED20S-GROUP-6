@@ -1,8 +1,30 @@
-<form action="/resetPassword" method="POST">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+<body>
+  <header>
+      <div class="navigationBar">
+        <a href="javascript:history.back()"> <div class="backLink"></div></a>
+      </div>
+  </header>
+  <main>
   <h1>Forgot your password?</h1>
-
-  <%- include("./helpers/flash_messages.ejs") %>
-
-  <input type="email" name="email" placeholder="Type your email here" />
-  <button type="submit">Send link to reset password</button>
-</form>
+    <div class="formContainer">
+      <form action="/resetPassword" method="POST" class="submitUserInformation" >
+        <%- include("./helpers/flash_messages.ejs") %>
+        <label for="email" class="label">Type your email below:</label>
+        <input type="email" name="email" class="inputBox" />
+        <button type="submit" class="smallButton buttonMargin">
+        Reset password
+        </button>
+      </form>
+    </div>
+  </main>
+<footer>
+  <%- include("./layout/footer.ejs") %>
+</footer>
+  <%- include("./partials/scripts.ejs") %>
+</body>
+</html>
