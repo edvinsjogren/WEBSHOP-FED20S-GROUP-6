@@ -7,8 +7,7 @@ const {User} = require("../Models/user");
 let errors = [];
 
 const renderAdminPage = async (req, res) => {
-
-   errors = [];
+  errors = [];
 
   // Render all projects while populating img ID
   const projects = await Project.find().populate("img");
@@ -47,7 +46,9 @@ const adminSubmit = async (req, res) => {
     errors.push(" You forgot a name for your picture! Please try again!");
   }
   if (!image) {
-    errors.push(" You forgot to choose a picture in PNG-format! Please try again!");
+    errors.push(
+      " You forgot to choose a picture in PNG-format! Please try again!"
+    );
   }
 
   try {
@@ -70,7 +71,7 @@ const adminSubmit = async (req, res) => {
     // use schema method to add image to the new project
     project.addImage(newImage._id);
 
-    return res.redirect("./admin/admin.ejs");
+    return res.redirect("/admin");
   } catch (err) {
     if (errors) {
       const projects = await Project.find().populate("img");
@@ -93,11 +94,9 @@ const deleteProject = async (req, res) => {
 
 // Render the project that will be edited
 const renderProjectForm = async (req, res) => {
+  const projects = await Project.findOne({_id: req.params.id}).populate("img");
 
-  const projects = await Project.findOne({ _id: req.params.id }).populate("img");
-
-  res.render("./admin/adminEdit.ejs", { projects: projects, errors: errors });
-
+  res.render("./admin/adminEdit.ejs", {projects: projects, errors: errors});
 };
 
 // Submit project edits
@@ -105,7 +104,16 @@ const editProjectSubmit = async (req, res) => {
   //reset error-message array
   errors = [];
 
-  const { title, description, summary, category, id, picName, image, imageID } = req.body;
+  const {
+    title,
+    description,
+    summary,
+    category,
+    id,
+    picName,
+    image,
+    imageID,
+  } = req.body;
 
   //error handling in case the user hasn't typed iu anything
   if (!title) {
@@ -120,14 +128,23 @@ const editProjectSubmit = async (req, res) => {
   if (!category) {
     errors.push(" You forgot to choose a category! Please try again!");
   }
-  if(!image) {
-    errors.push(" You forgot to choose a picture in PNG-format! Please try again!");
+  if (!image) {
+    errors.push(
+      " You forgot to choose a picture in PNG-format! Please try again!"
+    );
   }
-  if(!picName) {
+  if (!picName) {
     errors.push(" You forgot a name for your picture! Please try again!");
   }
   //Redirect back to adminEdit.ejs in case the user hasn't put in the info required
-  if (!title || !description || !summary || !category || !req.file.filename || !picName) {
+  if (
+    !title ||
+    !description ||
+    !summary ||
+    !category ||
+    !req.file.filename ||
+    !picName
+  ) {
     return res.redirect("/edit/" + id);
   }
 
