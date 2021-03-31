@@ -1,16 +1,21 @@
+.simpleSmallButton{
+  @include buttonBase;
+  padding: 5px 8px;
+  font-size: 8px;
+  font-weight: $fw-bold;
+ 
+  &:hover{
+    background-color: #F79E34;
+    color: white;
+  }
+}
+
 .smallButton {
-  background-color: $black;
-  border: none;
-  border-radius: 0.5rem;
-  color: white;
+  @include buttonBase;
   padding: 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 1rem;
-  cursor: pointer;
-  transition-duration: 0.1s;
+  font-size: 10px;
+
+  @include buttonHover;
 
   a:visited,
   a:link,
@@ -18,42 +23,21 @@
     text-decoration: none;
     color: white;
     cursor: pointer;
-  }
-
-  &:hover {
-    background-color: white;
-    border: 0.1rem solid $black;
-    color: $black;
-    text-decoration: none;
   }
 }
 
 .bigButton {
-  background-color: $black;
-  border: none;
-  border-radius: 0.5rem;
-  color: white;
+  @include buttonBase;
   padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
   font-size: 16px;
-  margin: 1rem;
-  cursor: pointer;
-  transition-duration: 0.1s;
 
+  @include buttonHover;
+ 
   a:visited,
   a:link,
   a:active, a:hover {
     text-decoration: none;
     color: white;
     cursor: pointer;
-  }
-
-  &:hover {
-    color: $black;
-    background-color: white;
-    border: 0.1rem solid $black;
-    text-decoration: none;
   }
 }

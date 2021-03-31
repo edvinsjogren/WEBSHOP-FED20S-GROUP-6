@@ -38,55 +38,70 @@ body {
   padding: 8px 0 15px 0;
   color: #000000; }
 
-.smallButton {
-  background-color: #000000;
+.simpleSmallButton {
+  background-color: #F79E34;
   border: none;
   border-radius: 0.5rem;
-  color: white;
-  padding: 10px 25px;
-  text-align: center;
+  color: #333333;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  text-align: center;
   margin: 1rem;
-  cursor: pointer;
-  transition-duration: 0.1s; }
+  transition-duration: 0.1s;
+  padding: 5px 8px;
+  font-size: 8px;
+  font-weight: 700; }
+  .simpleSmallButton:hover {
+    background-color: #F79E34;
+    color: white; }
+
+.smallButton {
+  background-color: #F79E34;
+  border: none;
+  border-radius: 0.5rem;
+  color: #333333;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  margin: 1rem;
+  transition-duration: 0.1s;
+  padding: 10px 25px;
+  font-size: 10px; }
+  .smallButton:hover {
+    background-color: #333333;
+    border: 0.1rem solid #000000;
+    color: white;
+    text-decoration: none; }
   .smallButton a:visited,
   .smallButton a:link,
   .smallButton a:active, .smallButton a:hover {
     text-decoration: none;
     color: white;
     cursor: pointer; }
-  .smallButton:hover {
-    background-color: white;
-    border: 0.1rem solid #000000;
-    color: #000000;
-    text-decoration: none; }
 
 .bigButton {
-  background-color: #000000;
+  background-color: #F79E34;
   border: none;
   border-radius: 0.5rem;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
+  color: #333333;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  text-align: center;
   margin: 1rem;
-  cursor: pointer;
-  transition-duration: 0.1s; }
+  transition-duration: 0.1s;
+  padding: 15px 32px;
+  font-size: 16px; }
+  .bigButton:hover {
+    background-color: #333333;
+    border: 0.1rem solid #000000;
+    color: white;
+    text-decoration: none; }
   .bigButton a:visited,
   .bigButton a:link,
   .bigButton a:active, .bigButton a:hover {
     text-decoration: none;
     color: white;
     cursor: pointer; }
-  .bigButton:hover {
-    color: #000000;
-    background-color: white;
-    border: 0.1rem solid #000000;
-    text-decoration: none; }
 
 main {
   padding: 4rem; }

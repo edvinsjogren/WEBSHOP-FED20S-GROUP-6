@@ -12,3 +12,26 @@
     }
 }
 
+//Basic style and button format
+@mixin buttonBase{
+    background-color: #F79E34;
+    border: none;
+    border-radius: 0.5rem;
+    color: #333333;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    margin: 1rem;
+    transition-duration: 0.1s;
+}
+
+//hover functionality with transition in color, for buttons
+@mixin buttonHover{
+    &:hover {
+        background-color: #333333;
+        border: 0.1rem solid $black;
+        color: white;
+        text-decoration: none;
+      }
+}
+
