@@ -5,22 +5,18 @@
   </head>
   <body>
     <header><%- include("./layout/navbar.ejs") %></header>
-
-    <div>
-      <p>Thank you for deciding to make a difference!</p>
-      <p>An email has been send to you with the details! Thank you for your donation!</p>
-      <a href="/">Go back to home page</a>
-    </div>
-
-    <!--Fixed the SASS to these-->
-    <div>
-      <ul class="socialMediaLinks">
-        <li><a href="https://www.facebook.com/"><div class="facebook"></div></a></li>
-        <li><a href="https://www.instagram.com/"><div class="instagram"></div></a></li>
-        <li><a href="https://www.twitter.com/"><div class="twitter"></div></a></li>
-      </ul>
-    </div>
-
+    <main>
+      <div class="thankYouForYourDonationContainer">
+        <h1>Thank you for deciding to make a difference!</h1>
+        <img src="/Assets/Icons/icon_logo.png" alt="logo" class="background-image" />
+      </div>
+        <p>
+          An email has been send to you with the details! Thank you for your
+          donation!
+        </p>
+        <a class="smallButton" href="/">Go back to home page</a>
+      </div>
+    </main>
     <footer><%- include("./layout/footer.ejs") %></footer>
   </body>
 </html>

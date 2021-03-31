@@ -1,0 +1,21 @@
+main {
+  padding: 4rem;
+  
+  .thankYouForYourDonationContainer {
+    @include flexCenter(column);
+    text-align: center;
+    width: 80vw;
+    font-size: $fs-subtitle;
+  }
+
+  .background-image{
+    width: 45vw;
+    margin: 4rem;
+  }
+  
+  @mixin desktopsOnly {
+    @media screen and (min-width: 1024px) {
+      font-size: $fs-title;
+    }
+  }
+}
