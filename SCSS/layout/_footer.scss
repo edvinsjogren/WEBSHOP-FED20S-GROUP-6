@@ -3,19 +3,30 @@ footer {
     @include flexCenter(row);
     width: 100vw;
     height: 40vh;
-    background-color: $primary;
+    background: linear-gradient(310.92deg, #c4c4c44d 1%, rgba(24, 22, 22, 0.9) 123.22%);
     position: absolute;
     bottom: 0;
     flex-wrap: wrap;
+    padding-top: 2rem;
+
+    ul {
+      margin-right: 1rem; 
+    }
 
     a {
       text-decoration: none;
       color: $black;
+      font-size: $fs-body;
+    }
+
+    li {
+      font-size: $fs-subtitle;
     }
 
     .leftSide {
       @include flexCenter(column);
-      width: 50%;
+      width: 45%;
+      height: 80%;
 
       .socialMediaLinks {
         @include flexCenter(row);
@@ -36,7 +47,9 @@ footer {
     }
 
     .rightSide {
-      width: 50%;
+      width: 55%;
+      height: 80%;
+      padding-right: 1rem;
 
       .contacts {
         width: 45%;
@@ -53,7 +66,13 @@ footer {
       }
     }
   }
-  @media screen and(min-width: 600px) {
+  @include desktopsOnly {
     height: 30rem;
+    a {
+      font-size: $fs-subtitle;
+    }
+    li {
+      font-size: $fs-subtitle;
+    }
   }
 }

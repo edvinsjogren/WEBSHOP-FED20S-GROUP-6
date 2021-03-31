@@ -1,11 +1,11 @@
 @mixin styleProject {
     .projectContainer {
         @include flexCenter(column);
-        border: 1px solid black;
-        padding: 3rem;
+        background-color: #3333335b;
+        padding: 1rem;
+        margin-top: 4rem;
 
         .projectImgAndDesc {
-
             margin-bottom: 2rem; 
             padding: 1rem;
 
@@ -27,13 +27,12 @@
     //laptops and bigger displays
     @include desktopsOnly {
         .projectContainer {
-    
-            width: 150vh;
+            width: 60vw;
+            margin: 5rem;
+            padding: 5rem;
 
             .projectImgAndDesc {
-                
-                width: 100vh;
-    
+                max-width: 50vw;
                 @include flexCenter(row);
 
                 .projectImage {
@@ -44,9 +43,10 @@
                     }
                 }
                 .projectDesc {
-                    margin-left: 2rem; 
+                    margin-left:2rem;
                 }
             }
+            
         }   
     }
 }
