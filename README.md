@@ -38,14 +38,15 @@ _Below you'll find a brief summary of the naming conventions for this project_
 ## Project structure
 
 - ProjectFolder/ index.js, Models, Views, Controllers, Middleware, Public, Routes, SCSS and Config are placed here_
-  - index.js is placed directly under the root directory 
-  - _Models/: the Mongoose schemas are placed in here 
-  - _Views/: ejs-files are placed in here
-  - _Controller/: controller.js-files are placed here
-  - _Middleware/: essential middlewares are placed here
-  - _Public/: styles folder with css-files and other files that are related to styling are placed in here
-  - _Routes/: the routes to the database are placed in here
-  - _SCSS/: all scss-files are placed here
-  - _Config/: config.js is placed here with important keys. Make sure to replace these with your own keys and don't forget to add your .env-file as well.
- 
+  ```
+  ├── index.js         # is placed directly under the root directory 
+  ├── Models/          # the Mongoose schemas are placed in here 
+  ├── Views/           # ejs-files are placed in here
+  ├── Controller/      # controller.js-files are placed here
+  ├── Middleware/      # essential middlewares are placed here
+  ├── Public/          # styles folder with css-files and other files that are related to styling are placed in here
+  ├── Routes/          # the routes to the database are placed in here
+  ├── SCSS/            # all scss-files are placed here
+  └──  Config/         # config.js is placed here with important keys. Make sure to replace these with your own keys and don't forget to add your .env-file as well.
+ ```
   
