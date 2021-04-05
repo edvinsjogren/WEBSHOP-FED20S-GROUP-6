@@ -13,8 +13,7 @@ Create a new folder
 3. Run `npm install` to install node modules
 
 ## Naming conventions
-
-- Below you'll find a brief summary of the naming conventions for this project\*
+_Below you'll find a brief summary of the naming conventions for this project_
 
 ### Variables
 
@@ -22,35 +21,31 @@ Create a new folder
 - When naming variables use **camelCase**
   - Eg. "let userName = "User";\*
 - When naming Mongoose schemas use **PascalCase**
-  _Eg. `const PI = 3.14;´_
+  - Eg. ` const User = mongoose.model("user", userSchema)´_
 
-### Variables in CSS/SCSS
+###  CSS/SCSS namning conventions
 
-- When naming variables **camelCase**
+- When naming variables use **kebab-case**
   - Eg. \$bg-color: grey;\*
+- When naming classes and id:s use **camelCase**
 
 ### Functions
 
-- **Don't** use arrow functions.
-  _When writing functions write `function functionName(){}´_
-- Function names should be in **camelCase**
+  - When writing functions write `function functionName(){}´
+  - Function names should be in **camelCase**
 
-### Classes
-
-- Class names should be in **PascalCase**
-  \*Eg. ClassTask
 
 ## Project structure
 
 - ProjectFolder/ index.js, Models, Views, Controllers, Middleware, Public, Routes, SCSS and Config are placed here_
   - index.js is placed directly under the root directory 
-  - _Models/ \_the Mongoose schemas are placed in here_
-  - _Views/ \_ejs-files are placed in here_
-  - _Controller/ \_controller.js-files are placed here_
-  - _Middleware/ \essential middlewares are placed here_
-  - _Public/ \_styles folder with css-files and other files that are related to styling are placed in here_
-  - _Routes/ \_the routes to the databas are placed in here_
-  - _SCSS/ \_main.scss is placed here_
-  - _Config/ \_config.js is placed here with important keys,´. Make sure to replace these with your own keys and don't forget to add your .env-file as well._
+  - _Models/ \the Mongoose schemas are placed in here 
+  - _Views/ \ejs-files are placed in here
+  - _Controller/ \controller.js-files are placed here
+  - _Middleware/ \essential middlewares are placed here
+  - _Public/ \styles folder with css-files and other files that are related to styling are placed in here
+  - _Routes/ \the routes to the database are placed in here
+  - _SCSS/ \ all scss-files are placed here
+  - _Config/ \config.js is placed here with important keys. Make sure to replace these with your own keys and don't forget to add your .env-file as well.
  
   
