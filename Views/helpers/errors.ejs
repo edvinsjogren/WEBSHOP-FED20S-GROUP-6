@@ -5,13 +5,6 @@
     <% } %> 
 <% } %>
 
-<!--reset.ejs-->
-<% for (let i=0; i < errors.length; i++) { %> 
-    <% if(errors[i].includes('Please type in a new password')) { %>
-        <p><%= errors[i] %></p>
-    <% } %> 
-<% } %>
-
 <!--register.ejs-->
 <% for(let i=0; i<errors.length; i++) { %>
     <% if(errors[i].includes(' Email is taken! Please choose another one!')) { %>
