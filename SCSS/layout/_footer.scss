@@ -1,33 +1,20 @@
 footer {
   .footerContainer {
-    @include flexCenter(row);
+    @include flexCenter(column);
+    justify-content: space-between;
     width: 100vw;
-    height: 40vh;
     background-color: #787878;
     position: absolute;
     bottom: 0;
-    flex-wrap: wrap;
     padding-top: 2rem;
+    height: 50vh;
 
-    ul {
-      margin-right: 1rem; 
+    .logo{
+      width: 14rem;
+      height: 8rem;
     }
 
-    a {
-      text-decoration: none;
-      color: $black;
-      font-size: $fs-body;
-    }
-
-    li {
-      font-size: $fs-subtitle;
-    }
-
-    .leftSide {
-      @include flexCenter(column);
-      width: 45%;
-      height: 80%;
-
+    .top{
       .socialMediaLinks {
         @include flexCenter(row);
         list-style: none;
@@ -46,35 +33,46 @@ footer {
       }
     }
 
-    .rightSide {
-      width: 55%;
-      height: 80%;
-      padding-right: 1rem;
-
-      .contacts {
-        width: 45%;
+    .bottom{
+      li{
         list-style: none;
-        margin: auto;
-
-        li {
-          margin: 1rem;
-        }
-      }
-      p {
-        width: 100vw;
-        text-align: center;
       }
     }
 
+    ul {
+      margin-right: 1rem; 
+    }
+
+    a {
+      text-decoration: none;
+      color: $black;
+      font-size: $fs-body;
+    }
+
+    li {
+      font-size: $fs-subtitle;
+    }
+
+
     @include desktopsOnly {
-      height: 40vh;
+      @include flexCenter(row);
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      height: 45vh;
+      
+      .logo{
+        width: 18rem;
+        height: 10rem;
+      }
+
       a {
         font-size: $fs-subtitle;
       }
-      li {
-        font-size: $fs-subtitle;
-      }
+
+      .rightSide .contacts li {
+            margin: 1rem;
+          }
+        
     }
   }
-  
 }

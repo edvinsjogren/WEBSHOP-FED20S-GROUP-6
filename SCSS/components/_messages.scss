@@ -17,4 +17,13 @@ main {
       font-size: $fs-title;
     }
   }
+
+  .messages {
+    width: 80%;
+    @include flexCenter(column);
+    font-size: $fs-subtitle;
+    color: red;
+    text-align: center;
+    margin-top: 3rem;
+  }
 }

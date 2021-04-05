@@ -20,13 +20,15 @@
             <h1>Reset your password here below!</h1>
 
             <!-- Below message will pop up if the user forgot to type in a new password -->
-            <%- include("./helpers/errors.ejs") %>
-
+            <div class="messages">
+              <%- include("./helpers/errors.ejs") %>
+            </div>
+            
             <!--Joi validation error messages-->
             <% for(let i=0; i<error.length; i++) { %>
               <p><%=error[i].message %></p>
             <% } %> 
-
+            
             <label for="password" class="label"
               >Please type in your new password below</label
             >
