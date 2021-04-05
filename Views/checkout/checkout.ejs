@@ -7,7 +7,10 @@
     <div class="pageContainer">
       <header><%- include("./layout/navbar.ejs") %></header>
       <main>
+        <div class="messages">
         <%- include("./helpers/flash_messages.ejs") %>
+        </div>
+        
         <%donationsInCart.forEach(project => { %>
         <div class="projectContainer">
           <h2><%=project.projectID.title%></h2>

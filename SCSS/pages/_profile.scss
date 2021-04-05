@@ -1,10 +1,14 @@
 main {
   .profileTopContainer {
     text-align: center;
+    h1 {
+      margin-top: 15%;
+    }
   }
 
   .noWishlist {
     text-align: center;
+    margin-bottom: 10rem;
 
     .wishIcon {
       @include bigIcon(url("/Assets/Icons/icon_binoculars.png"));

@@ -8,7 +8,9 @@
       <header><%- include("./layout/navbar.ejs") %></header>
       <main>
         <div class="hero"><%- include("./layout/hero.ejs") %></div>
-        <%- include("./helpers/flash_messages.ejs") %> 
+        <div class="messages">
+        <%- include("./helpers/flash_messages.ejs") %>
+        </div>
         
         <% projects.forEach(project => { %>
 

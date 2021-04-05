@@ -14,7 +14,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
 
 .formContainer {
-  width: 50vw; }
+  width: 75vw; }
   @media screen and (min-width: 600px) {
     .formContainer {
       width: 30vw; } }
@@ -118,6 +118,15 @@ body {
     .link {
       margin-bottom: 5rem; } }
 
+.logo {
+  width: 5rem;
+  height: 5rem;
+  background-image: url("/Assets/Icons/icon_logo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer; }
+
 main .thankYouForYourDonationContainer {
   display: flex;
   justify-content: center;
@@ -130,6 +139,17 @@ main .thankYouForYourDonationContainer {
 main .background-image {
   width: 45vw;
   margin: 4rem; }
+
+main .messages {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.6rem;
+  color: red;
+  text-align: center;
+  margin-top: 3rem; }
 
 .menu {
   height: 10vh; }
@@ -173,7 +193,7 @@ main .background-image {
       background-position: center;
       cursor: pointer; }
     .menu .navbar .logo {
-      width: 100%;
+      width: 5rem;
       height: 5rem;
       background-image: url("/Assets/Icons/icon_logo.png");
       background-size: cover;
@@ -633,9 +653,12 @@ main .projectContainer {
 
 main .profileTopContainer {
   text-align: center; }
+  main .profileTopContainer h1 {
+    margin-top: 15%; }
 
 main .noWishlist {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 10rem; }
   main .noWishlist .wishIcon {
     width: 4rem;
     height: 4rem;
