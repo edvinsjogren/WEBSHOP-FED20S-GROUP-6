@@ -260,6 +260,24 @@ main .messages {
     .menu .menu-icon {
       display: none; } }
 
+.altNavbar {
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+  background-color: #787878; }
+  .altNavbar .backLink {
+    background-image: url("/Assets/Icons/icon_backArrow.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 5rem;
+    width: 5rem; }
+  @media screen and (min-width: 1024px) {
+    .altNavbar {
+      height: 15vh; } }
+
 footer .footerContainer {
   display: flex;
   justify-content: center;
