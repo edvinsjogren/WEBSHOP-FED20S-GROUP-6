@@ -2,14 +2,14 @@
 
 ---
 
-_This is a group project made in Node.js accompanied by Express and Mongoose as the main web application frameworks. Clients get to donate money to different charity organizations. Clients are able to create an account and add items to a wishlist as well as edit or delete added items in their cart. There is also the possibility to create an admin account, where the admin can edit, delete and add new projects to the website. All content is saved on MongoDB_
+_This is a group project made in Node.js accompanied by Express and Mongoose as the main web application frameworks. Clients get to donate money to different charity organizations. Clients are able to create an account and add items to a wishlist as well as edit or delete added items in their cart. There is also the possibility to create an admin account, where the admin can edit, delete and add new projects to the website. All content is saved on MongoDB._
 
 ## Installation:
 
 Create a new folder
 
 1. Navigate to the directory where you want to put your repository,
-2. Run git clone `https://github.com/edvinsjogren/WEBSHOP-FED20S-GROUP-6.git´
+2. Run `git clone https://github.com/edvinsjogren/WEBSHOP-FED20S-GROUP-6.git`
 3. Run `npm install` to install node modules
 
 ## Naming conventions
