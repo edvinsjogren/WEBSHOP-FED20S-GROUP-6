@@ -118,6 +118,15 @@ body {
     .link {
       margin-bottom: 5rem; } }
 
+.logo {
+  width: 5rem;
+  height: 5rem;
+  background-image: url("/Assets/Icons/icon_logo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer; }
+
 main .thankYouForYourDonationContainer {
   display: flex;
   justify-content: center;
@@ -173,7 +182,7 @@ main .background-image {
       background-position: center;
       cursor: pointer; }
     .menu .navbar .logo {
-      width: 100%;
+      width: 5rem;
       height: 5rem;
       background-image: url("/Assets/Icons/icon_logo.png");
       background-size: cover;
