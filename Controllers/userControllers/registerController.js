@@ -32,7 +32,6 @@ const submitNewAccount = async (req, res) => {
   //then present the error message to the user
   if (error) {
     console.log(error.details);
-    console.log(error);
     return res.render("register.ejs", {error: error.details, errors: ""});
   }
 

@@ -22,11 +22,17 @@
             <!-- Below message will pop up if the user forgot to type in a new password -->
             <%- include("./helpers/errors.ejs") %>
 
+            <!--Joi validation error messages-->
+            <% for(let i=0; i<error.length; i++) { %>
+              <p><%=error[i].message %></p>
+            <% } %> 
+
             <label for="password" class="label"
               >Please type in your new password below</label
             >
             <input type="password" name="password" class="inputBox" />
             <input type="email" name="email" value="<%=email%>" hidden />
+            <input type="text" name="username" value="<%=username%>" hidden />
             <button type="submit" class="smallButton buttonMargin">
               Reset your password
             </button>

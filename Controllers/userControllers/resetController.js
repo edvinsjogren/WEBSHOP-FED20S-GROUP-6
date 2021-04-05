@@ -1,4 +1,4 @@
-const {User} = require("../../Models/user");
+const {User, validateUser} = require("../../Models/user");
 const bcrypt = require("bcrypt");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
@@ -56,12 +56,13 @@ const submitResetPasswordFormPage = async (req, res) => {
   //empty the array with errors
   errors = [];
 
-  const {email, password} = req.body;
+  const {email, password, username} = req.body;
 
-  //error control in case no password is typed before sumbitting
-  if (!password) {
-    errors.push("Please type in a new password, the field cannot be empty");
-    return res.render("reset.ejs", {errors, email});
+  //Check validaion from JOI
+  const {error} = validateUser(req.body);
+
+  if(error) {
+    return res.render("reset.ejs", {email, username, error: error.details, errors: errors});
   }
 
   const salt = await bcrypt.genSalt(12);
@@ -86,7 +87,7 @@ const resetPasswordParams = async (req, res) => {
       tokenExpirationDate: {$gt: Date.now()},
     });
 
-    res.render("reset.ejs", {errors, email: user.email});
+    res.render("reset.ejs", {errors: errors, email: user.email, username: user.username, error:""});
   } catch (err) {
     res.render("resetForm.ejs", {err: ""});
   }
