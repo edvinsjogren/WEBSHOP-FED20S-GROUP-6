@@ -1,0 +1,27 @@
+.formContainer {
+  width: 75vw;
+  @media screen and(min-width: 600px) {
+    width: 30vw;
+  }
+}
+.submitUserInformation {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+
+.label {
+  font-size: $fs-subtitle;
+  top: 0px;
+  left: 0px;
+  color: $black;
+}
+
+.inputBox {
+  text-align: center;
+  font-size: $fs-subtitle;
+  border: 0;
+  border-bottom: 1px solid #555;
+  padding: 8px 0 15px 0;
+  color: $black;
+}

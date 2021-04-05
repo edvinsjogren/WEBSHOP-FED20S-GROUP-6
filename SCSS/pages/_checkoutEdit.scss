@@ -1,0 +1,9 @@
+main {
+    .donationDiv {
+        @include flexCenter(row);
+
+        .donationLabelAndInput {
+            @include flexCenter(column);
+        }
+    }
+}

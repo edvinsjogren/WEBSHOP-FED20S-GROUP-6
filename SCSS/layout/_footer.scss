@@ -1,0 +1,78 @@
+footer {
+  .footerContainer {
+    @include flexCenter(column);
+    justify-content: space-between;
+    width: 100vw;
+    background-color: #787878;
+    position: absolute;
+    bottom: 0;
+    padding-top: 2rem;
+    height: 50vh;
+
+    .logo{
+      width: 14rem;
+      height: 8rem;
+    }
+
+    .top{
+      .socialMediaLinks {
+        @include flexCenter(row);
+        list-style: none;
+        width: 45%;
+        margin: auto;
+
+        .facebook {
+          @include socialMediaIcon(url("/Assets/Icons/icon_facebook.png"));
+        }
+        .instagram {
+          @include socialMediaIcon(url("/Assets/Icons/icon_instagram.png"));
+        }
+        .twitter {
+          @include socialMediaIcon(url("/Assets/Icons/icon_twitter.png"));
+        }
+      }
+    }
+
+    .bottom{
+      li{
+        list-style: none;
+      }
+    }
+
+    ul {
+      margin-right: 1rem; 
+    }
+
+    a {
+      text-decoration: none;
+      color: $black;
+      font-size: $fs-body;
+    }
+
+    li {
+      font-size: $fs-subtitle;
+    }
+
+
+    @include desktopsOnly {
+      @include flexCenter(row);
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      height: 45vh;
+      
+      .logo{
+        width: 18rem;
+        height: 10rem;
+      }
+
+      a {
+        font-size: $fs-subtitle;
+      }
+
+      .rightSide .contacts li {
+            margin: 1rem;
+          }
+        
+    }
+  }
+}

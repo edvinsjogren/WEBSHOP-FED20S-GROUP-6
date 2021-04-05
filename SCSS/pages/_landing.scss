@@ -1,0 +1,66 @@
+main {
+
+    .hero {
+        @include desktopsOnly {
+          max-width: 60vw;
+        }
+      }
+
+    .errorMessage {
+        text-align: center;
+        width: 75%;
+        margin: 2rem;
+        padding: 1rem;
+        border: .1rem solid black;
+        border-radius: 1rem;
+        background-color: red;
+    }
+
+    h1{
+        font-size: $fs-heading;
+        font-weight: $fw-regular;
+        margin-top: 2rem;
+    }
+
+    h2{
+        font-size: $fs-title;
+        text-decoration: underline;
+    }
+
+    hr {
+        border: 1px solid black;
+        width: 80%;
+        margin: 5rem;
+    }
+
+    span {
+        width: 60%;
+        margin: auto;
+        text-align: center;
+        font-size: $fs-subtitle;
+    }
+
+
+    .landingModule {
+        @include flexCenter(column);
+        width: 80vw;
+        margin: 3rem;
+
+        #climateIcon {
+            @include landingIcon(url("/Assets/Icons/icon_climate.png"));
+        }
+
+        #shelterIcon {
+            @include landingIcon(url("/Assets/Icons/icon_shelter.png"));
+        }
+
+        #scienceIcon {
+            @include landingIcon(url("/Assets/Icons/icon_science.png"));
+        }
+
+        .landingDesc {
+            text-align: center;
+            font-size: $fs-body;
+        }
+    }
+}

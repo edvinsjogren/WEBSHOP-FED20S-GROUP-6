@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <div class="pageContainer">
+      <header>
+        <%- include("./layout/altNavbar.ejs") %>
+      </header>
+      <main>
+        <h1>Sign in to your account</h1>
+
+        <div class="formContainer">
+          <!-- Flash message in case the account doesn't exists or incorrect password or successfully-->
+          <div class="messages">
+          <%- include("./helpers/flash_messages.ejs") %>
+          </div>
+
+          <!-- Error handling in case user don't type in anything -->
+          <div class="messages">
+          <%- include("./helpers/errors.ejs") %>
+          </div>
+
+          <form action="/login" method="post" class="submitUserInformation">
+            <label for="email" class="label">Email:</label>
+            <input type="text" name="email" class="inputBox" />
+            <label for="password" class="label">Password:</label>
+            <input type="password" name="password" class="inputBox" />
+            <button type="submit" class="smallButton buttonMargin">
+              Login
+            </button>
+            <span>Don't have account? </span>
+            <a href="/register" class="smallButton "> Register</a>
+            <a href="/resetPassword" class="smallButton ">Forgot password?</a>
+          </form>
+        </div>
+      </main>
+      <footer><%- include("./layout/footer.ejs") %></footer>
+    </div>
+    <%- include("./partials/scripts.ejs") %>
+  </body>
+</html>

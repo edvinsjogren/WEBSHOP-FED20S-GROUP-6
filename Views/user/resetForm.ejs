@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <div class="pageContainer">
+      <header>
+          <%- include("./layout/altNavbar.ejs") %>
+      </header>
+      <main>
+        <h1>Forgot your password?</h1>
+        <div class="formContainer">
+          <form
+            action="/resetPassword"
+            method="POST"
+            class="submitUserInformation"
+          >
+          <div class="messages">
+            <%- include("./helpers/flash_messages.ejs") %>
+            </div>
+            <label for="email" class="label">Type your email below:</label>
+            <input type="email" name="email" class="inputBox" />
+            <button type="submit" class="smallButton buttonMargin">
+              Reset password
+            </button>
+          </form>
+        </div>
+      </main>
+      <footer><%- include("./layout/footer.ejs") %></footer>
+    </div>
+    <%- include("./partials/scripts.ejs") %>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+
+    <!-- This is like a receipt so the user can see what donations he/she made when they have donated -->
+
+    <div class="receiptContainer">
+      <% if(donatedProjects.length === 0) { %>
+      <h1>This link doesn't work anymore!</h1>
+      <% } else { %>
+        <div class="receiptOfProjects">
+
+          <hr /> 
+
+          <h1>Your donations:</h1>
+
+          <hr />
+
+          <div>
+            <a href="/"><div class="logo"></div></a>
+            <p><a href="/">Link to our website!</a><p>
+          </div>
+
+          <hr />
+
+          <div class="donation">
+            <% donatedProjects.forEach(yourDonation => { %>
+                <h4>Project: <%=yourDonation.projectID.title%></h4>
+                <p>Summary: <%=yourDonation.projectID.summary%></p>
+
+                <% yourDonation.projectID.img.forEach(img => { %>
+                <!--Move img styling to suitable scss file-->
+                    <img
+                    src="/Uploads/<%=img.path%>"
+                    alt="Project Image could not be displayed"
+                    />
+                <% }) %>
+
+                <div class="donationAmount">
+                  <p>Amount you donated: <%=yourDonation.donationAmount%>.00 USD</p>
+                </div>
+
+            <hr />
+
+            <% }) %>
+          </div>
+
+          <div class="totalAmount">
+            <h4>Total amount: <%=totalSumInCart%>.00 USD</h4>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </body>
+</html>

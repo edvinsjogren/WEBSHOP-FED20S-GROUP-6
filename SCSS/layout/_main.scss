@@ -1,0 +1,18 @@
+.pageContainer {
+    position: relative;
+    min-height: 100vh;
+
+    main {
+        @include flexCenter(column);
+        padding-bottom: 50vh;
+
+        @include desktopsOnly {
+            margin-top: 10vh;
+        }
+
+        @include desktopsOnly {
+            padding-bottom: 50vh;
+            
+        }
+    }
+}

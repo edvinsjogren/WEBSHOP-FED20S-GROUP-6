@@ -1,0 +1,37 @@
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+//For use with responsive desktop displays
+@mixin desktopsOnly {
+    @media screen and (min-width: 1024px) {
+        @content;
+    }
+}
+
+//Basic style and button format
+@mixin buttonBase{
+    background-color: #333333;
+    border: none;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    margin: 1rem;
+    transition-duration: 0.1s;
+    border: 0.1rem solid $white;
+}
+
+//hover functionality with transition in color, for buttons
+@mixin buttonHover{
+    &:hover {
+        background-color: #F79E34;
+        border: 0.1rem solid #F79E34;
+        color: #333333;
+        text-decoration: none;
+      }
+}
+

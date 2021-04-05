@@ -1,0 +1,11 @@
+main {
+    @include styleProject; 
+
+    .projectExtraInfo {
+        margin-top: 3rem;
+    }
+
+    form {
+        margin: 3rem;
+    }
+}

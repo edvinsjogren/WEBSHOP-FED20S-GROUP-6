@@ -1,0 +1,34 @@
+main {
+    @include styleProject;
+
+    .errormessage {
+        color: $errorColor;
+    }
+    .infoMessage{
+        color: $infoMessageColor;
+    }
+
+    .editAndDelete {
+        @include flexCenter(column);
+    }
+
+    @include desktopsOnly {
+        .editAndDelete {
+            @include flexCenter(row);
+        }
+    }
+
+    .totalSum {
+        @include flexCenter(row);
+        margin-top: 1rem;
+    }
+    .projectForms {
+        .donationInputAndSubmit {
+            @include flexCenter(column);
+        
+            @include desktopsOnly {
+                @include flexCenter(row);
+            }
+        }
+    }
+}

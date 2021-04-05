@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+
+    <div class="pageContainer">
+    <header><%- include("./layout/navbar.ejs") %></header>
+    <main>
+      <div class="thankYouForYourDonationContainer">
+        <h1>Thank you for deciding to make a difference!</h1>
+        <img src="/Assets/Icons/icon_logo.png" alt="logo" class="background-image" />
+      </div>
+        <p>
+          An email has been send to you with the details! Thank you for your
+          donation!
+        </p>
+        <a class="smallButton" href="/">Go back to home page</a>
+    </main>
+    <footer><%- include("./layout/footer.ejs") %></footer>
+    </div>
+  </body>
+</html>

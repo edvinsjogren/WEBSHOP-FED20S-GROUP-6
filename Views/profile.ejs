@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <div class="pageContainer">
+      <header><%- include("./layout/navbar.ejs") %></header>
+      <main>
+        <div class="profileTopContainer">
+          <h1>Welcome to your profile page, <%=user.username%></h1>
+          <h2>Here you'll find the projects that you've put under observation:</h2>
+          <h3>Perhaps it's time to make a donation?</h3>
+        </div>
+        <div class="messages">
+        <%- include("./helpers/flash_messages") %>
+        </div>
+        <% if (user.wishlist.length === 0) { %>
+          <div class="noWishlist">
+            <div class="wishIcon"></div>
+            <h3>You currently don't have any projects in your wishlist!</h3>
+            <h4>Go to <a href="/projects">project page</a> to provide a helping hand</h4>
+          </div>
+        <% } %> 
+
+        <% user.wishlist.forEach(project => { %>
+          <div class="projectContainer">
+            <h2><%=project.title%></h2>
+            
+            <div class="projectImgAndDesc">
+              <div class="projectImage">
+                <% project.img.forEach(img => { %>
+                  <!--Move img styling to suitable scss file-->
+                  <img
+                    src="/Uploads/<%=img.path%>"
+                    alt="Project Image could not be displayed"
+                  />
+                <% }) %>
+              </div>
+
+              <div class="projectDesc">
+                <!--<p><%=project.summary%></p>-->
+                <p><%=project.description%></p>
+              </div>
+            </div>
+
+            <form action="/profile" method="post">
+              <input type="text" name="id" value="<%=project._id%>" hidden />
+              <div class="donationInputAndSubmit">
+                <div class="donationInput">
+                  <label class="label" for="donation">Donation amount:</label>
+                  <input class="inputBox" type="number" name="donation"/>
+                </div>
+                <button class="bigButton" type="submit">Donate!</button>
+              </div>
+            </form>
+
+            <div>
+              <!-- Remove from Wishlist button post method-->
+              <form action="/profile/delete" method="post">
+                <input type="text" name="removeId" value="<%=project._id%>" hidden />
+                <button type="submit" class="bigButton"> REMOVE </button>
+              </form>
+            </div>
+          </div>
+        <% }) %>
+      </main>
+      <footer><%- include("./layout/footer.ejs") %></footer>
+     </div>
+    <%- include("./partials/scripts.ejs") %>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<form action="/admin" method="POST" enctype="multipart/form-data">
+  <input type="text" name="id" value="<%=projects._id %>" hidden />
+
+  <% errors.forEach(errorMessage => { %> <% if(errorMessage.includes(' You forgot to choose a title! Please try again!')) { %>
+  <p><%=errorMessage%></p>
+  <% } %> <% }) %>
+  <label for="title">Title: </label>
+  <input class="form-control" type="text" name="title" placeholder="Title" />
+
+  <% errors.forEach(errorMessage => { %> <% if(errorMessage.includes(' You forgot to choose a category! Please try again!')) { %>
+  <p><%=errorMessage%></p>
+  <% } %> <% }) %>
+  <label for="category">Category: </label>
+  <input
+    class="form-control"
+    type="text"
+    name="category"
+    placeholder="Category"
+  />
+
+  <% errors.forEach(errorMessage => { %> <% if(errorMessage.includes(' You forgot to choose a description! Please try again!')) { %>
+    <p><%=errorMessage%></p><% } %> 
+  <% }) %>
+  <label for="description">Description: </label>
+  <textarea name="description" placeholder="Description"></textarea>
+
+  <% errors.forEach(errorMessage => { %> <% if(errorMessage.includes(' You forgot to choose a summary! Please try again!')) { %>
+  <p><%=errorMessage%></p> <% } %> 
+  <% }) %>
+  <label for="summary">Summary: </label>
+  <input
+    class="form-control"
+    type="text"
+    name="summary"
+    placeholder="Summary"
+  />
+
+  <% errors.forEach(errorMessage => { %> <% if(errorMessage.includes(' You forgot to choose a picture in PNG-format! Please try again!')) { %>
+  <p><%=errorMessage%></p><% } %> 
+  <% }) %>
+  <label for="image">Image: </label>
+  <input type="file" name="image" />
+
+  <% errors.forEach(errorMessage => { %> <% if(errorMessage.includes(' You forgot a name for your picture! Please try again!')) { %>
+  <p><%=errorMessage%></p> <% } %> 
+  <% }) %>
+  <label for="picName">Picture name: </label>
+  <input class="form-control" type="text" name="picName" />
+  <button class="simpleSmallButton" type="submit">Add Project</button>
+</form>
