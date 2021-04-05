@@ -19,19 +19,19 @@ _Below you'll find a brief summary of the naming conventions for this project_
 
 - Use let or const instead of var
 - When naming variables use **camelCase**
-  - Eg. "let userName = "User";\*
+  - Eg. `let userName = User`
 - When naming Mongoose schemas use **PascalCase**
-  - Eg. ` const User = mongoose.model("user", userSchema)´_
+  - Eg. `const User = mongoose.model("user", userSchema)`
 
 ###  CSS/SCSS namning conventions
 
 - When naming variables use **kebab-case**
-  - Eg. \$bg-color: grey;\*
+  - Eg. `$bg-color: grey`
 - When naming classes and id:s use **camelCase**
 
 ### Functions
 
-  - When writing functions write `function functionName(){}´
+  - When writing functions write `function functionName(example){example}`
   - Function names should be in **camelCase**
 
 
@@ -39,13 +39,13 @@ _Below you'll find a brief summary of the naming conventions for this project_
 
 - ProjectFolder/ index.js, Models, Views, Controllers, Middleware, Public, Routes, SCSS and Config are placed here_
   - index.js is placed directly under the root directory 
-  - _Models/ \the Mongoose schemas are placed in here 
-  - _Views/ \ejs-files are placed in here
-  - _Controller/ \controller.js-files are placed here
-  - _Middleware/ \essential middlewares are placed here
-  - _Public/ \styles folder with css-files and other files that are related to styling are placed in here
-  - _Routes/ \the routes to the database are placed in here
-  - _SCSS/ \ all scss-files are placed here
-  - _Config/ \config.js is placed here with important keys. Make sure to replace these with your own keys and don't forget to add your .env-file as well.
+  - _Models/: the Mongoose schemas are placed in here 
+  - _Views/: ejs-files are placed in here
+  - _Controller/: controller.js-files are placed here
+  - _Middleware/: essential middlewares are placed here
+  - _Public/: styles folder with css-files and other files that are related to styling are placed in here
+  - _Routes/: the routes to the database are placed in here
+  - _SCSS/: all scss-files are placed here
+  - _Config/: config.js is placed here with important keys. Make sure to replace these with your own keys and don't forget to add your .env-file as well.
  
   
