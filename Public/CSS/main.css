@@ -105,18 +105,28 @@ body {
 .link {
   border-bottom: 3px solid #f7931d;
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 1rem 2rem 1rem 2rem;
+  padding: .2rem 2rem .2rem 2rem;
   color: #fff;
   text-transform: uppercase;
   font-weight: 400;
   font-size: 1.2rem;
-  margin: 3rem; }
+  margin: 3rem;
+  letter-spacing: 0.2rem; }
   .link:hover {
     text-decoration: none;
     color: #fff; }
   @media screen and (min-width: 1024px) {
     .link {
       margin-bottom: 5rem; } }
+
+.logo {
+  width: 5rem;
+  height: 5rem;
+  background-image: url("/Assets/Icons/icon_logo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer; }
 
 main .thankYouForYourDonationContainer {
   display: flex;
@@ -173,7 +183,7 @@ main .background-image {
       background-position: center;
       cursor: pointer; }
     .menu .navbar .logo {
-      width: 100%;
+      width: 5rem;
       height: 5rem;
       background-image: url("/Assets/Icons/icon_logo.png");
       background-size: cover;

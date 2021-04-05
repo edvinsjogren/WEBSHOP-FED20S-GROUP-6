@@ -44,12 +44,13 @@
 .link { 
   border-bottom: 3px solid #f7931d;
   background-color: rgba(0,0,0,.6);
-  padding: 1rem 2rem 1rem 2rem;
+  padding: .2rem 2rem .2rem 2rem;
   color: #fff;
   text-transform: uppercase;
   font-weight: $fw-regular;
   font-size: $fs-bread;
   margin: 3rem;
+  letter-spacing: 0.2rem;
   
   &:hover{
     text-decoration: none;
