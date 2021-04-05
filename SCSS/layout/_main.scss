@@ -4,14 +4,14 @@
 
     main {
         @include flexCenter(column);
-        padding-bottom: 40vh;
+        padding-bottom: 50vh;
 
         @include desktopsOnly {
             margin-top: 10vh;
         }
 
         @include desktopsOnly {
-            padding-bottom: 40vh;
+            padding-bottom: 50vh;
             
         }
     }
