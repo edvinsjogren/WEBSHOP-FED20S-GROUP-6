@@ -1,5 +1,5 @@
 {
-  "name": "WEBSHOP-FED20S-GROUP-6",
+  "name": "webshop-fed20s-group-6",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -39,5 +39,6 @@
     "path": "^0.12.7",
     "stripe": "^8.140.0"
   },
+  "devDependencies": {},
   "description": ""
 }
