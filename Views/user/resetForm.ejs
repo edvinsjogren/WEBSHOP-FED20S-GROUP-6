@@ -18,7 +18,9 @@
             method="POST"
             class="submitUserInformation"
           >
+          <div class="messages">
             <%- include("./helpers/flash_messages.ejs") %>
+            </div>
             <label for="email" class="label">Type your email below:</label>
             <input type="email" name="email" class="inputBox" />
             <button type="submit" class="smallButton buttonMargin">

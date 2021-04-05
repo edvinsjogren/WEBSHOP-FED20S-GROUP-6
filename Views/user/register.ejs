@@ -14,13 +14,17 @@
 
       <!--Joi validation error messages-->
         <% for(let i=0; i<error.length; i++) { %>
-        <p><%=error[i].message %></p>
+          <div class="messages">
+        <p ><%=error[i].message %></p>
+          </div>
         <% } %> 
 
       <div class="formContainer">
 
         <!--duplicate email prohibitor-->
+        <div class="messages">
         <%- include("./helpers/errors.ejs") %>
+        </div>
 
         <form action="/register" method="POST" class="submitUserInformation">   
           <label for="username" class="label">Username:</label>

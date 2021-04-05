@@ -15,10 +15,14 @@
 
         <div class="formContainer">
           <!-- Flash message in case the account doesn't exists or incorrect password or successfully-->
+          <div class="messages">
           <%- include("./helpers/flash_messages.ejs") %>
+          </div>
 
           <!-- Error handling in case user don't type in anything -->
+          <div class="messages">
           <%- include("./helpers/errors.ejs") %>
+          </div>
 
           <form action="/login" method="post" class="submitUserInformation">
             <label for="email" class="label">Email:</label>
